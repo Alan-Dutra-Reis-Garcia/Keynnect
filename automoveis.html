@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keynnect - Automóveis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      --primary-color: #25D366;
+      --text-dark: #1a1a1a;
+      --text-muted: #555;
+      --bg-light: #f5fdf8;
+      --bg-white: #ffffff;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      z-index: 999;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      margin: 0;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #25D366, #25D366);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #destaque-dinamico {
+      position: relative;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--bg-white);
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+
+    #cartao {
+      position: relative;
+      display: inline-block;
+      padding: 2rem 3rem;
+      background: #f5fdf8;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      transform: rotateX(5deg);
+      z-index: 1;
+    }
+
+    #cartao h2 {
+      margin: 0 0 0.5rem;
+      color: var(--primary-color);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #cartao p {
+      margin: 0.5rem 0;
+      color: var(--text-muted);
+    }
+
+    #icones-dinamicos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #icones-dinamicos img {
+      width: 48px;
+      height: 48px;
+      transition: transform 0.3s ease;
+    }
+
+    #icones-dinamicos a:hover img {
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: #555;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      #cartao {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="keynnect2.html">Home</a>
+    <a href="#destaque-dinamico">Destaque</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <header>
+    <h1>Keynnect</h1>
+    <p>Transforme a experiência do cliente no setor automotivo</p>
+  </header>
+
+  <div id="destaque-dinamico">
+    <div id="particles-js"></div>
+
+    <div id="cartao">
+      <h2>🚗 Segmento Auto 🚗</h2>
+      <p>Entregando Chaves!</p>
+      <p>Entregue mais valor com um chaveiro que conecta tudo com um toque.</p>
+    </div>
+
+    <div id="icones-dinamicos">
+      <a href="https://wa.me/5544997354972" target="_blank">
+        <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp">
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Antônio+954,+Maringá,+Paraná" target="_blank">
+        <img src="https://icongr.am/fontawesome/map-marker.svg?size=48&color=25D366" alt="Localização">
+      </a>
+        <a href="#" id="btn-formulario">
+            <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
+        </a>
+
+    </div>
+  </div>
+
+  <footer id="contato">
+    <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
+    <p>Email: contato@keynnect.com.br | WhatsApp: (44) 99735-4972</p>
+  </footer>
+
+  <script>
+        particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 30,
+      density: { enable: true, value_area: 800 }
+    },
+    color: { value: "#25D366" },
+    shape: {
+      type: "polygon", // Forma de polígono
+      polygon: { nb_sides: 8 } // Lembra uma roda ou engrenagem
+    },
+    opacity: {
+      value: 0.6,
+      random: true
+    },
+    size: {
+      value: 6,
+      random: true
+    },
+    move: {
+      enable: true,
+      speed: 1,
+      direction: "right",
+      straight: false,
+      out_mode: "out"
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 80, duration: 0.2 },
+      push: { quantity: 200 } // <- AQUI altera a quantidade gerada no clique
+    }
+  }
+});
+
+
+
+    gsap.from("#cartao", { duration: 1.5, y: 60, opacity: 0, ease: "power3.out" });
+    gsap.from("#icones-dinamicos a", {
+      duration: 0.8,
+      opacity: 0,
+      y: 30,
+      stagger: 0.2,
+      ease: "back.out(1.7)"
+    });
+  </script>
+
+<!-------------------------------------------------------------------------->
+ <!-- Modal do Formulário -->
+  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 1000;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position: relative;">
+      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
+      <form id="form-contato">
+        <label>Nome:<br><input type="text" name="nome" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Empresa:<br><input type="text" name="empresa" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+
+        <label>Estado:<br>
+          <select id="estado" name="estado" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="PR">Paraná</option>
+          </select>
+        </label>
+
+        <label>Cidade:<br>
+          <select id="cidade" name="cidade" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione o estado primeiro</option>
+          </select>
+        </label>
+
+        <label>Produto:<br>
+          <select name="produto" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+            <option value="Imoveis">Imóveis</option>
+            <option value="Auto">Auto</option>
+          </select>
+        </label>
+        <label>Telefone:<br><input type="tel" name="telefone" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>E-mail:<br><input type="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    gsap.to('.section', {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      stagger: 0.3,
+      ease: "power2.out"
+    });
+  </script>
+
+  <script>
+    const modalForm = document.getElementById('modal-form');
+    const btnContato = document.querySelector('nav a[href="#contato"]');
+    const btnFormulario = document.getElementById('btn-formulario');
+    const btnFechar = document.getElementById('fechar-form');
+
+    btnContato.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalForm.style.display = 'flex';
+    });
+
+    btnFormulario.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalForm.style.display = 'flex';
+    });
+
+    btnFechar.addEventListener('click', () => {
+    modalForm.style.display = 'none';
+    });
+
+    modalForm.addEventListener('click', (e) => {
+    if (e.target === modalForm) {
+        modalForm.style.display = 'none';
+    }
+    });
+
+  </script>
+
+  <!-- Script para popular cidades conforme estado -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const estadoSelect = document.getElementById('estado');
+    const cidadeSelect = document.getElementById('cidade');
+
+    // Função para carregar estados da API IBGE
+    async function carregarEstados() {
+      estadoSelect.disabled = true;
+      estadoSelect.innerHTML = '<option value="">Carregando estados...</option>';
+      try {
+        const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
+        const estados = await res.json();
+        estados.sort((a, b) => a.nome.localeCompare(b.nome));
+        estadoSelect.innerHTML = '<option value="">Selecione o estado</option>';
+        estados.forEach(estado => {
+          const option = document.createElement('option');
+          option.value = estado.sigla;
+          option.textContent = estado.nome;
+          estadoSelect.appendChild(option);
+        });
+        estadoSelect.disabled = false;
+      } catch {
+        estadoSelect.innerHTML = '<option value="">Erro ao carregar estados</option>';
+      }
+    }
+
+    // Função para carregar cidades do estado selecionado
+    async function carregarCidades(uf) {
+      cidadeSelect.disabled = true;
+      cidadeSelect.innerHTML = '<option value="">Selecione o estado primeiro</option>';
+      if (!uf) return;
+
+      cidadeSelect.innerHTML = '<option value="">Carregando cidades...</option>';
+
+      try {
+        const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+        const cidades = await res.json();
+        cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
+        cidades.forEach(cidade => {
+          const option = document.createElement('option');
+          option.value = cidade.nome;
+          option.textContent = cidade.nome;
+          cidadeSelect.appendChild(option);
+        });
+        cidadeSelect.disabled = false;
+      } catch {
+        cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+      }
+    }
+
+    estadoSelect.addEventListener('change', () => {
+      carregarCidades(estadoSelect.value);
+    });
+
+    carregarEstados();
+  });
+</script>
+
+</body>
+</html>
