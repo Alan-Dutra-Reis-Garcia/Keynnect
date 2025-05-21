@@ -3,15 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A Keynnect conecta marcas e clientes com soluções inteligentes para diferentes segmentos.">
-  <meta name="keywords" content="CRM, Construtoras, Concessionárias, Conexão, Keynnect, Imobiliária, Vendas">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Keynnect">
-  <title>Keynnect</title>
+  <meta name="description" content="A Keynnect conecta marcas e clientes com soluções inteligentes de CRM para imobiliárias, concessionárias e outros segmentos." />
+  <meta name="keywords" content="CRM, Construtoras, Concessionárias, Conexão, Keynnect, Imobiliária, Vendas, Atendimento Digital" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Keynnect" />
+  <title>Keynnect – CRM Inteligente para Imobiliárias e Concessionárias</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keynnect",
+    "url": "https://keynnect.com.br",
+    "logo": "https://keynnect.com.br/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-44-99735-4972",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.instagram.com/keynnect",
+      "https://www.linkedin.com/company/keynnect"
+    ]
+  }
+  </script>
   <style>
     :root {
       --primary-color: #25D366;
@@ -189,23 +207,25 @@
   </nav>
 
   <header id="home">
-    <h1>Keynnect</h1>
+    <h1>Keynnect – Brindes Inteligente</h1>
     <p>A chave da conexão entre sua marca e o cliente</p>
   </header>
 
-  <section class="section-wrapper" id="segmentos">
-    <div class="section" onclick="location.href='imoveis.html'">
-      <h2>Construtoras e Imobiliárias</h2>
-      <p>Entregas mais inteligentes<br><br>Direcione seus clientes para páginas com tudo o que eles precisam.</p>
-    </div>
-    <div class="section" onclick="location.href='autos.html'">
-      <h2>Concessionárias e Garagistas</h2>
-      <p>Crie valor na entrega do carro<br><br>Leve seu cliente direto para apps, canais de contato, revisões e ofertas com um toque.</p>
-    </div>
-  </section>
+  <main>
+    <section class="section-wrapper" id="segmentos">
+      <article class="section" onclick="location.href='imoveis.html'">
+        <h2>Construtoras e Imobiliárias</h2>
+        <p>Entregas mais inteligentes<br><br>Direcione seus clientes para páginas com tudo o que eles precisam.</p>
+      </article>
+      <article class="section" onclick="location.href='autos.html'">
+        <h2>Concessionárias e Garagistas</h2>
+        <p>Crie valor na entrega do carro<br><br>Leve seu cliente direto para apps, canais de contato, revisões e ofertas com um toque.</p>
+      </article>
+    </section>
+  </main>
 
   <div class="fixed-contact">
-    <a href="https://wa.me/5544997354972" target="_blank" class="cta-button">
+    <a href="https://wa.me/5544997354972" target="_blank" class="cta-button" aria-label="Contato via WhatsApp">
       <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp" />
       <span class="text">Entre em Contato</span>
     </a>
@@ -213,7 +233,7 @@
 
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
-    <p>Email: contato@keynnect.com.br | WhatsApp: (44) 99735-4972</p>
+    <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99735-4972</p>
   </footer>
 
   <!-- Modais -->
