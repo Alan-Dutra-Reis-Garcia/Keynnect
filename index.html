@@ -12,10 +12,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A Keynnect conecta marcas e clientes com soluções inteligentes em brindes Tecnológicos." />
-  <meta name="keywords" content="Brindes, Construtoras, Concessionárias, Conexão, Keynnect, Imobiliária, Vendas, Atendimento Digital, chaveiros, NFC, Tecnológicos" />
+  <meta name="keywords" content="Brindes, Construtoras, Concessionárias, Conexão, Keynnect, Imobiliária, Vendas, Atendimento Digital, chaveiros, NFC, Tecnológicos, Maringá" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Keynnect" />
-  <title>Keynnect – Brindes Inteligente</title>
+  <title>Keynnect | Brindes Inteligentes para Imobiliárias e Concessionárias</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
@@ -39,6 +39,9 @@
   }
   </script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     :root {
       --primary-color: #25D366;
       --text-dark: #1a1a1a;
@@ -208,6 +211,43 @@
         padding: 2rem;
       }
     }
+      .funciona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1rem;
+    }
+    .step {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    .step:hover {
+      transform: scale(1.05);
+      background: #eafff2;
+    }
+    .step img {
+      width: 64px;
+      margin-bottom: 1rem;
+    }
+    .step h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .step p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .funciona-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -235,6 +275,30 @@
         <p>Crie valor na entrega do carro<br><br>Leve seu cliente direto para apps, canais de contato, revisões e ofertas com um toque.</p>
       </article>
     </section>
+
+  <section id="como-funciona" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
+  <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">
+    Como Funciona
+  </h2>
+  <div class="funciona-grid">
+    <div class="step">
+      <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" />
+      <h3>1. Entregue o Brinde</h3>
+      <p>Você entrega ao seu cliente um chaveiro com NFC da Keynnect no momento da venda ou entrega.</p>
+    </div>
+    <div class="step">
+      <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" />
+      <h3>2. Encoste no Celular</h3>
+      <p>O cliente aproxima o chaveiro do celular e acessa uma página exclusiva e personalizada.</p>
+    </div>
+    <div class="step">
+      <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" />
+      <h3>3. Acesse Conteúdo Útil</h3>
+      <p>Na página: contatos, revisões, contratos, vídeos explicativos, redes sociais, apps e muito mais.</p>
+    </div>
+  </div>
+  </section>
+
   </main>
 
   <div class="fixed-contact">
