@@ -196,7 +196,7 @@
     <p>Gere mais valor com um brinde Inteligente que conecta tudo com um toque.</p>
 
     <!-- Botão com chamada de ação -->
-    <a href="#modal-form" onclick="modalForm.style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+    <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
       Solicite uma demonstração gratuita
     </a>
   </div>
@@ -280,38 +280,31 @@
 
 <!-------------------------------------------------------------------------->
  <!-- Modal do Formulário -->
-  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 1000;">
-    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position: relative;">
+  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
       <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
       <form id="form-contato">
-        <label>Nome:<br><input type="text" name="nome" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Empresa:<br><input type="text" name="empresa" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-
+        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
         <label>Estado:<br>
-          <select id="estado" name="estado" required style="width:100%; padding:8px; margin-bottom:10px;">
+          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
             <option value="">Selecione</option>
-            <option value="SP">São Paulo</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="PR">Paraná</option>
           </select>
         </label>
-
         <label>Cidade:<br>
-          <select id="cidade" name="cidade" required style="width:100%; padding:8px; margin-bottom:10px;">
+          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
             <option value="">Selecione o estado primeiro</option>
           </select>
         </label>
-
         <label>Produto:<br>
-          <select name="produto" required style="width:100%; padding:8px; margin-bottom:10px;">
+          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
             <option value="">Selecione</option>
-            <option value="Imoveis">Imóveis</option>
-            <option value="Auto">Auto</option>
+            <option value="Brindes NFC">Brindes NFC</option>
           </select>
         </label>
-        <label>Telefone:<br><input type="tel" name="telefone" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>E-mail:<br><input type="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
         <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
       </form>
     </div>
@@ -327,96 +320,104 @@
     });
   </script>
 
-  <script>
-    const modalForm = document.getElementById('modal-form');
-    const btnContato = document.querySelector('nav a[href="#contato"]');
-    const btnFormulario = document.getElementById('btn-formulario');
-    const btnFechar = document.getElementById('fechar-form');
+<script>
+      const abrirModal = (e) => {
+        e.preventDefault();
+        document.getElementById('modal-form').style.display = 'flex';
+      };
 
-    btnContato.addEventListener('click', (e) => {
-    e.preventDefault();
-    modalForm.style.display = 'flex';
-    });
+      // Botões que abrem o modal
+      const botaoNav = document.querySelector('nav a[href="#contato"]');
+      const botaoCta = document.querySelector('.cta-button');
+      const botaoFormulario = document.getElementById('btn-formulario');
 
-    btnFormulario.addEventListener('click', (e) => {
-    e.preventDefault();
-    modalForm.style.display = 'flex';
-    });
+      if (botaoNav) botaoNav.onclick = abrirModal;
+      if (botaoCta) botaoCta.onclick = abrirModal;
+      if (botaoFormulario) botaoFormulario.onclick = abrirModal;
 
-    btnFechar.addEventListener('click', () => {
-    modalForm.style.display = 'none';
-    });
+      // Fechar modal
+      document.getElementById('fechar-form').onclick = () => {
+        document.getElementById('modal-form').style.display = 'none';
+      };
 
-    modalForm.addEventListener('click', (e) => {
-    if (e.target === modalForm) {
-        modalForm.style.display = 'none';
-    }
-    });
+      document.getElementById('modal-form').onclick = (e) => {
+        if (e.target.id === 'modal-form') {
+          document.getElementById('modal-form').style.display = 'none';
+        }
+      };
 
-    document.getElementById('cta-topo').addEventListener('click', (e) => {
-  e.preventDefault();
-  modalForm.style.display = 'flex';
-  });
+      // Enviar formulário
+      document.getElementById('form-contato').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-  </script>
+        const formData = new FormData(e.target);
+        const formBody = new URLSearchParams(formData).toString();
 
-  <!-- Script para popular cidades conforme estado -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const estadoSelect = document.getElementById('estado');
-    const cidadeSelect = document.getElementById('cidade');
+        try {
+          await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formBody,
+            mode: 'no-cors'
+          });
 
-    // Função para carregar estados da API IBGE
-    async function carregarEstados() {
-      estadoSelect.disabled = true;
-      estadoSelect.innerHTML = '<option value="">Carregando estados...</option>';
+          alert('Formulário enviado com sucesso!');
+          document.getElementById('modal-form').style.display = 'none';
+          e.target.reset();
+
+        } catch (error) {
+          console.error('Erro ao enviar formulário:', error);
+          alert('Erro inesperado: ' + error.message);
+        }
+      });
+
+     // IBGE Estado/Cidade
+    document.addEventListener('DOMContentLoaded', async () => {
+      const estadoSelect = document.getElementById('estado');
+      const cidadeSelect = document.getElementById('cidade');
+
       try {
         const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-        const estados = await res.json();
-        estados.sort((a, b) => a.nome.localeCompare(b.nome));
-        estadoSelect.innerHTML = '<option value="">Selecione o estado</option>';
-        estados.forEach(estado => {
-          const option = document.createElement('option');
-          option.value = estado.sigla;
-          option.textContent = estado.nome;
-          estadoSelect.appendChild(option);
+        const estados = (await res.json()).sort((a, b) => a.nome.localeCompare(b.nome));
+
+        const options = ['<option value="">Selecione o estado</option>'];
+        estados.forEach(({ sigla, nome }) => {
+          options.push(`<option value="${sigla}">${nome}</option>`);
         });
-        estadoSelect.disabled = false;
+        estadoSelect.innerHTML = options.join('');
       } catch {
         estadoSelect.innerHTML = '<option value="">Erro ao carregar estados</option>';
       }
-    }
 
-    // Função para carregar cidades do estado selecionado
-    async function carregarCidades(uf) {
-      cidadeSelect.disabled = true;
-      cidadeSelect.innerHTML = '<option value="">Selecione o estado primeiro</option>';
-      if (!uf) return;
+      estadoSelect.onchange = async () => {
+        const uf = estadoSelect.value;
+        cidadeSelect.disabled = true;
+        cidadeSelect.innerHTML = '<option value="">Carregando cidades...</option>';
 
-      cidadeSelect.innerHTML = '<option value="">Carregando cidades...</option>';
+        if (!uf) {
+          cidadeSelect.innerHTML = '<option value="">Selecione o estado primeiro</option>';
+          cidadeSelect.disabled = true;
+          return;
+        }
 
-      try {
-        const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
-        const cidades = await res.json();
-        cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
-        cidades.forEach(cidade => {
-          const option = document.createElement('option');
-          option.value = cidade.nome;
-          option.textContent = cidade.nome;
-          cidadeSelect.appendChild(option);
-        });
-        cidadeSelect.disabled = false;
-      } catch {
-        cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
-      }
-    }
+        try {
+          const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+          const cidades = await res.json();
 
-    estadoSelect.addEventListener('change', () => {
-      carregarCidades(estadoSelect.value);
+          const optionsCidade = ['<option value="">Selecione a cidade</option>'];
+          cidades.forEach(({ nome }) => {
+            optionsCidade.push(`<option value="${nome}">${nome}</option>`);
+          });
+          cidadeSelect.innerHTML = optionsCidade.join('');
+          cidadeSelect.disabled = false;
+        } catch {
+          cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+          cidadeSelect.disabled = true;
+        }
+      };
     });
-
-    carregarEstados();
-  });
 </script>
 
 </body>
