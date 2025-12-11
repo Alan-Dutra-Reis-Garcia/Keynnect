@@ -9,9 +9,14 @@
     gtag('js', new Date());
     gtag('config', 'G-92490FL0FP');
   </script>
+
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon-96x96.png">
+  <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Soluções em brindes tecnológicos para Concessionárias e Garagistas." />
+  <meta name="description" content="Soluções em Itens tecnológicos para Concessionárias e Garagistas." />
   <meta name="keywords" content="Brindes, Concessionárias, Garagistas, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Keynnect" />
@@ -157,7 +162,7 @@
       font-size: 0.9rem;
       background: rgba(255, 255, 255, 0.95);
       color: #555;
-      margin-top: 3rem;
+      margin-top: 0rem;
     }
 
     @media (max-width: 768px) {
@@ -169,21 +174,97 @@
         padding: 2rem;
       }
     }
+  
+    /* --- CSS DOS CARDS (Adicione isso ao final do seu style) --- */
+    .benefit-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      border: 1px solid transparent;
+      /* Garante alinhamento */
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-color);
+    }
+    
+    .benefit-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-card h4 {
+      margin: 0.5rem 0;
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="#destaque-dinamico">Destaque</a>
+    <a href="#destaque-dinamico">Soluções</a>
     <a href="#contato">Contato</a>
   </nav>
 
-  <header>
-    <h1>Keynnect</h1>
-    <p>Transforme a experiência do cliente no setor automotivo</p>
-    </section>
-  </header>
+<header id="home">
+  <h1>Keynnect</h1>
+  <p>A chave da conexão entre sua marca e o cliente</p>
+</header>
+
+  <section style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem;">
+      Conectividade que Dirige a Experiência do Cliente
+    </h2>
+ 
+    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+      Transforme a entrega das chaves no início de um relacionamento duradouro. 
+      Com a solução NFC da <strong>Keynnect</strong>, o cliente leva no bolso um canal direto com a sua concessionária.
+    </p>
+   
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+      
+      <div class="benefit-card">
+        <img src="https://img.icons8.com/ios-filled/100/25D366/car-service.png" alt="Revisão" />
+        <h4>Agendamento de Revisão</h4>
+        <p>Facilite a volta do cliente à sua oficina com um clique.</p>
+      </div>
+
+      <div class="benefit-card">
+        <img src="https://img.icons8.com/ios-filled/100/25D366/open-book.png" alt="Manual" />
+        <h4>Manual Digital</h4>
+        <p>Elimine papéis e entregue o manual em formato pesquisável.</p>
+      </div>
+
+      <div class="benefit-card">
+        <img src="https://img.icons8.com/ios-filled/100/25D366/customer-support.png" alt="Suporte" />
+        <h4>Assistência 24h</h4>
+        <p>Botões de emergência e seguro direto no celular do cliente.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <div id="destaque-dinamico">
     <div id="particles-js"></div>
@@ -193,7 +274,7 @@
 
     <!-- Subtítulo com proposta de valor -->
     <p>Valorize a entrega com inovação.</p>
-    <p>Gere mais valor com um brinde Inteligente que conecta tudo com um toque.</p>
+    <p>Gere mais valor com um item Inteligente que conecta tudo com um toque.</p>
 
     <!-- Botão com chamada de ação -->
     <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
@@ -205,13 +286,9 @@
       <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
         <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp">
       </a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Antônio+954,+Maringá,+Paraná" target="_blank">
-        <img src="https://icongr.am/fontawesome/map-marker.svg?size=48&color=25D366" alt="Localização">
-      </a>
         <a href="#" id="btn-formulario">
             <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
         </a>
-
     </div>
   </div>
 
@@ -219,7 +296,6 @@
   <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
   Entre em Contato
   </a>
-
 
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
@@ -266,8 +342,6 @@
   }
 });
 
-
-
     gsap.from("#cartao", { duration: 1.5, y: 60, opacity: 0, ease: "power3.out" });
     gsap.from("#icones-dinamicos a", {
       duration: 0.8,
@@ -300,7 +374,7 @@
         <label>Produto:<br>
           <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
             <option value="">Selecione</option>
-            <option value="Brindes NFC">Brindes NFC</option>
+            <option value="Itens NFC">Itens NFC</option>
           </select>
         </label>
         <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>

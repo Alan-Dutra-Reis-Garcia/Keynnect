@@ -1,54 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script 
-  async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP">
-  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-92490FL0FP');
   </script>
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-<link rel="shortcut icon" href="favicon-96x96.png">
-<link rel="icon" type="image/x-icon" href="favicon-96x96.png">
+  
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon-96x96.png">
+  <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
 
-<!-- Meta Tags essenciais -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="language" content="pt-BR">
-<meta name="description" content="Brindes inteligentes em Maringá para construtoras, concessionárias e empresas que querem inovar com chaveiros NFC. Conecte sua marca aos clientes com a Keynnect.">
-<meta name="keywords" content="Brindes, Construtoras, Concessionárias, Imobiliárias, Chaveiros NFC, Atendimento Digital, Vendas, Tecnologia, Maringá, Keynnect">
-<meta name="author" content="Keynnect">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="distribution" content="global">
-<meta name="rating" content="general">
-<meta name="audience" content="all">
-<meta name="classification" content="Commercial">
-<meta name="url" content="https://www.keynnect.com.br">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="language" content="pt-BR">
+  <meta name="description" content="Soluções inteligentes em Maringá para construtoras, concessionárias e empresas que querem inovar com soluções NFC. Conecte sua marca aos clientes com a Keynnect.">
+  <meta name="keywords" content="Brindes, Construtoras, Concessionárias, Imobiliárias, Chaveiros NFC, Atendimento Digital, Vendas, Tecnologia, Maringá, Keynnect, NFC, Chaveiros, Eventos, Controle">
+  <meta name="author" content="Keynnect">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="audience" content="all">
+  <meta name="classification" content="Commercial">
+  <meta name="url" content="https://www.keynnect.com.br">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Keynnect | Brindes Tecnológicos para Construtoras e Concessionárias">
-<meta property="og:description" content="Conecte sua marca aos clientes com chaveiros NFC e soluções tecnológicas exclusivas.">
-<meta property="og:url" content="https://www.keynnect.com.br">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Keynnect | Conectando Marcas e Clientes">
+  <meta property="og:description" content="Conecte sua marca aos clientes com NFC e soluções tecnológicas exclusivas.">
+  <meta property="og:url" content="https://www.keynnect.com.br">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Keynnect | Brindes Tecnológicos para Construtoras e Concessionárias">
-<meta name="twitter:description" content="Conecte sua marca aos clientes com chaveiros NFC e soluções tecnológicas exclusivas.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Keynnect | Experiências Conectadas: O Novo Padrão de Entrega para Veículos e Imóveis">
+  <meta name="twitter:description" content="Conecte sua marca aos clientes com NFC e soluções tecnológicas exclusivas.">
 
-  <title>Keynnect | Brindes Inteligentes para Imobiliárias e Concessionárias | Em Maringá-PR</title>
+  <title>Keynnect | Soluções Inteligentes para Imobiliárias e Concessionárias |</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +62,7 @@
     ]
   }
   </script>
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -127,9 +123,10 @@
       animation: fadeIn 2s ease-out;
     }
     @media (max-width: 480px) {
-    header h1 {
-      font-size: 2.5rem; /* ou até 2.2rem, se ainda estiver grande */
-    }}
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
@@ -240,40 +237,58 @@
         padding: 2rem;
       }
     }
-      .funciona-grid {
+
+    /* --- CSS ATUALIZADO DA GRID DE 4 COLUNAS --- */
+    .funciona-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      /* ATENÇÃO: Mudança aqui para acomodar 4 itens lado a lado */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      max-width: 1000px;
+      /* Aumentei o max-width para caberem 4 cards confortavelmente */
+      max-width: 1200px; 
       margin: 0 auto;
       padding-top: 1rem;
     }
+
     .step {
       background: var(--bg-light);
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
+      /* Garante que o conteúdo dentro do card fique centralizado */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
+
     .step:hover {
       transform: scale(1.05);
       background: #eafff2;
     }
+
     .step img {
       width: 64px;
       margin-bottom: 1rem;
     }
+
     .step h3 {
       margin-bottom: 0.5rem;
       font-size: 1.2rem;
+      color: var(--primary-color); /* Adicionei cor ao título */
     }
+
     .step p {
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
     }
+
+    /* Media query apenas para a grid em telas menores */
     @media (max-width: 768px) {
       .funciona-grid {
+        /* Em celular, volta a ser 1 coluna */
         grid-template-columns: 1fr;
       }
     }
@@ -289,7 +304,7 @@
 
   <header id="home">
     <h1>Keynnect</h1>
-    <p>Brindes Inteligentes</p>
+    <p>Soluções Inteligentes com NFC</p>
     <p>A chave da conexão entre sua marca e o cliente</p>
   </header>
 
@@ -307,10 +322,13 @@
 
   <section id="o-que-e-nfc" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
     <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem;">
-      O que é um chaveiro com NFC?
+      O que é um Dispositivo com NFC?
     </h2>
     <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
-      O chaveiro com NFC da <strong>Keynnect</strong> é um brinde tecnológico que permite ao seu cliente acessar conteúdos digitais personalizados com apenas um toque no celular.
+      Os dispositivos com NFC da <strong>Keynnect</strong> são interfaces inteligentes que conectam o mundo físico ao digital. Para o seu cliente, eles oferecem acesso imediato a manuais, garantias e serviços exclusivos com apenas um toque no celular.
+    </p><br>
+    <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+      Para o seu negócio, a solução vai além: através da nossa plataforma de gestão, o mesmo dispositivo permite funcionalidades corporativas avançadas, como controle de acesso, registro de atividades e gerenciamento do ciclo de vida do cliente.
     </p>
 
   </section>
@@ -322,18 +340,23 @@
   <div class="funciona-grid">
     <div class="step">
       <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" />
-      <h3>1. Entregue o Brinde</h3>
-      <p>Você entrega ao seu cliente um chaveiro com NFC da Keynnect no momento da venda ou entrega.</p>
+      <h3>1. Entregue o Item</h3>
+      <p>Você entrega ao seu cliente um item com NFC da Keynnect no momento da entrega do produto ou venda.</p>
     </div>
     <div class="step">
       <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" />
       <h3>2. Encoste no Celular</h3>
-      <p>O cliente aproxima o chaveiro do celular e acessa uma página exclusiva e personalizada.</p>
+      <p>O cliente aproxima esse item ao celular e acessa uma página exclusiva e personalizada.</p>
     </div>
     <div class="step">
       <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" />
       <h3>3. Acesse Conteúdo Útil</h3>
-      <p>Na página: contatos, revisões, contratos, vídeos explicativos, redes sociais, apps e muito mais.</p>
+      <p>Na página: contatos, revisões, vídeos explicativos, redes sociais, apps e muito mais.</p>
+    </div>
+    <div class="step">
+      <img src="https://img.icons8.com/ios-filled/100/control-panel.png" alt="Controle de Informações" />
+      <h3>4. Gestão de Clientes</h3>
+      <p>Mapeie a jornada do seu cliente e transforme dados de utilização em estratégia para gerar novos negócios.</p>
     </div>
   </div>
   </section>
@@ -346,7 +369,7 @@
     <div class="step">
       <img src="https://img.icons8.com/ios-filled/100/settings--v1.png" alt="Personalização" />
       <h3>Personalização</h3>
-      <p>Cada chaveiro pode ser customizado por setor, campanha ou até cliente, gerando exclusividade.</p>
+      <p>Cada item pode ser customizado por setor, campanha ou até cliente, gerando exclusividade.</p>
     </div>
     <div class="step">
       <img src="https://img.icons8.com/ios-filled/100/idea.png" alt="Inovação" />
@@ -363,7 +386,7 @@
   </main>
 
   <div class="fixed-contact">
-    <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank" class="cta-button" aria-label="Contato via WhatsApp">
+    <a href="https://wa.link/z9el7g" target="_blank" class="cta-button" aria-label="Contato via WhatsApp">
       <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp" />
       <span class="text">Entre em Contato</span>
     </a>
@@ -395,7 +418,7 @@
         <label>Produto:<br>
           <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
             <option value="">Selecione</option>
-            <option value="Brindes NFC">Brindes NFC</option>
+            <option value="Brindes NFC">Itens NFC</option>
           </select>
         </label>
         <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
@@ -409,9 +432,9 @@
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
       <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
-      <p>A Keynnect foi fundada em 2025 pelos amigos Alan e Claudemir, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
       <div style="margin-top: 1.5rem;">
-        <img src="https://i.ibb.co/hxCzwQ4T/Gemini-Generated-Image-4nl3cj4nl3cj4nl3.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+        <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       </div>
     </div>
   </div>

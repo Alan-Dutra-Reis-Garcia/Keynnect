@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,24 +8,28 @@
     gtag('js', new Date());
     gtag('config', 'G-92490FL0FP');
   </script>
+
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon-96x96.png">
+  <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Soluções em brindes tecnológicos para Construtoras e Imobiliárias." />
   <meta name="keywords" content="Brindes, Construtoras, Imobiliárias, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Keynnect" />
-  <title>Keynnect - Imovéis</title>
+  
+  <title>Keynnect - Imóveis</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
   <style>
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-
+    /* --- CONFIGURAÇÕES GERAIS --- */
     :root {
       --primary-color: #25D366;
       --text-dark: #1a1a1a;
@@ -43,6 +46,18 @@
       overflow-x: hidden;
     }
 
+    /* --- ANIMAÇÕES --- */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- NAVEGAÇÃO --- */
     nav {
       position: fixed;
       top: 0;
@@ -55,108 +70,77 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       z-index: 999;
     }
-
     nav a {
       color: var(--text-dark);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: var(--primary-color);
     }
 
+    /* --- HEADER --- */
     header {
       text-align: center;
       padding: 6rem 1rem 4rem;
       background: var(--bg-light);
     }
-
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
       margin: 0;
-      letter-spacing: 2px;
-      color: transparent;
+      color: var(--primary-color);
       text-transform: uppercase;
       background: linear-gradient(45deg, #25D366, #25D366);
       -webkit-background-clip: text;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      color: transparent;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
       animation: fadeIn 2s ease-out;
     }
-    @media (max-width: 480px) {
-    header h1 {
-    font-size: 2.5rem; /* ou até 2.2rem, se ainda estiver grande */
-    }}
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
       color: var(--text-muted);
     }
-
-    .section-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 3rem;
-      background: var(--bg-light);
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.5rem; }
     }
 
-    .section {
-      background-color: var(--bg-white);
+    /* --- NOVOS ESTILOS PARA OS CARDS (Esta era a parte que faltava) --- */
+    .benefit-card {
+      background: #fff;
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transform: translateY(50px);
-      opacity: 0;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      border: 1px solid transparent;
     }
-
-    .section:hover {
-      background-color: #e8fff0;
-      transform: translateY(50px) scale(1.05);
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-color);
     }
-
-    .section:hover h2, .section:hover p {
-      transform: scale(1.05);
+    .benefit-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
     }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 3rem auto;
-      padding: 1rem 2rem;
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
+    .benefit-card h4 {
+      margin: 0.5rem 0;
+      color: var(--text-dark);
+      font-size: 1.2rem;
       font-weight: 600;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
     }
 
-    .cta-button:hover {
-      transform: scale(1.04);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .cta-button img {
-      width: 24px;
-      height: 24px;
-      animation: pulse 1.5s infinite;
-      filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(163deg) brightness(110%) contrast(100%);
-    }
-
+    /* --- FOOTER --- */
     footer {
       text-align: center;
       padding: 2rem;
@@ -164,31 +148,56 @@
       background: rgba(255, 255, 255, 0.9);
       color: #555;
     }
-
-    @media (max-width: 768px) {
-      .section-wrapper {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-      }
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-    }
   </style>
 </head>
+
 <body>
+
   <nav>
     <a href="index.html">Home</a>
-    <a href="#destaque-dinamico">Destaque</a>
+    <a href="#solucoes">Soluções</a>
     <a href="#contato">Contato</a>
   </nav>
 
-  <header id="home">
+  <header>
     <h1>Keynnect</h1>
     <p>A chave da conexão entre sua marca e o cliente</p>
   </header>
+
+  <section style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;" id="solucoes">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      
+      <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem;">
+        Muito Além da Entrega das Chaves
+      </h2>
+   
+      <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        Elimine as pastas volumosas de documentos. Com a <strong>Keynnect</strong>, o Manual do Proprietário se torna uma experiência digital, facilitando o dia a dia do morador e reduzindo chamados desnecessários.
+      </p>
+     
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+        
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/floor-plan.png" alt="Plantas" />
+          <h4>Plantas & Projetos</h4>
+          <p>Acesso imediato às plantas elétricas, hidráulicas e memorial descritivo.</p>
+        </div>
+
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/maintenance.png" alt="Manutenção" />
+          <h4>Assistência Técnica</h4>
+          <p>Canal direto para abertura de chamados e acionamento de garantias.</p>
+        </div>
+
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/handshake.png" alt="Parcerias" />
+          <h4>Clube de Benefícios</h4>
+          <p>Indique parceiros (arquitetos, lojas de móveis) e monetize a entrega.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- Central Dinâmico -->
 <div id="destaque-dinamico" style="position: relative; text-align: center; padding: 4rem 2rem; background: var(--bg-white); overflow: hidden;">
@@ -197,7 +206,7 @@
   <div id="cartao" style="position: relative; display: inline-block; padding: 2rem 3rem; background: #f5fdf8; border-radius: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); transform: rotateX(5deg); z-index:1;">
     
     <!-- TÍTULO -->
-    <h2 style="margin: 0 0 0.5rem; color: var(--primary-color); font-family: 'Orbitron', sans-serif;">🏠 Soluções Inteligentes para Imobiliárias 🏠</h2>
+    <h2 style="margin: 0 0 0.5rem; color: var(--primary-color); font-family: 'Orbitron', sans-serif;">🏠 Soluções Inteligentes para Imobiliárias e Construtoras 🏠</h2>
     
     <!-- SUBTÍTULO PROPOSTA DE VALOR -->
     <p style="margin: 0 0 1rem; color: #888;">
@@ -205,7 +214,7 @@
     </p>
     
     <!-- CHAMADA PARA AÇÃO -->
-    <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="margin-top: 1.5rem; display: inline-block;">
+    <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
       Solicite uma demonstração gratuita
     </a>
   </div>
@@ -214,9 +223,6 @@
   <div id="icones-dinamicos" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; position: relative; z-index:1;">
     <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
       <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp" class="icon">
-    </a>
-    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Antônio+954,+Maringá,+Paraná" target="_blank">
-      <img src="https://icongr.am/fontawesome/map-marker.svg?size=48&color=25D366" alt="Localização" class="icon">
     </a>
     <a href="#" id="btn-formulario">
       <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
