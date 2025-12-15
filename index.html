@@ -38,7 +38,7 @@
   <meta name="twitter:title" content="Keynnect | Experiências Conectadas: O Novo Padrão de Entrega para Veículos e Imóveis">
   <meta name="twitter:description" content="Conecte sua marca aos clientes com NFC e soluções tecnológicas exclusivas.">
 
-  <title>Keynnect | Soluções Inteligentes para Imobiliárias e Concessionárias |</title>
+  <title>Keynnect | Soluções Inteligentes em Brindes NFC |</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
@@ -47,14 +47,24 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": "Keynnect",
+    "image": "https://keynnect.com.br/logo.png",
+    "@id": "https://keynnect.com.br",
     "url": "https://keynnect.com.br",
-    "logo": "https://keynnect.com.br/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+55-44-99700-7774",
-      "contactType": "customer service"
+    "telephone": "+55-44-99700-7774",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "",
+      "addressLocality": "Maringá",
+      "addressRegion": "PR",
+      "postalCode": "",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.420999,
+      "longitude": -51.933056
     },
     "sameAs": [
       "https://www.instagram.com/keynnect",
@@ -292,12 +302,34 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Estilo para os botões dentro do Modal de Segmentos */
+    .modal-card-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8fcf9;
+      padding: 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+    .modal-card-btn:hover {
+      background: #e8fff0;
+      border-color: var(--primary-color);
+      transform: translateX(5px); /* Move levemente para a direita */
+    }
+    .modal-card-btn img {
+      width: 40px;
+      height: 40px;
+    }
   </style>
 </head>
 <body>
   <nav>
     <a href="#home">Home</a>
-    <a href="#segmentos">Segmentos</a>
+    <a href="#" id="btn-segmentos">Segmentos</a>
     <a href="#sobre" id="btn-sobre">Sobre Nós</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -394,10 +426,44 @@
 
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
-    <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99700-7774</p>
+    <p>
+      E-mail: <a href="mailto:keynnectmaster@gmail.com" style="color: inherit; text-decoration: underline;">keynnectmaster@gmail.com</a> | 
+      WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
+    </p>
   </footer>
 
   <!-- Modais -->
+  <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
+      
+      <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
+      
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
+      <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        
+        <a href="imoveis.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
+          <div style="text-align: left;">
+            <strong>Construtoras e Imobiliárias</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Eventos, Manuais e plantas digitais</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+
+        <a href="autos.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
+          <div style="text-align: left;">
+            <strong>Concessionárias e Garagistas</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Gestão, Revisões e pós-venda</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
   <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
       <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
@@ -455,6 +521,33 @@
     document.getElementById('fechar-sobre').onclick = () => document.getElementById('modal-sobre').style.display = 'none';
     document.getElementById('modal-sobre').onclick = e => {
       if (e.target.id === 'modal-sobre') document.getElementById('modal-sobre').style.display = 'none';
+    };
+
+    // --- Lógica do Modal Segmentos ---
+    const modalSegmentos = document.getElementById('modal-segmentos');
+    const btnSegmentos = document.getElementById('btn-segmentos');
+    const fecharSegmentos = document.getElementById('fechar-segmentos');
+
+    // Abrir ao clicar no menu
+    if (btnSegmentos) {
+      btnSegmentos.onclick = (e) => {
+        e.preventDefault();
+        modalSegmentos.style.display = 'flex';
+      };
+    }
+
+    // Fechar ao clicar no X
+    if (fecharSegmentos) {
+      fecharSegmentos.onclick = () => {
+        modalSegmentos.style.display = 'none';
+      };
+    }
+
+    // Fechar ao clicar fora da caixa branca
+    modalSegmentos.onclick = (e) => {
+      if (e.target === modalSegmentos) {
+        modalSegmentos.style.display = 'none';
+      }
     };
 
     // Modal Forms
