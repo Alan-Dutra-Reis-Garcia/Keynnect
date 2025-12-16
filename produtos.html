@@ -168,8 +168,8 @@
     
     .tag-animation { background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0; background-color: #fff; }
     @keyframes trocaFotoTag {
-      0%, 45% { background-image: url('produtos/tag2.jpg'); }
-      50%, 100% { background-image: url('produtos/tag3.jpg'); }
+      0%, 45% { background-image: url('tag2.jpg'); }
+      50%, 100% { background-image: url('tag3.jpg'); }
     }
     .card-tag:hover .img-default { opacity: 0; }
     .card-tag:hover .tag-animation { opacity: 1; animation: trocaFotoTag 2.5s step-end infinite; }
@@ -279,8 +279,8 @@
       <div class="product-card" data-category="acessorios" onclick="abrirDetalhes('caneta')">
         <span class="badge">Prático</span>
         <div class="card-image-wrapper">
-          <img src="produtos/caneta1.jpg" class="img-default" alt="Caneta NFC">
-          <img src="produtos/caneta2.jpg" class="img-hover" alt="Caneta Detalhe">
+          <img src="caneta1.jpg" class="img-default" alt="Caneta NFC">
+          <img src="caneta2.jpg" class="img-hover" alt="Caneta Detalhe">
         </div>
         <div class="card-content">
           <div class="card-title">Caneta NFC Premium</div>
@@ -292,8 +292,8 @@
       <div class="product-card" data-category="cartoes" onclick="abrirDetalhes('cartao')">
         <span class="badge new">Mais Vendido</span>
         <div class="card-image-wrapper">
-          <img src="produtos/cartao1.jpg" class="img-default" alt="Cartão Black Frente">
-          <img src="produtos/cartao2.jpg" class="img-hover" alt="Cartão Black Verso">
+          <img src="cartao1.jpg" class="img-default" alt="Cartão Black Frente">
+          <img src="cartao2.jpg" class="img-hover" alt="Cartão Black Verso">
         </div>
         <div class="card-content">
           <div class="card-title">Cartão Keynnect Black</div>
@@ -305,8 +305,8 @@
       <div class="product-card" data-category="comercial" onclick="abrirDetalhes('google')">
         <span class="badge">Google</span>
         <div class="card-image-wrapper">
-          <img src="produtos/google1.jpg" class="img-default" alt="Display Google">
-          <img src="produtos/google2.jpg" class="img-hover" alt="Display Google Vários">
+          <img src="google1.jpg" class="img-default" alt="Display Google">
+          <img src="google2.jpg" class="img-hover" alt="Display Google Vários">
         </div>
         <div class="card-content">
           <div class="card-title">Display Google Review</div>
@@ -318,7 +318,7 @@
       <div class="product-card card-tag" data-category="comercial" onclick="abrirDetalhes('tag')">
         <span class="badge">Versátil</span>
         <div class="card-image-wrapper">
-          <img src="produtos/tag1.jpg" class="img-default" alt="Tag Adesiva">
+          <img src="tag1.jpg" class="img-default" alt="Tag Adesiva">
           <div class="tag-animation"></div>
         </div>
         <div class="card-content">
@@ -458,25 +458,25 @@
     const produtosDB = {
       'caneta': {
         titulo: "Caneta NFC Premium",
-        imagens: ["produtos/caneta1.jpg", "produtos/caneta2.jpg"],
+        imagens: ["caneta1.jpg", "caneta2.jpg"],
         descricao: "A <strong>Caneta Keynnect</strong> une utilidade e tecnologia. Feita em material premium com acabamento sofisticado.<br><br>Ideal para executivos: o cliente aproxima o celular da caneta e recebe seu contato na hora.",
         msgWpp: "Olá! Gostaria de um orçamento da Caneta NFC Premium."
       },
       'cartao': {
         titulo: "Cartão Keynnect Black",
-        imagens: ["produtos/cartao1.jpg", "produtos/cartao2.jpg"],
+        imagens: ["cartao1.jpg", "cartao2.jpg"],
         descricao: "O fim dos cartões de papel. O <strong>Keynnect Black</strong> é fabricado em PVC de alta resistência com acabamento Matte Black.<br><br>Compatível com Android e iPhone. Transfira seus dados com apenas um toque.",
         msgWpp: "Olá! Gostaria de saber valores do Cartão Keynnect Black."
       },
       'google': {
         titulo: "Display Google Review",
-        imagens: ["produtos/google1.jpg", "produtos/google2.jpg"],
+        imagens: ["google1.jpg", "google2.jpg"],
         descricao: "Aumente sua relevância no Google. Este display de balcão convida o cliente a avaliar sua empresa.<br><br>Sem digitar nada: aproximou, avaliou. Essencial para lojas e clínicas.",
         msgWpp: "Olá! Quero aumentar minhas avaliações com o Display Google Review."
       },
       'tag': {
         titulo: "Tag Adesiva NFC",
-        imagens: ["produtos/tag1.jpg", "produtos/tag2.jpg", "produtos/tag3.jpg"],
+        imagens: ["tag1.jpg", "tag2.jpg", "tag3.jpg"],
         descricao: "Versatilidade máxima com resina protetora (efeito bolha).<br><br>Pode ser colada em mesas (cardápio digital) ou balcões. Disponível em Black e White.",
         msgWpp: "Olá! Tenho interesse nas Tags Adesivas NFC."
       }
