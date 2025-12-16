@@ -29,7 +29,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   
   <style>
-    /* --- CONFIGURAÇÕES GERAIS --- */
+    * {
+      box-sizing: border-box;
+    }
     :root {
       --primary-color: #25D366;
       --text-dark: #1a1a1a;
@@ -62,7 +64,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 1rem 2rem;
       display: flex;
       justify-content: center;
@@ -75,6 +77,7 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
+      cursor: pointer;
     }
     nav a:hover {
       color: var(--primary-color);
@@ -90,24 +93,21 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
       margin: 0;
-      color: var(--primary-color);
+      color: var(--text-dark); /* Cor principal (Preto/Cinza) */
       text-transform: uppercase;
-      background: linear-gradient(45deg, #25D366, #25D366);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      letter-spacing: 2px;
       animation: fadeIn 2s ease-out;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: var(--text-muted);
+
+    header h1 span {
+      color: var(--primary-color);
     }
+
     @media (max-width: 480px) {
       header h1 { font-size: 2.5rem; }
     }
 
-    /* --- NOVOS ESTILOS PARA OS CARDS (Esta era a parte que faltava) --- */
+    /* --- CARDS --- */
     .benefit-card {
       background: #fff;
       padding: 2rem;
@@ -118,6 +118,9 @@
       max-width: 300px;
       transition: transform 0.3s ease, border-color 0.3s ease;
       border: 1px solid transparent;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
     }
     .benefit-card:hover {
       transform: translateY(-10px);
@@ -148,6 +151,29 @@
       background: rgba(255, 255, 255, 0.9);
       color: #555;
     }
+
+    /* Estilo para os botões dentro do Modal de Segmentos */
+    .modal-card-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8fcf9;
+      padding: 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+    .modal-card-btn:hover {
+      background: #e8fff0;
+      border-color: var(--primary-color);
+      transform: translateX(5px);
+    }
+    .modal-card-btn img {
+      width: 40px;
+      height: 40px;
+    }
   </style>
 </head>
 
@@ -155,12 +181,14 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="#solucoes">Soluções</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="#" id="btn-segmentos">Segmentos</a>
+    <a href="#" id="btn-sobre">Sobre Nós</a>
     <a href="#contato">Contato</a>
   </nav>
 
-  <header>
-    <h1>Keynnect</h1>
+  <header id="home">
+    <h1>Key<span>nnect</span></h1>
     <p>A chave da conexão entre sua marca e o cliente</p>
   </header>
 
@@ -199,41 +227,35 @@
     </div>
   </section>
 
-  <!-- Central Dinâmico -->
-<div id="destaque-dinamico" style="position: relative; text-align: center; padding: 4rem 2rem; background: var(--bg-white); overflow: hidden;">
-  <div id="particles-js" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
-  
-  <div id="cartao" style="position: relative; display: inline-block; padding: 2rem 3rem; background: #f5fdf8; border-radius: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); transform: rotateX(5deg); z-index:1;">
+  <div id="destaque-dinamico" style="position: relative; text-align: center; padding: 4rem 2rem; background: var(--bg-white); overflow: hidden;">
+    <div id="particles-js" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
     
-    <!-- TÍTULO -->
-    <h2 style="margin: 0 0 0.5rem; color: var(--primary-color); font-family: 'Orbitron', sans-serif;">🏠 Soluções Inteligentes para Imobiliárias e Construtoras 🏠</h2>
-    
-    <!-- SUBTÍTULO PROPOSTA DE VALOR -->
-    <p style="margin: 0 0 1rem; color: #888;">
-      Conecte seus clientes com tecnologia: WhatsApp, localização, vídeos e agendamentos instantâneos.
-    </p>
-    
-    <!-- CHAMADA PARA AÇÃO -->
-    <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
-      Solicite uma demonstração gratuita
-    </a>
-  </div>
+    <div id="cartao" style="position: relative; display: inline-block; padding: 2rem 3rem; background: #f5fdf8; border-radius: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); transform: rotateX(5deg); z-index:1;">
+      
+      <h2 style="margin: 0 0 0.5rem; color: var(--primary-color); font-family: 'Orbitron', sans-serif;">🏠 Soluções Inteligentes para Imobiliárias e Construtoras 🏠</h2>
+      
+      <p style="margin: 0 0 1rem; color: #888;">
+        Conecte seus clientes com tecnologia: WhatsApp, localização, vídeos e agendamentos instantâneos.
+      </p>
+      
+      <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        Solicite uma demonstração gratuita
+      </a>
+    </div>
 
-  <!-- ÍCONES -->
-  <div id="icones-dinamicos" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; position: relative; z-index:1;">
-    <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
-      <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp" class="icon">
-    </a>
-    <a href="#" id="btn-formulario">
-      <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
-    </a>
+    <div id="icones-dinamicos" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; position: relative; z-index:1;">
+      <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
+        <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp" class="icon">
+      </a>
+      <a href="#" id="btn-formulario">
+        <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
+      </a>
+    </div>
   </div>
-</div>
-
 
   <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; padding: 12px 16px; border-radius: 50px; color: #fff; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
-  <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
-  Entre em Contato
+    <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
+    Entre em Contato
   </a>
 
   <footer id="contato">
@@ -241,9 +263,78 @@
     <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99700-7774</p>
   </footer>
 
-  <!-- Scripts -->
+  <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
+      <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
+      <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="imoveis.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
+          <div style="text-align: left;">
+            <strong>Construtoras e Imobiliárias</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Eventos, Manuais e plantas digitais</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+
+        <a href="autos.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
+          <div style="text-align: left;">
+            <strong>Concessionárias e Garagistas</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Gestão, Revisões e pós-venda</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-sobre" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 1000;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
+      <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
+      <div style="margin-top: 1.5rem;">
+        <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
+      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
+      <form id="form-contato">
+        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Estado:<br>
+          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+          </select>
+        </label>
+        <label>Cidade:<br>
+          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione o estado primeiro</option>
+          </select>
+        </label>
+        <label>Produto:<br>
+          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+            <option value="Brindes NFC">Brindes NFC</option>
+          </select>
+        </label>
+        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
+      </form>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Configurações do Particles.js
     particlesJS("particles-js", {
       "particles": {
         "number": { "value": 40 },
@@ -278,101 +369,61 @@
       "retina_detect": true
     });
 
-    gsap.to('.section', {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      stagger: 0.3,
-      ease: "power2.out"
-    });
+    // Animações
+    gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
+    gsap.fromTo('.icon', { y: -20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "back.out(1.7)" });
+    gsap.to('.icon', { y: -5, repeat: -1, yoyo: true, ease: "sine.inOut", duration: 1.5, stagger: 0.2 });
+    gsap.to('#cartao', { y: -8, repeat: -1, yoyo: true, duration: 2, ease: "sine.inOut" });
 
-    gsap.fromTo('.icon',
-      { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "back.out(1.7)" }
-    );
-
-    gsap.to('.icon', {
-      y: -5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      duration: 1.5,
-      stagger: 0.2
-    });
-
-    gsap.to('#cartao', {
-      y: -8,
-      repeat: -1,
-      yoyo: true,
-      duration: 2,
-      ease: "sine.inOut"
-    });
-  </script>
-
- <!-- Modal do Formulário -->
-  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
-    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
-      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
-      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
-      <form id="form-contato">
-        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Estado:<br>
-          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-          </select>
-        </label>
-        <label>Cidade:<br>
-          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione o estado primeiro</option>
-          </select>
-        </label>
-        <label>Produto:<br>
-          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-            <option value="Brindes NFC">Brindes NFC</option>
-          </select>
-        </label>
-        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    gsap.to('.section', {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      stagger: 0.3,
-      ease: "power2.out"
-    });
-
-    // Modal Forms
+    // --- FUNÇÕES DOS MODAIS ---
     const abrirModal = (e) => {
       e.preventDefault();
       document.getElementById('modal-form').style.display = 'flex';
     };
 
-    // Botões que abrem o modal
-    const botaoNav = document.querySelector('nav a[href="#contato"]');
+    // Botões que abrem o modal de formulário (Contato)
+    const botaoNavContato = document.querySelector('nav a[href="#contato"]');
     const botaoCta = document.querySelector('.cta-button');
     const botaoFormulario = document.getElementById('btn-formulario');
 
-    if (botaoNav) botaoNav.onclick = abrirModal;
+    if (botaoNavContato) botaoNavContato.onclick = abrirModal;
     if (botaoCta) botaoCta.onclick = abrirModal;
     if (botaoFormulario) botaoFormulario.onclick = abrirModal;
 
-    // Fechar modal
-    document.getElementById('fechar-form').onclick = () => {
-      document.getElementById('modal-form').style.display = 'none';
+    // Fechar modal form
+    document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-form').onclick = (e) => {
+      if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none';
     };
 
-    document.getElementById('modal-form').onclick = (e) => {
-      if (e.target.id === 'modal-form') {
-        document.getElementById('modal-form').style.display = 'none';
-      }
+    // --- Modal Segmentos ---
+    const modalSegmentos = document.getElementById('modal-segmentos');
+    const btnSegmentos = document.getElementById('btn-segmentos');
+    const fecharSegmentos = document.getElementById('fechar-segmentos');
+
+    if (btnSegmentos) {
+      btnSegmentos.onclick = (e) => { e.preventDefault(); modalSegmentos.style.display = 'flex'; };
+    }
+    if (fecharSegmentos) {
+      fecharSegmentos.onclick = () => modalSegmentos.style.display = 'none';
+    }
+    modalSegmentos.onclick = (e) => {
+      if (e.target === modalSegmentos) modalSegmentos.style.display = 'none';
+    };
+
+    // --- Modal Sobre ---
+    const modalSobre = document.getElementById('modal-sobre');
+    const btnSobre = document.getElementById('btn-sobre');
+    const fecharSobre = document.getElementById('fechar-sobre');
+
+    if (btnSobre) {
+      btnSobre.onclick = (e) => { e.preventDefault(); modalSobre.style.display = 'flex'; };
+    }
+    if (fecharSobre) {
+      fecharSobre.onclick = () => modalSobre.style.display = 'none';
+    }
+    modalSobre.onclick = (e) => {
+      if (e.target === modalSobre) modalSobre.style.display = 'none';
     };
 
     // Enviar formulário

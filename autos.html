@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,12 +20,18 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Keynnect" />
   <title>Keynnect - Automóveis</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
     :root {
       --primary-color: #25D366;
       --text-dark: #1a1a1a;
@@ -43,6 +48,7 @@
       overflow-x: hidden;
     }
 
+    /* --- MENU DE NAVEGAÇÃO --- */
     nav {
       position: fixed;
       top: 0;
@@ -61,12 +67,14 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
+      cursor: pointer; /* Garante que pareça clicável */
     }
 
     nav a:hover {
       color: var(--primary-color);
     }
 
+    /* --- HEADER --- */
     header {
       text-align: center;
       padding: 6rem 1rem 3rem;
@@ -76,18 +84,19 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
       margin: 0;
-      color: var(--primary-color);
+      color: var(--text-dark); /* Cor principal (Preto/Cinza) */
       text-transform: uppercase;
-      background: linear-gradient(45deg, #25D366, #25D366);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      letter-spacing: 2px;
       animation: fadeIn 2s ease-out;
     }
+
+    header h1 span {
+      color: var(--primary-color);
+    }
+
     @media (max-width: 480px) {
-    header h1 {
-      font-size: 2.5rem; /* ou até 2.2rem, se ainda estiver grande */
-    }}
+      header h1 { font-size: 2.5rem; }
+    }
 
     header p {
       font-size: 1.2rem;
@@ -166,16 +175,11 @@
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-
-      #cartao {
-        padding: 2rem;
-      }
+      header h1 { font-size: 2.5rem; }
+      #cartao { padding: 2rem; }
     }
   
-    /* --- CSS DOS CARDS (Adicione isso ao final do seu style) --- */
+    /* --- CSS DOS CARDS --- */
     .benefit-card {
       background: #fff;
       padding: 2rem;
@@ -186,7 +190,6 @@
       max-width: 300px;
       transition: transform 0.3s ease, border-color 0.3s ease;
       border: 1px solid transparent;
-      /* Garante alinhamento */
       display: flex; 
       flex-direction: column;
       align-items: center; 
@@ -215,86 +218,107 @@
       color: var(--text-muted);
       line-height: 1.4;
     }
+
+    /* Estilo para os botões dentro do Modal de Segmentos */
+    .modal-card-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8fcf9;
+      padding: 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+    .modal-card-btn:hover {
+      background: #e8fff0;
+      border-color: var(--primary-color);
+      transform: translateX(5px);
+    }
+    .modal-card-btn img {
+      width: 40px;
+      height: 40px;
+    }
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="#destaque-dinamico">Soluções</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="#" id="btn-segmentos">Segmentos</a>
+    <a href="#" id="btn-sobre">Sobre Nós</a>
     <a href="#contato">Contato</a>
   </nav>
 
-<header id="home">
-  <h1>Keynnect</h1>
-  <p>A chave da conexão entre sua marca e o cliente</p>
-</header>
+  <header id="home">
+    <h1>Key<span>nnect</span></h1>
+    <p>A chave da conexão entre sua marca e o cliente</p>
+  </header>
 
   <section style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    
-    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem;">
-      Conectividade que Dirige a Experiência do Cliente
-    </h2>
- 
-    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-      Transforme a entrega das chaves no início de um relacionamento duradouro. 
-      Com a solução NFC da <strong>Keynnect</strong>, o cliente leva no bolso um canal direto com a sua concessionária.
-    </p>
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem;">
+        Conectividade que Dirige a Experiência do Cliente
+      </h2>
    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-      
-      <div class="benefit-card">
-        <img src="https://img.icons8.com/ios-filled/100/25D366/car-service.png" alt="Revisão" />
-        <h4>Agendamento de Revisão</h4>
-        <p>Facilite a volta do cliente à sua oficina com um clique.</p>
-      </div>
+      <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        Transforme a entrega das chaves no início de um relacionamento duradouro. 
+        Com a solução NFC da <strong>Keynnect</strong>, o cliente leva no bolso um canal direto com a sua concessionária.
+      </p>
+     
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+        
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car-service.png" alt="Revisão" />
+          <h4>Agendamento de Revisão</h4>
+          <p>Facilite a volta do cliente à sua oficina com um clique.</p>
+        </div>
 
-      <div class="benefit-card">
-        <img src="https://img.icons8.com/ios-filled/100/25D366/open-book.png" alt="Manual" />
-        <h4>Manual Digital</h4>
-        <p>Elimine papéis e entregue o manual em formato pesquisável.</p>
-      </div>
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/open-book.png" alt="Manual" />
+          <h4>Manual Digital</h4>
+          <p>Elimine papéis e entregue o manual em formato pesquisável.</p>
+        </div>
 
-      <div class="benefit-card">
-        <img src="https://img.icons8.com/ios-filled/100/25D366/customer-support.png" alt="Suporte" />
-        <h4>Assistência 24h</h4>
-        <p>Botões de emergência e seguro direto no celular do cliente.</p>
-      </div>
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/customer-support.png" alt="Suporte" />
+          <h4>Assistência 24h</h4>
+          <p>Botões de emergência e seguro direto no celular do cliente.</p>
+        </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <div id="destaque-dinamico">
     <div id="particles-js"></div>
 
-  <div id="cartao">
-    <h2>🚗 Soluções para Concessionárias e Garagistas 🚗</h2>
-
-    <!-- Subtítulo com proposta de valor -->
-    <p>Valorize a entrega com inovação.</p>
-    <p>Gere mais valor com um item Inteligente que conecta tudo com um toque.</p>
-
-    <!-- Botão com chamada de ação -->
-    <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
-      Solicite uma demonstração gratuita
-    </a>
-  </div>
+    <div id="cartao">
+      <h2>🚗 Soluções para Concessionárias e Garagistas 🚗</h2>
+      <p>Valorize a entrega com inovação.</p>
+      <p>Gere mais valor com um item Inteligente que conecta tudo com um toque.</p>
+      
+      <a href="#modal-form" onclick="document.getElementById('modal-form').style.display='flex'" class="cta-button" style="display:inline-block; margin-top:1.5rem; background-color: var(--primary-color); color:white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        Solicite uma demonstração gratuita
+      </a>
+    </div>
 
     <div id="icones-dinamicos">
       <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
         <img src="https://icongr.am/fontawesome/whatsapp.svg?size=48&color=25D366" alt="WhatsApp">
       </a>
-        <a href="#" id="btn-formulario">
-            <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
-        </a>
+      <a href="#" id="btn-formulario">
+        <img src="https://icongr.am/fontawesome/list-alt.svg?size=48&color=25D366" alt="Formulário" class="icon">
+      </a>
     </div>
   </div>
 
   <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; padding: 12px 16px; border-radius: 50px; color: #fff; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
-  <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
-  Entre em Contato
+    <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
+    Entre em Contato
   </a>
 
   <footer id="contato">
@@ -302,58 +326,45 @@
     <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99700-7774</p>
   </footer>
 
-  <script>
-        particlesJS("particles-js", {
-  particles: {
-    number: {
-      value: 30,
-      density: { enable: true, value_area: 800 }
-    },
-    color: { value: "#25D366" },
-    shape: {
-      type: "polygon", // Forma de polígono
-      polygon: { nb_sides: 8 } // Lembra uma roda ou engrenagem
-    },
-    opacity: {
-      value: 0.6,
-      random: true
-    },
-    size: {
-      value: 6,
-      random: true
-    },
-    move: {
-      enable: true,
-      speed: 1,
-      direction: "right",
-      straight: false,
-      out_mode: "out"
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" }
-    },
-    modes: {
-      repulse: { distance: 80, duration: 0.2 },
-      push: { quantity: 200 } // <- AQUI altera a quantidade gerada no clique
-    }
-  }
-});
+  <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
+      <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
+      <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="imoveis.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
+          <div style="text-align: left;">
+            <strong>Construtoras e Imobiliárias</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Eventos, Manuais e plantas digitais</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
 
-    gsap.from("#cartao", { duration: 1.5, y: 60, opacity: 0, ease: "power3.out" });
-    gsap.from("#icones-dinamicos a", {
-      duration: 0.8,
-      opacity: 0,
-      y: 30,
-      stagger: 0.2,
-      ease: "back.out(1.7)"
-    });
-  </script>
+        <a href="autos.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
+          <div style="text-align: left;">
+            <strong>Concessionárias e Garagistas</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Gestão, Revisões e pós-venda</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-<!-------------------------------------------------------------------------->
- <!-- Modal do Formulário -->
+  <div id="modal-sobre" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 1000;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
+      <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
+      <div style="margin-top: 1.5rem;">
+        <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+      </div>
+    </div>
+  </div>
+
   <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
       <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
@@ -385,69 +396,107 @@
   </div>
 
   <script>
-    gsap.to('.section', {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      stagger: 0.3,
-      ease: "power2.out"
+    // Configuração do Particles.js
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 30, density: { enable: true, value_area: 800 } },
+        color: { value: "#25D366" },
+        shape: { type: "polygon", polygon: { nb_sides: 8 } },
+        opacity: { value: 0.6, random: true },
+        size: { value: 6, random: true },
+        move: { enable: true, speed: 1, direction: "right", straight: false, out_mode: "out" }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+        modes: { repulse: { distance: 80, duration: 0.2 }, push: { quantity: 5 } }
+      }
     });
-  </script>
 
-<script>
-      const abrirModal = (e) => {
-        e.preventDefault();
-        document.getElementById('modal-form').style.display = 'flex';
-      };
+    // Animações GSAP
+    gsap.from("#cartao", { duration: 1.5, y: 60, opacity: 0, ease: "power3.out" });
+    gsap.from("#icones-dinamicos a", { duration: 0.8, opacity: 0, y: 30, stagger: 0.2, ease: "back.out(1.7)" });
+    gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
 
-      // Botões que abrem o modal
-      const botaoNav = document.querySelector('nav a[href="#contato"]');
-      const botaoCta = document.querySelector('.cta-button');
-      const botaoFormulario = document.getElementById('btn-formulario');
+    // --- FUNÇÕES DOS MODAIS ---
+    const abrirModal = (e) => {
+      e.preventDefault();
+      document.getElementById('modal-form').style.display = 'flex';
+    };
 
-      if (botaoNav) botaoNav.onclick = abrirModal;
-      if (botaoCta) botaoCta.onclick = abrirModal;
-      if (botaoFormulario) botaoFormulario.onclick = abrirModal;
+    // Botões que abrem o modal de formulário
+    const botaoNavContato = document.querySelector('nav a[href="#contato"]');
+    const botaoCta = document.querySelector('.cta-button');
+    const botaoFormulario = document.getElementById('btn-formulario');
 
-      // Fechar modal
-      document.getElementById('fechar-form').onclick = () => {
+    if (botaoNavContato) botaoNavContato.onclick = abrirModal;
+    if (botaoCta) botaoCta.onclick = abrirModal;
+    if (botaoFormulario) botaoFormulario.onclick = abrirModal;
+
+    // Fechar modal form
+    document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-form').onclick = (e) => {
+      if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none';
+    };
+
+    // --- Modal Segmentos ---
+    const modalSegmentos = document.getElementById('modal-segmentos');
+    const btnSegmentos = document.getElementById('btn-segmentos');
+    const fecharSegmentos = document.getElementById('fechar-segmentos');
+
+    if (btnSegmentos) {
+      btnSegmentos.onclick = (e) => { e.preventDefault(); modalSegmentos.style.display = 'flex'; };
+    }
+    if (fecharSegmentos) {
+      fecharSegmentos.onclick = () => modalSegmentos.style.display = 'none';
+    }
+    modalSegmentos.onclick = (e) => {
+      if (e.target === modalSegmentos) modalSegmentos.style.display = 'none';
+    };
+
+    // --- Modal Sobre ---
+    const modalSobre = document.getElementById('modal-sobre');
+    const btnSobre = document.getElementById('btn-sobre');
+    const fecharSobre = document.getElementById('fechar-sobre');
+
+    if (btnSobre) {
+      btnSobre.onclick = (e) => { e.preventDefault(); modalSobre.style.display = 'flex'; };
+    }
+    if (fecharSobre) {
+      fecharSobre.onclick = () => modalSobre.style.display = 'none';
+    }
+    modalSobre.onclick = (e) => {
+      if (e.target === modalSobre) modalSobre.style.display = 'none';
+    };
+
+    // Envio do formulário
+    document.getElementById('form-contato').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const originalText = btn.innerText;
+      btn.innerText = 'Enviando...';
+
+      const formData = new FormData(e.target);
+      const formBody = new URLSearchParams(formData).toString();
+
+      try {
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody,
+          mode: 'no-cors'
+        });
+        alert('Formulário enviado com sucesso!');
         document.getElementById('modal-form').style.display = 'none';
-      };
+        e.target.reset();
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao enviar.');
+      } finally {
+        btn.innerText = originalText;
+      }
+    });
 
-      document.getElementById('modal-form').onclick = (e) => {
-        if (e.target.id === 'modal-form') {
-          document.getElementById('modal-form').style.display = 'none';
-        }
-      };
-
-      // Enviar formulário
-      document.getElementById('form-contato').addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.target);
-        const formBody = new URLSearchParams(formData).toString();
-
-        try {
-          await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: formBody,
-            mode: 'no-cors'
-          });
-
-          alert('Formulário enviado com sucesso!');
-          document.getElementById('modal-form').style.display = 'none';
-          e.target.reset();
-
-        } catch (error) {
-          console.error('Erro ao enviar formulário:', error);
-          alert('Erro inesperado: ' + error.message);
-        }
-      });
-
-     // IBGE Estado/Cidade
+    // IBGE Estado/Cidade
     document.addEventListener('DOMContentLoaded', async () => {
       const estadoSelect = document.getElementById('estado');
       const cidadeSelect = document.getElementById('cidade');
@@ -455,7 +504,6 @@
       try {
         const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
         const estados = (await res.json()).sort((a, b) => a.nome.localeCompare(b.nome));
-
         const options = ['<option value="">Selecione o estado</option>'];
         estados.forEach(({ sigla, nome }) => {
           options.push(`<option value="${sigla}">${nome}</option>`);
@@ -479,7 +527,6 @@
         try {
           const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
           const cidades = await res.json();
-
           const optionsCidade = ['<option value="">Selecione a cidade</option>'];
           cidades.forEach(({ nome }) => {
             optionsCidade.push(`<option value="${nome}">${nome}</option>`);
@@ -492,7 +539,7 @@
         }
       };
     });
-</script>
+  </script>
 
 </body>
 </html>

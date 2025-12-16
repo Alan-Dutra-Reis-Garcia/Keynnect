@@ -124,18 +124,18 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
       margin: 0;
-      color: transparent;
-      background: linear-gradient(45deg, #25D366, #25D366);
-      -webkit-background-clip: text;
+      color: var(--text-dark);
       text-transform: uppercase;
       letter-spacing: 2px;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
       animation: fadeIn 2s ease-out;
     }
+    
+    header h1 span {
+      color: var(--primary-color);
+    }
+
     @media (max-width: 480px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
+      header h1 { font-size: 2.5rem; }
     }
     header p {
       font-size: 1.2rem;
@@ -329,13 +329,14 @@
 <body>
   <nav>
     <a href="#home">Home</a>
+    <a href="produtos.html">Produtos</a>
     <a href="#" id="btn-segmentos">Segmentos</a>
     <a href="#sobre" id="btn-sobre">Sobre Nós</a>
     <a href="#contato">Contato</a>
   </nav>
 
   <header id="home">
-    <h1>Keynnect</h1>
+    <h1>Key<span>nnect</span></h1>
     <p>Soluções Inteligentes com NFC</p>
     <p>A chave da conexão entre sua marca e o cliente</p>
   </header>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-92490FL0FP');
+  </script>
+
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon-96x96.png">
+  <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keynnect | Nossos Produtos |</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    :root {
+      --primary-color: #25D366;
+      --text-dark: #1a1a1a;
+      --text-muted: #555;
+      --bg-light: #f4f7f5;
+      --bg-white: #ffffff;
+      --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif; margin: 0;
+      background: var(--bg-light); color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- NAVEGAÇÃO --- */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px);
+      padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); z-index: 999;
+    }
+    nav a {
+      color: var(--text-dark); text-decoration: none; font-weight: 600; transition: color 0.3s;
+      cursor: pointer;font-size: 1.1rem;
+    }
+    nav a:hover { color: var(--primary-color); }
+
+    /* --- HEADER --- */
+    header { text-align: center; padding: 8rem 1rem 1rem; }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif; 
+      font-size: 4rem; /* Aumentado de 3.5rem para 4rem (Igual Home) */
+      color: var(--text-dark); 
+      margin: 0; 
+      text-transform: uppercase;
+      letter-spacing: 2px; /* Adicionado para igualar o espaçamento */
+      line-height: 1.1;
+      animation: fadeIn 2s ease-out;
+      animation: fadeIn 2s ease-out;
+    }
+    
+    header h1 span { 
+      color: var(--primary-color); 
+    }
+
+    /* Ajuste para celular para não quebrar */
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.5rem; }
+    }
+
+    header h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      margin: 0.5rem 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    /* --- FILTROS --- */
+    .filter-container {
+      display: flex; justify-content: center; gap: 10px; margin-bottom: 3rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .filter-btn {
+      background: #fff; border: 1px solid #ddd; padding: 10px 24px; border-radius: 50px;
+      font-family: 'Outfit', sans-serif; font-weight: 600; color: var(--text-muted);
+      cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
+    }
+    .filter-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+    .filter-btn.active {
+      background: var(--primary-color); color: #fff; border-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    /* --- GRID --- */
+    .catalog-container { max-width: 1400px; margin: 0 auto; padding: 2rem; min-height: 80vh; }
+    
+    .products-grid {
+      display: grid; gap: 2rem;
+      grid-auto-rows: 1fr; align-items: stretch;
+      grid-template-columns: 1fr; /* Mobile */
+    }
+    @media (min-width: 700px) and (max-width: 1350px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1351px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* --- CARD --- */
+    .product-card {
+      background: var(--bg-white); border-radius: 20px; 
+      box-shadow: var(--card-shadow); border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex; flex-direction: column; height: 100%; position: relative;
+      cursor: pointer;
+    }
+    .product-card::after { content: ''; position: absolute; left:0; right:0; top:0; bottom:-20px; z-index:-1; }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(37, 211, 102, 0.15);
+      border-color: var(--primary-color);
+      z-index: 10;
+    }
+
+    /* --- BADGES --- */
+    .badge {
+      position: absolute; top: 15px; left: 15px; z-index: 20;
+      background: #1a1a1a; color: #fff; padding: 5px 12px; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .badge.new { background: var(--primary-color); }
+
+    /* Imagens */
+    .card-image-wrapper {
+      position: relative; width: 100%; aspect-ratio: 4/3;
+      background: #fff; border-bottom: 1px solid #f9f9f9; flex-shrink: 0;
+      border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden;
+    }
+
+    .img-default, .img-hover, .tag-animation {
+      width: 100%; height: 100%; object-fit: contain; padding: 20px;
+      box-sizing: border-box; transition: opacity 0.4s ease;
+      position: absolute; top: 0; left: 0;
+    }
+    .img-hover { opacity: 0; }
+    .product-card:hover .img-default { opacity: 0; }
+    .product-card:hover .img-hover { opacity: 1; }
+    
+    .tag-animation { background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0; background-color: #fff; }
+    @keyframes trocaFotoTag {
+      0%, 45% { background-image: url('produtos/tag2.jpg'); }
+      50%, 100% { background-image: url('produtos/tag3.jpg'); }
+    }
+    .card-tag:hover .img-default { opacity: 0; }
+    .card-tag:hover .tag-animation { opacity: 1; animation: trocaFotoTag 2.5s step-end infinite; }
+
+    /* Conteúdo */
+    .card-content {
+      padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;
+      border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; background: #fff;
+    }
+    .card-title {
+      font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.5rem;
+      min-height: 3rem; display: flex; align-items: center; justify-content: center;
+    }
+    .card-desc {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;
+      min-height: 4rem; display: flex; align-items: flex-start; justify-content: center;
+    }
+    .card-btn {
+      background: var(--bg-light); border: 1px solid #ddd; color: var(--text-dark);
+      padding: 12px; border-radius: 8px; font-weight: 700; font-family: 'Outfit', sans-serif;
+      cursor: pointer; transition: all 0.3s ease; width: 100%; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
+      margin-top: auto; 
+    }
+    .product-card:hover .card-btn { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+
+
+    /* --- MODAIS --- */
+    
+    /* MODAL DE PRODUTO */
+    #modal-details {
+      display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+      justify-content: center; align-items: center; z-index: 2000;
+    }
+    .modal-box {
+      background: #fff; width: 90%; max-width: 900px; max-height: 90vh;
+      border-radius: 24px; overflow-y: auto; position: relative;
+      display: grid; grid-template-columns: 1fr 1fr;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      animation: modalUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes modalUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    
+    .modal-gallery { background: #f8fcf9; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .main-image { width: 100%; height: 350px; object-fit: contain; margin-bottom: 1rem; }
+    .thumbnails { display: flex; gap: 10px; }
+    .thumb { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; cursor: pointer; border: 2px solid transparent; background: #fff; }
+    .thumb:hover, .thumb.active { border-color: var(--primary-color); transform: scale(1.05); }
+    
+    .modal-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .modal-title { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--text-dark); margin: 0 0 1rem 0; line-height: 1.2; }
+    .modal-desc { font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 2rem; }
+    .modal-wpp-btn {
+      background: var(--primary-color); color: #fff; text-decoration: none; padding: 1rem; border-radius: 12px; font-weight: 700; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.2s; font-size: 1.1rem;
+    }
+    .modal-wpp-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); }
+    .close-btn { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10; color: #333; }
+
+    @media (max-width: 768px) {
+      .modal-box { grid-template-columns: 1fr; max-height: 95vh; }
+      .main-image { height: 250px; }
+      .modal-info { padding: 1.5rem; }
+    }
+
+    /* ESTILO SEGMENTOS */
+    .modal-card-btn {
+      display: flex; align-items: center; gap: 1rem;
+      background: #f8fcf9; padding: 1rem; border-radius: 12px;
+      text-decoration: none; color: var(--text-dark); border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+    .modal-card-btn:hover {
+      background: #e8fff0; border-color: var(--primary-color);
+      transform: translateX(5px);
+    }
+    .modal-card-btn img { width: 40px; height: 40px; }
+
+    footer { text-align: center; padding: 2rem; background: #fff; margin-top: 3rem; color: #888; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="#" id="btn-segmentos">Segmentos</a>
+    <a href="#" id="btn-sobre">Sobre Nós</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <header>
+    <h1>Key<span>nnect</span></h1>
+    <h2>Nossos Produtos</h2>
+    
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filtrar('todos', this)">Todos</button>
+      <button class="filter-btn" onclick="filtrar('cartoes', this)">Cartões</button>
+      <button class="filter-btn" onclick="filtrar('acessorios', this)">Acessórios</button>
+      <button class="filter-btn" onclick="filtrar('comercial', this)">Para Balcão</button>
+    </div>
+  </header>
+
+  <div class="catalog-container" id="catalogo">
+    <div class="products-grid">
+
+      <div class="product-card" data-category="acessorios" onclick="abrirDetalhes('caneta')">
+        <span class="badge">Prático</span>
+        <div class="card-image-wrapper">
+          <img src="produtos/caneta1.jpg" class="img-default" alt="Caneta NFC">
+          <img src="produtos/caneta2.jpg" class="img-hover" alt="Caneta Detalhe">
+        </div>
+        <div class="card-content">
+          <div class="card-title">Caneta NFC Premium</div>
+          <div class="card-desc">Sofisticação que conecta. Compartilhe seu contato com elegância.</div>
+          <button class="card-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cartoes" onclick="abrirDetalhes('cartao')">
+        <span class="badge new">Mais Vendido</span>
+        <div class="card-image-wrapper">
+          <img src="produtos/cartao1.jpg" class="img-default" alt="Cartão Black Frente">
+          <img src="produtos/cartao2.jpg" class="img-hover" alt="Cartão Black Verso">
+        </div>
+        <div class="card-content">
+          <div class="card-title">Cartão Keynnect Black</div>
+          <div class="card-desc">PVC Preto Fosco de alta durabilidade. O cartão definitivo.</div>
+          <button class="card-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="comercial" onclick="abrirDetalhes('google')">
+        <span class="badge">Google</span>
+        <div class="card-image-wrapper">
+          <img src="produtos/google1.jpg" class="img-default" alt="Display Google">
+          <img src="produtos/google2.jpg" class="img-hover" alt="Display Google Vários">
+        </div>
+        <div class="card-content">
+          <div class="card-title">Display Google Review</div>
+          <div class="card-desc">Multiplique suas avaliações 5 estrelas no Google Meu Negócio.</div>
+          <button class="card-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product-card card-tag" data-category="comercial" onclick="abrirDetalhes('tag')">
+        <span class="badge">Versátil</span>
+        <div class="card-image-wrapper">
+          <img src="produtos/tag1.jpg" class="img-default" alt="Tag Adesiva">
+          <div class="tag-animation"></div>
+        </div>
+        <div class="card-content">
+          <div class="card-title">Tag Adesiva NFC</div>
+          <div class="card-desc">Versátil para mesas e balcões. Disponível em preto e branco.</div>
+          <button class="card-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="https://wa.me/5544997007774?text=Ol%C3%A1.%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; padding: 12px 16px; border-radius: 50px; color: #fff; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
+    <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
+    Entre em Contato
+  </a>
+
+  <footer id="contato">
+    <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
+    <p>
+      E-mail: <a href="mailto:keynnectmaster@gmail.com" style="color: inherit; text-decoration: underline;">keynnectmaster@gmail.com</a> | 
+      WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
+    </p>
+  </footer>
+
+  <div id="modal-details">
+    <div class="modal-box">
+      <button class="close-btn" onclick="fecharDetalhes()">×</button>
+      <div class="modal-gallery">
+        <img id="main-img" src="" class="main-image">
+        <div class="thumbnails" id="thumb-container"></div>
+      </div>
+      <div class="modal-info">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <div id="modal-desc" class="modal-desc"></div>
+        <a id="modal-wpp" href="#" target="_blank" class="modal-wpp-btn">
+          <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" style="margin-right:8px">
+          Solicitar Orçamento
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2001;">
+    <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
+      <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
+      <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="imoveis.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
+          <div style="text-align: left;">
+            <strong>Construtoras e Imobiliárias</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Eventos, Manuais e plantas digitais</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+
+        <a href="autos.html" class="modal-card-btn">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
+          <div style="text-align: left;">
+            <strong>Concessionárias e Garagistas</strong>
+            <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Gestão, Revisões e pós-venda</span>
+          </div>
+          <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-sobre" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 2001;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
+      <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
+      <div style="margin-top: 1.5rem;">
+        <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Fundadores" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2002;">
+    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
+      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
+      <form id="form-contato">
+        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>Estado:<br>
+          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+          </select>
+        </label>
+        <label>Cidade:<br>
+          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione o estado primeiro</option>
+          </select>
+        </label>
+        <label>Produto:<br>
+          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
+            <option value="">Selecione</option>
+            <option value="Itens NFC">Itens NFC</option>
+          </select>
+        </label>
+        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
+        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Animação de entrada
+    gsap.from(".product-card", { 
+      duration: 0.8, y: 40, opacity: 0, stagger: 0.1, ease: "power2.out",
+      onComplete: function() { gsap.set(".product-card", { clearProps: "all" }); }
+    });
+
+    // --- LÓGICA DE FILTROS ---
+    function filtrar(categoria, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (categoria === 'todos' || cardCat === categoria) {
+          card.style.display = 'flex';
+          gsap.fromTo(card, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.3 });
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // --- BASE DE DADOS PRODUTOS ---
+    const produtosDB = {
+      'caneta': {
+        titulo: "Caneta NFC Premium",
+        imagens: ["produtos/caneta1.jpg", "produtos/caneta2.jpg"],
+        descricao: "A <strong>Caneta Keynnect</strong> une utilidade e tecnologia. Feita em material premium com acabamento sofisticado.<br><br>Ideal para executivos: o cliente aproxima o celular da caneta e recebe seu contato na hora.",
+        msgWpp: "Olá! Gostaria de um orçamento da Caneta NFC Premium."
+      },
+      'cartao': {
+        titulo: "Cartão Keynnect Black",
+        imagens: ["produtos/cartao1.jpg", "produtos/cartao2.jpg"],
+        descricao: "O fim dos cartões de papel. O <strong>Keynnect Black</strong> é fabricado em PVC de alta resistência com acabamento Matte Black.<br><br>Compatível com Android e iPhone. Transfira seus dados com apenas um toque.",
+        msgWpp: "Olá! Gostaria de saber valores do Cartão Keynnect Black."
+      },
+      'google': {
+        titulo: "Display Google Review",
+        imagens: ["produtos/google1.jpg", "produtos/google2.jpg"],
+        descricao: "Aumente sua relevância no Google. Este display de balcão convida o cliente a avaliar sua empresa.<br><br>Sem digitar nada: aproximou, avaliou. Essencial para lojas e clínicas.",
+        msgWpp: "Olá! Quero aumentar minhas avaliações com o Display Google Review."
+      },
+      'tag': {
+        titulo: "Tag Adesiva NFC",
+        imagens: ["produtos/tag1.jpg", "produtos/tag2.jpg", "produtos/tag3.jpg"],
+        descricao: "Versatilidade máxima com resina protetora (efeito bolha).<br><br>Pode ser colada em mesas (cardápio digital) ou balcões. Disponível em Black e White.",
+        msgWpp: "Olá! Tenho interesse nas Tags Adesivas NFC."
+      }
+    };
+
+    function abrirDetalhes(id) {
+      const p = produtosDB[id];
+      if(!p) return;
+      document.getElementById('modal-title').innerText = p.titulo;
+      document.getElementById('modal-desc').innerHTML = p.descricao;
+      const numero = "5544997007774";
+      document.getElementById('modal-wpp').href = `https://wa.me/${numero}?text=${encodeURIComponent(p.msgWpp)}`;
+
+      const mainImg = document.getElementById('main-img');
+      const thumbContainer = document.getElementById('thumb-container');
+      thumbContainer.innerHTML = '';
+      mainImg.src = p.imagens[0];
+
+      p.imagens.forEach((imgSrc, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.className = index === 0 ? 'thumb active' : 'thumb';
+        thumb.onclick = () => {
+          mainImg.style.opacity = 0;
+          setTimeout(() => { mainImg.src = imgSrc; mainImg.style.opacity = 1; }, 200);
+          document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        };
+        thumbContainer.appendChild(thumb);
+      });
+      document.getElementById('modal-details').style.display = 'flex';
+    }
+
+    function fecharDetalhes() { document.getElementById('modal-details').style.display = 'none'; }
+    document.getElementById('modal-details').onclick = (e) => { if(e.target.id === 'modal-details') fecharDetalhes(); }
+
+    // --- LÓGICA MODAIS SEGMENTOS E SOBRE ---
+    const modalSegmentos = document.getElementById('modal-segmentos');
+    const btnSegmentos = document.getElementById('btn-segmentos');
+    const fecharSegmentos = document.getElementById('fechar-segmentos');
+
+    if (btnSegmentos) {
+      btnSegmentos.onclick = (e) => { e.preventDefault(); modalSegmentos.style.display = 'flex'; };
+    }
+    if (fecharSegmentos) {
+      fecharSegmentos.onclick = () => modalSegmentos.style.display = 'none';
+    }
+    modalSegmentos.onclick = (e) => {
+      if (e.target === modalSegmentos) modalSegmentos.style.display = 'none';
+    };
+
+    const modalSobre = document.getElementById('modal-sobre');
+    const btnSobre = document.getElementById('btn-sobre');
+    const fecharSobre = document.getElementById('fechar-sobre');
+
+    if (btnSobre) {
+      btnSobre.onclick = (e) => { e.preventDefault(); modalSobre.style.display = 'flex'; };
+    }
+    if (fecharSobre) {
+      fecharSobre.onclick = () => modalSobre.style.display = 'none';
+    }
+    modalSobre.onclick = (e) => {
+      if (e.target === modalSobre) modalSobre.style.display = 'none';
+    };
+
+    // --- LÓGICA MODAL CONTATO ---
+    const abrirModalForm = (e) => { 
+      e.preventDefault(); 
+      document.getElementById('modal-form').style.display = 'flex'; 
+    };
+    
+    // Botão do menu contato
+    const botaoNav = document.querySelector('nav a[href="#contato"]');
+    if (botaoNav) botaoNav.onclick = abrirModalForm;
+
+    document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-form').onclick = (e) => { 
+      if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none'; 
+    };
+
+    // Envio Form
+    document.getElementById('form-contato').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.innerText = 'Enviando...';
+      try {
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(e.target)).toString(), mode: 'no-cors'
+        });
+        alert('Enviado com sucesso!'); document.getElementById('modal-form').style.display = 'none'; e.target.reset();
+      } catch (error) { alert('Erro ao enviar.'); } finally { btn.innerText = 'Enviar'; }
+    });
+
+    // IBGE (Estado/Cidade)
+    document.addEventListener('DOMContentLoaded', async () => {
+      const estado = document.getElementById('estado');
+      const cidade = document.getElementById('cidade');
+      try {
+        const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
+        const ufs = (await res.json()).sort((a,b)=>a.nome.localeCompare(b.nome));
+        estado.innerHTML = '<option value="">Selecione</option>' + ufs.map(u => `<option value="${u.sigla}">${u.nome}</option>`).join('');
+      } catch {}
+
+      estado.onchange = async () => {
+        const uf = estado.value;
+        cidade.innerHTML = '<option>Carregando...</option>'; cidade.disabled = true;
+        if(!uf) { cidade.innerHTML='<option>Selecione o estado</option>'; return; }
+        try {
+          const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+          const muns = await res.json();
+          cidade.innerHTML = '<option>Selecione</option>' + muns.map(m => `<option value="${m.nome}">${m.nome}</option>`).join('');
+          cidade.disabled = false;
+        } catch { cidade.innerHTML='<option>Erro</option>'; }
+      };
+    });
+  </script>
+
+</body>
+</html>
