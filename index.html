@@ -330,31 +330,29 @@
     /* --- CORREÇÃO MOBILE --- */
     @media (max-width: 768px) {
       nav {
-        justify-content: flex-start; /* Alinha à esquerda para permitir rolagem */
-        overflow-x: auto; /* Habilita a rolagem lateral */
-        padding: 1rem; /* Reduz o padding lateral excessivo */
-        gap: 1.5rem; /* Diminui um pouco o espaço entre os links */
-        white-space: nowrap; /* Impede que o texto quebre em duas linhas */
-        
-        -webkit-overflow-scrolling: touch; 
-    
-        scrollbar-width: none; 
-        -ms-overflow-style: none; 
-      }
-      
-      nav::-webkit-scrollbar { 
-        display: none; 
+        flex-wrap: wrap;        /* Permite que os itens caiam para a linha de baixo */
+        gap: 10px;              /* Espaço entre os botões */
+        padding: 10px 15px;     /* Margem interna reduzida */
+        height: auto;           /* Altura automática para caber duas linhas */
+        position: relative;     /* Ajuste de posicionamento */
       }
 
       nav a {
-        font-size: 0.95rem;
-        padding-right: 0.5rem;
+        font-size: 0.85rem;     /* Tamanho de fonte equilibrado */
+        background: #fff;       /* Fundo branco para destacar do fundo do nav */
+        border: 1px solid #e0e0e0; /* Borda sutil */
+        padding: 8px 14px;      /* Tamanho do "botão" */
+        border-radius: 20px;    /* Deixa arredondado (pílula) */
+        flex: 1 1 auto;         /* Faz os botões se ajustarem ao espaço */
+        text-align: center;     /* Centraliza o texto no botão */
+        white-space: nowrap;    /* Evita quebra de texto dentro do botão */
       }
       
-      nav:after {
-        content: '';
-        min-width: 1px;
-        height: 1px;
+      /* Opcional: Destacar o botão ativo ou hover */
+      nav a:hover, nav a:active {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        background: #f0fff4;
       }
     }
 
