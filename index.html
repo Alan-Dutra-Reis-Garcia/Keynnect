@@ -21,62 +21,21 @@
   <meta name="keywords" content="Brindes, Construtoras, Concessionárias, Imobiliárias, Chaveiros NFC, Atendimento Digital, Vendas, Tecnologia, Maringá, Keynnect, NFC, Chaveiros, Eventos, Controle">
   <meta name="author" content="Keynnect">
   <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="distribution" content="global">
-  <meta name="rating" content="general">
-  <meta name="audience" content="all">
-  <meta name="classification" content="Commercial">
-  <meta name="url" content="https://www.keynnect.com.br">
-
-  <meta property="og:title" content="Keynnect | Conectando Marcas e Clientes">
-  <meta property="og:description" content="Conecte sua marca aos clientes com NFC e soluções tecnológicas exclusivas.">
-  <meta property="og:url" content="https://www.keynnect.com.br">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Keynnect | Experiências Conectadas: O Novo Padrão de Entrega para Veículos e Imóveis">
-  <meta name="twitter:description" content="Conecte sua marca aos clientes com NFC e soluções tecnológicas exclusivas.">
-
+  
   <title>Keynnect | Soluções Inteligentes em Brindes NFC |</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Keynnect",
-    "image": "https://keynnect.com.br/logo.png",
-    "@id": "https://keynnect.com.br",
-    "url": "https://keynnect.com.br",
-    "telephone": "+55-44-99700-7774",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "",
-      "addressLocality": "Maringá",
-      "addressRegion": "PR",
-      "postalCode": "",
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -23.420999,
-      "longitude": -51.933056
-    },
-    "sameAs": [
-      "https://www.instagram.com/keynnect",
-      "https://www.linkedin.com/company/keynnect"
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     :root {
       --primary-color: #25D366;
       --text-dark: #1a1a1a;
@@ -84,280 +43,225 @@
       --bg-light: #f5fdf8;
       --bg-white: #ffffff;
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
+      margin: 0; font-family: 'Outfit', sans-serif;
+      background: var(--bg-light); color: var(--text-dark);
       overflow-x: hidden;
     }
+
+    /* --- NAVEGAÇÃO --- */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
+      position: fixed; top: 0; width: 100%;
       background: rgba(255, 255, 255, 0.9);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      z-index: 999;
+      padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); z-index: 999;
     }
     nav a {
-      color: var(--text-dark);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
+      color: var(--text-dark); text-decoration: none; font-weight: 600; transition: color 0.3s;
     }
-    nav a:hover {
-      color: var(--primary-color);
-    }
-    header {
-      text-align: center;
-      padding: 6rem 1rem 4rem;
-      background: var(--bg-light);
-    }
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 4rem;
-      margin: 0;
-      color: var(--text-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease-out;
-    }
-    
-    header h1 span {
-      color: var(--primary-color);
+    nav a:hover { color: var(--primary-color); }
+
+    /* --- CORREÇÃO MOBILE NAV --- */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
+      }
+      nav a {
+        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
+        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
+        text-align: center; white-space: nowrap;
+      }
+      nav a:hover, nav a:active {
+        border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
+      }
     }
 
-    @media (max-width: 480px) {
-      header h1 { font-size: 2.5rem; }
+    /* --- HEADER & SECTIONS --- */
+    header { text-align: center; padding: 6rem 1rem 4rem; background: var(--bg-light); }
+    header h1 {
+      font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0;
+      color: var(--text-dark); text-transform: uppercase; letter-spacing: 2px;
+      animation: fadeIn 2s ease-out;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: var(--text-muted);
-    }
+    header h1 span { color: var(--primary-color); }
+    @media (max-width: 480px) { header h1 { font-size: 2.5rem; } }
+    header p { font-size: 1.2rem; margin-top: 1rem; color: var(--text-muted); }
+    
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(-50px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .section-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 3rem;
-      background: var(--bg-light);
-    }
+
+    .section-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem; background: var(--bg-light); }
     .section {
-      background: var(--bg-white);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transform: translateY(50px);
-      opacity: 0;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s ease;
+      background: var(--bg-white); padding: 2rem; border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); transform: translateY(50px); opacity: 0;
+      text-align: center; cursor: pointer; transition: background 0.3s, transform 0.3s ease;
     }
-    .section:hover {
-      background-color: #e8fff0;
-      transform: translateY(50px) scale(1.05);
-    }
-    .section:hover h2,
-    .section:hover p {
-      transform: scale(1.05);
-    }
-    .section h2, .section p {
-      transition: transform 0.3s ease;
-    }
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: var(--primary-color);
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .cta-button:hover {
-      transform: scale(1.04);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    .cta-button img {
-      width: 24px;
-      height: 24px;
-      animation: pulse 1.5s infinite;
-      filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(163deg) brightness(110%) contrast(100%);
-    }
-    .fixed-contact {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 10000;
-      overflow: hidden;
-      width: 54px;
-      border-radius: 16px;
-      background: var(--primary-color);
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6);
-      transition: width 0.3s ease;
-    }
-    .fixed-contact:hover {
-      width: 185px;
-    }
-    .fixed-contact .cta-button {
-      margin: 0;
-      padding: 12px 16px;
-      gap: 8px;
-      color: white;
-      white-space: nowrap;
-    }
-    .fixed-contact .text {
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
-      transition: opacity 0.3s ease 0.1s;
-    }
-    .fixed-contact:hover .text {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.9);
-      color: #555;
-    }
-    @media (max-width: 768px) {
-      .section-wrapper {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-      }
-    }
-
-    /* --- CSS ATUALIZADO DA GRID DE 4 COLUNAS --- */
+    .section:hover { background-color: #e8fff0; transform: translateY(50px) scale(1.05); }
+    
     .funciona-grid {
-      display: grid;
-      /* ATENÇÃO: Mudança aqui para acomodar 4 itens lado a lado */
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      /* Aumentei o max-width para caberem 4 cards confortavelmente */
-      max-width: 1200px; 
-      margin: 0 auto;
-      padding-top: 1rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 1rem;
     }
-
     .step {
-      background: var(--bg-light);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
-      /* Garante que o conteúdo dentro do card fique centralizado */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      background: var(--bg-light); border-radius: 16px; padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
+    .step:hover { transform: scale(1.05); background: #eafff2; }
+    .step img { width: 64px; margin-bottom: 1rem; }
+    .step h3 { margin-bottom: 0.5rem; font-size: 1.2rem; color: var(--primary-color); }
+    .step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
-    .step:hover {
-      transform: scale(1.05);
-      background: #eafff2;
-    }
-
-    .step img {
-      width: 64px;
-      margin-bottom: 1rem;
-    }
-
-    .step h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: var(--primary-color); /* Adicionei cor ao título */
-    }
-
-    .step p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Media query apenas para a grid em telas menores */
     @media (max-width: 768px) {
-      .funciona-grid {
-        /* Em celular, volta a ser 1 coluna */
-        grid-template-columns: 1fr;
-      }
+      .section-wrapper { grid-template-columns: 1fr; padding: 2rem; }
+      .funciona-grid { grid-template-columns: 1fr; }
     }
-    /* Estilo para os botões dentro do Modal de Segmentos */
+
+    /* --- BOTÃO FLUTUANTE --- */
+    .fixed-contact {
+      position: fixed; bottom: 20px; right: 20px; z-index: 10000; overflow: hidden;
+      width: 54px; border-radius: 16px; background: var(--primary-color);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6); transition: width 0.3s ease;
+    }
+    .fixed-contact:hover { width: 185px; }
+    .cta-button {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 12px 16px;
+      background: var(--primary-color); color: white; font-weight: 600; text-decoration: none; margin: 0; white-space: nowrap;
+    }
+    .fixed-contact .text { opacity: 0; pointer-events: none; transition: opacity 0.3s ease 0.1s; }
+    .fixed-contact:hover .text { opacity: 1; pointer-events: auto; }
+
+    /* --- MODAIS GERAIS --- */
     .modal-card-btn {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: #f8fcf9;
-      padding: 1rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text-dark);
-      border: 1px solid #eee;
-      transition: all 0.3s ease;
+      display: flex; align-items: center; gap: 1rem; background: #f8fcf9; padding: 1rem;
+      border-radius: 12px; text-decoration: none; color: var(--text-dark); border: 1px solid #eee; transition: all 0.3s ease;
     }
-    .modal-card-btn:hover {
-      background: #e8fff0;
-      border-color: var(--primary-color);
-      transform: translateX(5px); /* Move levemente para a direita */
-    }
-    .modal-card-btn img {
-      width: 40px;
-      height: 40px;
+    .modal-card-btn:hover { background: #e8fff0; border-color: var(--primary-color); transform: translateX(5px); }
+    .modal-card-btn img { width: 40px; height: 40px; }
+
+    footer { text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.9); color: #555; }
+
+    /* --- CSS WIZARD FORM (Estilo Clean White - Atualizado) --- */
+    #modal-form {
+        display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+        justify-content: center; align-items: center; z-index: 2002;
     }
 
+    .modal-box {
+        background: #fff;
+        padding: 40px;
+        border-radius: 24px;
+        max-width: 480px;
+        width: 95%;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        font-family: 'Outfit', sans-serif;
+    }
 
+    /* Barra de Progresso Fina */
+    .progress-container { margin-bottom: 30px; }
+    .progress-label {
+        font-size: 0.75rem; font-weight: 800; color: #111827; 
+        text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .progress-track { width: 100%; height: 4px; background: #E5E7EB; border-radius: 10px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 33%; background: var(--primary-color); transition: width 0.4s ease; }
 
-    /* --- CORREÇÃO MOBILE --- */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;        /* Permite que os itens caiam para a linha de baixo */
-        gap: 10px;              /* Espaço entre os botões */
-        padding: 10px 15px;     /* Margem interna reduzida */
-        height: auto;           /* Altura automática para caber duas linhas */
-        position: relative;     /* Ajuste de posicionamento */
-      }
+    /* Passos (IMPORTANTE: display none por padrão) */
+    .step-content { display: none; animation: fadeInStep 0.4s ease; }
+    .step-content.active { display: block; }
+    @keyframes fadeInStep { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-      nav a {
-        font-size: 0.85rem;     /* Tamanho de fonte equilibrado */
-        background: #fff;       /* Fundo branco para destacar do fundo do nav */
-        border: 1px solid #e0e0e0; /* Borda sutil */
-        padding: 8px 14px;      /* Tamanho do "botão" */
-        border-radius: 20px;    /* Deixa arredondado (pílula) */
-        flex: 1 1 auto;         /* Faz os botões se ajustarem ao espaço */
-        text-align: center;     /* Centraliza o texto no botão */
-        white-space: nowrap;    /* Evita quebra de texto dentro do botão */
-      }
-      
-      /* Opcional: Destacar o botão ativo ou hover */
-      nav a:hover, nav a:active {
+    /* Títulos */
+    .step-header { margin-bottom: 25px; }
+    .step-title {
+        font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0 0 8px 0;
+        display: flex; align-items: center; gap: 10px;
+    }
+    .step-subtitle { color: #6B7280; font-size: 1rem; margin: 0; }
+    .wizard-icon { width: 30px; height: 30px; }
+
+    /* INPUTS (Estilo Branco com Borda Clean) */
+    .input-group { margin-bottom: 20px; }
+    .input-label { display: block; font-weight: 700; font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
+    
+    .custom-input {
+        width: 100%;
+        height: 50px;
+        padding: 0 16px;
+        border: 1.5px solid #D1D5DB; /* Borda cinza suave */
+        background-color: #FFFFFF;    /* Fundo branco */
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #111827;
+        font-family: 'Outfit', sans-serif;
+        outline: none;
+        transition: all 0.2s ease;
+    }
+    
+    /* Foco: Borda Verde e Sombra suave */
+    .custom-input:focus {
         border-color: var(--primary-color);
-        color: var(--primary-color);
-        background: #f0fff4;
-      }
+        box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
     }
+    
+    /* Ajuste Plugin Telefone */
+    .iti { width: 100%; }
+    .iti__flag-container { border-radius: 8px 0 0 8px; }
 
+    /* Termos */
+    .terms-box {
+        background: #F3F4F6; border: 1px solid #E5E7EB; padding: 15px;
+        border-radius: 8px; font-size: 0.9rem; color: #4B5563; line-height: 1.5; margin-bottom: 20px;
+    }
+    .checkbox-wrapper { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+    .checkbox-wrapper input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary-color); }
+    .checkbox-text { font-size: 0.95rem; color: #374151; font-weight: 600; }
+    .error-msg { color: #EF4444; font-size: 0.85rem; margin-top: 5px; display: none; font-weight: 600; }
+
+    /* Botões */
+    .wizard-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; }
+    
+    .btn-back {
+        background: none; border: none; color: #374151; font-weight: 700;
+        font-size: 1rem; cursor: pointer; padding: 10px 0;
+    }
+    .btn-back:hover { color: #111827; }
+
+    .btn-next {
+        background: var(--primary-color); color: #fff; border: none; padding: 12px 32px; border-radius: 8px;
+        font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px;
+        box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2); transition: all 0.2s;
+    }
+    .btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(37, 211, 102, 0.3); }
+
+    /* Botão fechar */
+    .close-modal {
+        position: absolute; top: 20px; right: 20px; background: #F3F4F6; border: none;
+        width: 36px; height: 36px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
+        color: #6B7280; display: flex; align-items: center; justify-content: center; transition: 0.2s;
+    }
+    .close-modal:hover { background: #E5E7EB; color: #111827; }
+
+    /* Lista Cidades */
+    .suggestions-list {
+        position: absolute; background: white; width: 100%; max-height: 180px;
+        overflow-y: auto; z-index: 10; border: 1px solid #D1D5DB; border-top: none;
+        border-radius: 0 0 8px 8px; list-style: none; padding: 0; margin: -2px 0 0 0;
+    }
+    .suggestions-list li { padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #F3F4F6; }
+    .suggestions-list li:hover { background: #F0FDF4; color: var(--primary-color); font-weight: 600; }
+    
+    @media (max-width: 480px) {
+        .modal-box { padding: 25px; }
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <a href="#home">Home</a>
@@ -385,69 +289,68 @@
       </article>
     </section>
 
-  <section id="o-que-e-nfc" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
-    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem;">
-      O que é um Dispositivo com NFC?
-    </h2>
-    <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
-      Os dispositivos com NFC da <strong>Keynnect</strong> são interfaces inteligentes que conectam o mundo físico ao digital. Para o seu cliente, eles oferecem acesso imediato a manuais, garantias e serviços exclusivos com apenas um toque no celular.
-    </p><br>
-    <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
-      Para o seu negócio, a solução vai além: através da nossa plataforma de gestão, o mesmo dispositivo permite funcionalidades corporativas avançadas, como controle de acesso, registro de atividades e gerenciamento do ciclo de vida do cliente.
-    </p>
+    <section id="o-que-e-nfc" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
+      <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem;">
+        O que é um Dispositivo com NFC?
+      </h2>
+      <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+        Os dispositivos com NFC da <strong>Keynnect</strong> são interfaces inteligentes que conectam o mundo físico ao digital. Para o seu cliente, eles oferecem acesso imediato a manuais, garantias e serviços exclusivos com apenas um toque no celular.
+      </p><br>
+      <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+        Para o seu negócio, a solução vai além: através da nossa plataforma de gestão, o mesmo dispositivo permite funcionalidades corporativas avançadas, como controle de acesso, registro de atividades e gerenciamento do ciclo de vida do cliente.
+      </p>
+    </section>
 
-  </section>
+    <section id="como-funciona" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
+      <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">
+        Como Funciona
+      </h2>
+      <div class="funciona-grid">
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" />
+          <h3>1. Entregue o Item</h3>
+          <p>Você entrega ao seu cliente um item com NFC da Keynnect no momento da entrega do produto ou venda.</p>
+        </div>
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" />
+          <h3>2. Encoste no Celular</h3>
+          <p>O cliente aproxima esse item ao celular e acessa uma página exclusiva e personalizada.</p>
+        </div>
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" />
+          <h3>3. Acesse Conteúdo Útil</h3>
+          <p>Na página: contatos, revisões, vídeos explicativos, redes sociais, apps e muito mais.</p>
+        </div>
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/control-panel.png" alt="Controle de Informações" />
+          <h3>4. Gestão de Clientes</h3>
+          <p>Mapeie a jornada do seu cliente e transforme dados de utilização em estratégia para gerar novos negócios.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="como-funciona" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
-  <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">
-    Como Funciona
-  </h2>
-  <div class="funciona-grid">
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" />
-      <h3>1. Entregue o Item</h3>
-      <p>Você entrega ao seu cliente um item com NFC da Keynnect no momento da entrega do produto ou venda.</p>
-    </div>
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" />
-      <h3>2. Encoste no Celular</h3>
-      <p>O cliente aproxima esse item ao celular e acessa uma página exclusiva e personalizada.</p>
-    </div>
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" />
-      <h3>3. Acesse Conteúdo Útil</h3>
-      <p>Na página: contatos, revisões, vídeos explicativos, redes sociais, apps e muito mais.</p>
-    </div>
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/control-panel.png" alt="Controle de Informações" />
-      <h3>4. Gestão de Clientes</h3>
-      <p>Mapeie a jornada do seu cliente e transforme dados de utilização em estratégia para gerar novos negócios.</p>
-    </div>
-  </div>
-  </section>
-
-  <section id="beneficios" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
-  <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">
-    Benefícios da Keynnect
-  </h2>
-  <div class="funciona-grid">
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/settings--v1.png" alt="Personalização" />
-      <h3>Personalização</h3>
-      <p>Cada item pode ser customizado por setor, campanha ou até cliente, gerando exclusividade.</p>
-    </div>
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/idea.png" alt="Inovação" />
-      <h3>Inovação Percebida</h3>
-      <p>Associa sua marca à tecnologia e modernidade desde o primeiro contato com o produto.</p>
-    </div>
-    <div class="step">
-      <img src="https://img.icons8.com/ios-filled/100/combo-chart.png" alt="Engajamento" />
-      <h3>Maior Engajamento</h3>
-      <p>Leva o cliente direto ao conteúdo digital da sua empresa, aumentando a interação com sua marca.</p>
-    </div>
-  </div>
-  </section>
+    <section id="beneficios" style="padding: 4rem 2rem; background: var(--bg-white); text-align: center;">
+      <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">
+        Benefícios da Keynnect
+      </h2>
+      <div class="funciona-grid">
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/settings--v1.png" alt="Personalização" />
+          <h3>Personalização</h3>
+          <p>Cada item pode ser customizado por setor, campanha ou até cliente, gerando exclusividade.</p>
+        </div>
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/idea.png" alt="Inovação" />
+          <h3>Inovação Percebida</h3>
+          <p>Associa sua marca à tecnologia e modernidade desde o primeiro contato com o produto.</p>
+        </div>
+        <div class="step">
+          <img src="https://img.icons8.com/ios-filled/100/combo-chart.png" alt="Engajamento" />
+          <h3>Maior Engajamento</h3>
+          <p>Leva o cliente direto ao conteúdo digital da sua empresa, aumentando a interação com sua marca.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="fixed-contact">
@@ -465,17 +368,12 @@
     </p>
   </footer>
 
-  <!-- Modais -->
   <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
     <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
-      
       <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
-      
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
       <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
-      
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        
         <a href="imoveis.html" class="modal-card-btn">
           <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
           <div style="text-align: left;">
@@ -484,7 +382,6 @@
           </div>
           <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
         </a>
-
         <a href="autos.html" class="modal-card-btn">
           <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
           <div style="text-align: left;">
@@ -493,36 +390,104 @@
           </div>
           <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
         </a>
-
       </div>
     </div>
   </div>
-  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
-    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
-      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
-      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
+
+  <div id="modal-form">
+    <div class="modal-box">
+      <button class="close-modal" id="fechar-form">×</button>
+
       <form id="form-contato">
-        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Estado:<br>
-          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-          </select>
-        </label>
-        <label>Cidade:<br>
-          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione o estado primeiro</option>
-          </select>
-        </label>
-        <label>Produto:<br>
-          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-            <option value="Brindes NFC">Itens NFC</option>
-          </select>
-        </label>
-        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
+        <input type="hidden" name="entry.393905936" value="Contato Site Keynnect">
+        <input type="hidden" name="entry.1804078818" id="hidden-telefone-full"> 
+
+        <div class="progress-container">
+            <div class="progress-label">PASSO <span id="step-count">1</span> DE 3</div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="step-content active" id="step-1">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/user--v1.png" class="wizard-icon"> 
+                    Vamos começar!
+                </h2>
+                <p class="step-subtitle">Conta pra gente quem é você para personalizarmos sua oferta.</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Como você gosta de ser chamado?</label>
+                <input type="text" class="custom-input" name="entry.880773889" id="input-nome" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Seu WhatsApp ou Celular</label>
+                <input type="tel" class="custom-input" id="input-telefone-visual" required>
+                <div id="msg-erro-tel" class="error-msg">Número inválido</div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">E-mail corporativo</label>
+                <input type="email" class="custom-input" name="entry.29873936" id="input-email" placeholder="seu@email.com.br" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Empresa</label>
+                <input type="text" class="custom-input" name="entry.290277077" id="input-empresa" placeholder="Nome da empresa">
+            </div>
+        </div>
+
+        <div class="step-content" id="step-2">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/map-pin.png" class="wizard-icon"> 
+                    Onde você está?
+                </h2>
+                <p class="step-subtitle">Para encontrarmos representantes próximos a você.</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Estado (UF)</label>
+                <select class="custom-input" name="entry.1241287462" id="select-estado" required>
+                    <option value="">Selecione...</option>
+                </select>
+            </div>
+
+            <div class="input-group" style="position:relative;">
+                <label class="input-label">Cidade</label>
+                <input type="text" class="custom-input" name="entry.1604200257" id="input-cidade" placeholder="Selecione o estado primeiro" disabled autocomplete="off">
+                <ul class="suggestions-list" id="lista-cidades" style="display:none;"></ul>
+            </div>
+        </div>
+
+        <div class="step-content" id="step-3">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/checked-checkbox.png" class="wizard-icon"> 
+                    Tudo pronto!
+                </h2>
+                <p class="step-subtitle">Confirme os termos para solicitar seu atendimento.</p>
+            </div>
+
+            <div class="terms-box">
+                Ao clicar em enviar, você confirma que leu nossos <strong>Termos de Uso</strong> e concorda com o contato comercial da equipe Keynnect via WhatsApp ou E-mail.
+            </div>
+
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="check-termos" required>
+                <span class="checkbox-text">Li e concordo com os termos de uso e política de privacidade.</span>
+            </label>
+            <div id="msg-erro-termos" class="error-msg">Você precisa aceitar os termos.</div>
+        </div>
+
+        <div class="wizard-footer">
+            <button type="button" class="btn-back" id="btn-voltar" style="visibility: hidden;">Voltar</button>
+            <button type="button" class="btn-next" id="btn-avancar">Continuar →</button>
+            <button type="submit" class="btn-next" id="btn-enviar" style="display: none;">Enviar Solicitação</button>
+        </div>
       </form>
     </div>
   </div>
@@ -539,135 +504,216 @@
   </div>
 
   <script>
-    gsap.to('.section', {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      stagger: 0.3,
-      ease: "power2.out"
-    });
+    // Animações GSAP
+    gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
 
-    document.getElementById('btn-sobre').onclick = e => {
-      e.preventDefault();
-      document.getElementById('modal-sobre').style.display = 'flex';
-    };
+    // --- MODAL SOBRE ---
+    document.getElementById('btn-sobre').onclick = e => { e.preventDefault(); document.getElementById('modal-sobre').style.display = 'flex'; };
     document.getElementById('fechar-sobre').onclick = () => document.getElementById('modal-sobre').style.display = 'none';
-    document.getElementById('modal-sobre').onclick = e => {
-      if (e.target.id === 'modal-sobre') document.getElementById('modal-sobre').style.display = 'none';
-    };
+    document.getElementById('modal-sobre').onclick = e => { if (e.target.id === 'modal-sobre') document.getElementById('modal-sobre').style.display = 'none'; };
 
-    // --- Lógica do Modal Segmentos ---
+    // --- MODAL SEGMENTOS ---
     const modalSegmentos = document.getElementById('modal-segmentos');
     const btnSegmentos = document.getElementById('btn-segmentos');
     const fecharSegmentos = document.getElementById('fechar-segmentos');
+    if (btnSegmentos) btnSegmentos.onclick = (e) => { e.preventDefault(); modalSegmentos.style.display = 'flex'; };
+    if (fecharSegmentos) fecharSegmentos.onclick = () => { modalSegmentos.style.display = 'none'; };
+    modalSegmentos.onclick = (e) => { if (e.target === modalSegmentos) modalSegmentos.style.display = 'none'; };
 
-    // Abrir ao clicar no menu
-    if (btnSegmentos) {
-      btnSegmentos.onclick = (e) => {
-        e.preventDefault();
-        modalSegmentos.style.display = 'flex';
-      };
-    }
-
-    // Fechar ao clicar no X
-    if (fecharSegmentos) {
-      fecharSegmentos.onclick = () => {
-        modalSegmentos.style.display = 'none';
-      };
-    }
-
-    // Fechar ao clicar fora da caixa branca
-    modalSegmentos.onclick = (e) => {
-      if (e.target === modalSegmentos) {
-        modalSegmentos.style.display = 'none';
-      }
-    };
-
-    // Modal Forms
-    document.querySelector('nav a[href="#contato"]').onclick = e => {
-      e.preventDefault();
-      document.getElementById('modal-form').style.display = 'flex';
-    };
+    // --- ABRIR MODAL FORMULÁRIO (Menu) ---
+    document.querySelector('nav a[href="#contato"]').onclick = e => { e.preventDefault(); document.getElementById('modal-form').style.display = 'flex'; };
     document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
-    document.getElementById('modal-form').onclick = e => {
-      if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none';
-    };
+    document.getElementById('modal-form').onclick = e => { if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none'; };
 
-    document.getElementById('form-contato').addEventListener('submit', async (e) => {
-      e.preventDefault();
 
-      const formData = new FormData(e.target);
+    /* --- LÓGICA DO FORMULÁRIO WIZARD --- */
+    
+    // 1. Inicializar Plugin de Telefone (Bandeiras)
+    const inputTelVisual = document.querySelector("#input-telefone-visual");
+    const inputTelHidden = document.querySelector("#hidden-telefone-full"); // Campo que vai pro Google
+    const msgErroTel = document.querySelector("#msg-erro-tel");
 
-      const formBody = new URLSearchParams(formData).toString();
-
-      try {
-        const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: formBody,
-          mode: 'no-cors'  
-        });
-
-        alert('Formulário enviado com sucesso!');
-
-        document.getElementById('modal-form').style.display = 'none';
-        e.target.reset();
-
-      } catch (error) {
-        console.error('Erro ao enviar formulário:', error);
-        alert('Erro inesperado: ' + error.message);
-      }
+    const iti = window.intlTelInput(inputTelVisual, {
+        initialCountry: "br",
+        preferredCountries: ["br", "us", "pt", "py"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        autoPlaceholder: "aggressive",
+        separateDialCode: true 
     });
 
+    // 2. Controle do Wizard (Passos)
+    let currentStep = 1;
+    const totalSteps = 3;
 
-    // IBGE Estado/Cidade
-    document.addEventListener('DOMContentLoaded', async () => {
-      const estadoSelect = document.getElementById('estado');
-      const cidadeSelect = document.getElementById('cidade');
+    function updateWizard() {
+        // Atualizar Barra
+        const percent = (currentStep / totalSteps) * 100;
+        document.getElementById('progress-fill').style.width = `${percent}%`;
+        document.getElementById('step-count').innerText = currentStep;
 
-      try {
-        const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-        const estados = (await res.json()).sort((a, b) => a.nome.localeCompare(b.nome));
-
-        const options = ['<option value="">Selecione o estado</option>'];
-        estados.forEach(({ sigla, nome }) => {
-          options.push(`<option value="${sigla}">${nome}</option>`);
+        // Ocultar TODOS os passos primeiro (Força display none)
+        const allSteps = document.querySelectorAll('.step-content');
+        allSteps.forEach(el => {
+            el.style.display = 'none';
+            el.classList.remove('active');
         });
-        estadoSelect.innerHTML = options.join('');
-      } catch {
-        estadoSelect.innerHTML = '<option value="">Erro ao carregar estados</option>';
-      }
 
-      estadoSelect.onchange = async () => {
-        const uf = estadoSelect.value;
-        cidadeSelect.disabled = true;
-        cidadeSelect.innerHTML = '<option value="">Carregando cidades...</option>';
-
-        if (!uf) {
-          cidadeSelect.innerHTML = '<option value="">Selecione o estado primeiro</option>';
-          cidadeSelect.disabled = true;
-          return;
+        // Mostrar SÓ o passo atual
+        const currentEl = document.getElementById(`step-${currentStep}`);
+        if(currentEl) {
+            currentEl.style.display = 'block';
+            setTimeout(() => currentEl.classList.add('active'), 10);
         }
+
+        // Botões
+        const btnVoltar = document.getElementById('btn-voltar');
+        const btnAvancar = document.getElementById('btn-avancar');
+        const btnEnviar = document.getElementById('btn-enviar');
+
+        if(currentStep === 1) {
+            btnVoltar.style.visibility = 'hidden';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else if (currentStep === 2) {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'none';
+            btnEnviar.style.display = 'flex';
+        }
+    }
+
+    // *** INICIALIZA O WIZARD CORRETAMENTE (Esconde os outros passos) ***
+    document.addEventListener('DOMContentLoaded', () => {
+        updateWizard();
+    });
+
+    // 3. Validação
+    function validarPasso(step) {
+        if(step === 1) {
+            const nome = document.getElementById('input-nome').value;
+            const email = document.getElementById('input-email').value;
+            
+            if(nome.length < 3) { alert('Digite seu nome completo.'); return false; }
+            
+            // Valida Telefone usando o plugin
+            if(!iti.isValidNumber()) {
+                msgErroTel.style.display = 'block';
+                return false;
+            } else {
+                msgErroTel.style.display = 'none';
+            }
+
+            if(!email.includes('@')) { alert('E-mail inválido.'); return false; }
+        }
+        if(step === 2) {
+            const cidade = document.getElementById('input-cidade').value;
+            if(cidade.length < 2) { alert('Selecione sua cidade.'); return false; }
+        }
+        return true;
+    }
+
+    // Eventos Botões
+    document.getElementById('btn-avancar').onclick = () => {
+        if(validarPasso(currentStep)) { currentStep++; updateWizard(); }
+    };
+    document.getElementById('btn-voltar').onclick = () => {
+        currentStep--; updateWizard();
+    };
+
+    // 4. Lógica IBGE (Estados e Cidades)
+    const estadoSelect = document.getElementById('select-estado');
+    const cidadeInput = document.getElementById('input-cidade');
+    const listaCidades = document.getElementById('lista-cidades');
+    let cidadesCache = [];
+
+    // Carregar UF
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+      .then(res => res.json())
+      .then(estados => {
+        estados.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf.sigla; opt.innerText = uf.nome;
+            estadoSelect.appendChild(opt);
+        });
+      });
+
+    estadoSelect.onchange = async () => {
+        const uf = estadoSelect.value;
+        cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
+        if(uf) {
+            cidadeInput.placeholder = "Carregando...";
+            const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+            const dados = await res.json();
+            cidadesCache = dados.map(c => c.nome);
+            cidadeInput.disabled = false; cidadeInput.placeholder = "Digite sua cidade..."; cidadeInput.focus();
+        }
+    };
+
+    cidadeInput.addEventListener('input', () => {
+        const val = cidadeInput.value.toLowerCase();
+        listaCidades.innerHTML = '';
+        if(val.length > 0) {
+            const filtradas = cidadesCache.filter(c => c.toLowerCase().includes(val)).slice(0,5);
+            if(filtradas.length > 0) {
+                listaCidades.style.display = 'block';
+                filtradas.forEach(c => {
+                    const li = document.createElement('li');
+                    li.innerText = c;
+                    li.onclick = () => { cidadeInput.value = c; listaCidades.style.display = 'none'; };
+                    listaCidades.appendChild(li);
+                });
+            } else { listaCidades.style.display = 'none'; }
+        } else { listaCidades.style.display = 'none'; }
+    });
+    
+    // Fechar sugestões ao clicar fora
+    document.addEventListener('click', (e) => {
+        if(e.target !== cidadeInput) listaCidades.style.display = 'none';
+    });
+
+    // 5. Envio do Formulário (Único e Correto)
+    const form = document.getElementById('form-contato');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const checkTermos = document.getElementById('check-termos');
+        if(!checkTermos.checked) {
+            document.getElementById('msg-erro-termos').style.display = 'block';
+            return;
+        }
+
+        // IMPORTANTE: Pegar o número completo do plugin (Ex: +554499999999)
+        // e jogar no input hidden que tem o "name" correto pro Google Forms
+        inputTelHidden.value = iti.getNumber();
+
+        const btn = document.getElementById('btn-enviar');
+        const originalText = btn.innerText;
+        btn.innerText = 'Enviando...'; btn.disabled = true;
+
+        const formData = new FormData(form);
+        const formBody = new URLSearchParams(formData).toString();
 
         try {
-          const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
-          const cidades = await res.json();
+            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formBody,
+                mode: 'no-cors'
+            });
 
-          const optionsCidade = ['<option value="">Selecione a cidade</option>'];
-          cidades.forEach(({ nome }) => {
-            optionsCidade.push(`<option value="${nome}">${nome}</option>`);
-          });
-          cidadeSelect.innerHTML = optionsCidade.join('');
-          cidadeSelect.disabled = false;
-        } catch {
-          cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
-          cidadeSelect.disabled = true;
+            alert('Solicitação enviada com sucesso!');
+            document.getElementById('modal-form').style.display = 'none';
+            form.reset(); currentStep = 1; updateWizard();
+
+        } catch (error) {
+            alert('Erro ao enviar.');
+        } finally {
+            btn.innerText = originalText; btn.disabled = false;
         }
-      };
     });
-
   </script>
 </body>
 </html>
