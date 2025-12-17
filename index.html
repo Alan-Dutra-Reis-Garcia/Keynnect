@@ -413,9 +413,9 @@
             <div class="step-header">
                 <h2 class="step-title">
                     <img src="https://img.icons8.com/ios-glyphs/30/25D366/user--v1.png" class="wizard-icon"> 
-                    Vamos começar!
+                    Pronto para Inovar?
                 </h2>
-                <p class="step-subtitle">Conta pra gente quem é você para personalizarmos sua oferta.</p>
+                <p class="step-subtitle">Cadastre-se para receber nosso contato.</p>
             </div>
 
             <div class="input-group">
@@ -450,7 +450,7 @@
             </div>
 
             <div class="input-group">
-                <label class="input-label">Estado (UF)</label>
+                <label class="input-label">Estado </label>
                 <select class="custom-input" name="entry.1241287462" id="select-estado" required>
                     <option value="">Selecione...</option>
                 </select>
@@ -463,7 +463,7 @@
             </div>
         </div>
 
-        <div class="step-content" id="step-3">
+<div class="step-content" id="step-3">
             <div class="step-header">
                 <h2 class="step-title">
                     <img src="https://img.icons8.com/ios-glyphs/30/25D366/checked-checkbox.png" class="wizard-icon"> 
@@ -478,17 +478,75 @@
 
             <label class="checkbox-wrapper">
                 <input type="checkbox" id="check-termos" required>
-                <span class="checkbox-text">Li e concordo com os termos de uso e política de privacidade.</span>
+                <span class="checkbox-text">
+                  Li e concordo com os 
+                  <a href="#" id="link-abrir-termos" style="color:var(--primary-color); text-decoration:underline;">Termos de Uso e Política de Privacidade</a>.
+                </span>
             </label>
             <div id="msg-erro-termos" class="error-msg">Você precisa aceitar os termos.</div>
-        </div>
-
-        <div class="wizard-footer">
+        </div> <div class="wizard-footer">
             <button type="button" class="btn-back" id="btn-voltar" style="visibility: hidden;">Voltar</button>
             <button type="button" class="btn-next" id="btn-avancar">Continuar →</button>
             <button type="submit" class="btn-next" id="btn-enviar" style="display: none;">Enviar Solicitação</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content:center; align-items:center; z-index:2005;">
+    <div style="background:#fff; width:90%; max-width:800px; height:85vh; border-radius:16px; position:relative; display:flex; flex-direction:column; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+      
+      <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="margin:0; font-family:'Orbitron', sans-serif; color:var(--text-dark); font-size:1.4rem;">Termos e Privacidade</h2>
+        <button id="fechar-termos" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#666; line-height:1;">×</button>
+      </div>
+
+      <div style="padding: 2rem; overflow-y: auto; font-family: 'Outfit', sans-serif; color: #555; line-height: 1.6; font-size: 0.95rem;">
+        
+        <h3 style="color:var(--primary-color); margin-top:0;">Política de Privacidade</h3>
+        <p>A sua privacidade é importante para nós. É política do Keynnect Soluções respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Keynnect Soluções, e outros sites que possuímos e operamos.</p>
+        <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
+        <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+        <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+        
+        <h4>Compromisso do Usuário</h4>
+        <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o Keynnect Soluções oferece no site e com caráter enunciativo, mas não limitativo:</p>
+        <ul>
+          <li>A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li>
+          <li>B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, jogos de sorte ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;</li>
+          <li>C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Keynnect Soluções, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.</li>
+        </ul>
+
+        <hr style="border:0; border-top:1px solid #eee; margin: 2rem 0;">
+
+        <h3 style="color:var(--primary-color);">Termos de Uso</h3>
+        
+        <p><strong>1. Termos</strong><br>
+        Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
+
+        <p><strong>2. Uso de Licença</strong><br>
+        É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Keynnect Soluções , apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode: modificar ou copiar os materiais; usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial); tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Keynnect Soluções; remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.<br>
+        Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser rescindida por Keynnect Soluções a qualquer momento.</p>
+
+        <p><strong>3. Isenção de responsabilidade</strong><br>
+        Os materiais no site da Keynnect Soluções são fornecidos 'como estão'. Keynnect Soluções não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
+
+        <p><strong>4. Limitações</strong><br>
+        Em nenhum caso o Keynnect Soluções ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Keynnect Soluções.</p>
+
+        <p><strong>5. Precisão dos materiais</strong><br>
+        Os materiais exibidos no site da Keynnect Soluções podem incluir erros técnicos, tipográficos ou fotográficos. Keynnect Soluções não garante que qualquer material em seu site seja preciso, completo ou atual.</p>
+
+        <p><strong>6. Modificações e Lei aplicável</strong><br>
+        O Keynnect Soluções pode revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Estes termos e condições são regidos e interpretados de acordo com as leis do Keynnect Soluções e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
+        
+        <p style="font-size:0.8rem; color:#999; margin-top:2rem;">Esta política é efetiva a partir de 15 Junho 2025 00:00</p>
+      </div>
+      
+      <div style="padding: 1rem; border-top: 1px solid #eee; text-align:right;">
+        <button onclick="document.getElementById('modal-termos').style.display='none'" style="background:var(--primary-color); color:#fff; border:none; padding:10px 25px; border-radius:8px; font-weight:bold; cursor:pointer;">Entendi</button>
+      </div>
+
     </div>
   </div>
 
@@ -714,6 +772,30 @@
             btn.innerText = originalText; btn.disabled = false;
         }
     });
+    // --- LÓGICA DO MODAL TERMOS ---
+    const modalTermos = document.getElementById('modal-termos');
+    const linkTermos = document.getElementById('link-abrir-termos');
+    const btnFecharTermos = document.getElementById('fechar-termos');
+
+    // Ao clicar no link dentro do formulário
+    if(linkTermos) {
+        linkTermos.onclick = (e) => {
+            e.preventDefault(); // Impede que a página recarregue
+            modalTermos.style.display = 'flex';
+        }
+    }
+
+    // Botão X para fechar
+    if(btnFecharTermos) {
+        btnFecharTermos.onclick = () => {
+            modalTermos.style.display = 'none';
+        }
+    }
+
+    // Fechar ao clicar fora
+    modalTermos.onclick = (e) => {
+        if(e.target === modalTermos) modalTermos.style.display = 'none';
+    }
   </script>
 </body>
 </html>

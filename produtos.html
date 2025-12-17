@@ -19,8 +19,12 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
   <style>
     * {
@@ -59,18 +63,32 @@
     }
     nav a:hover { color: var(--primary-color); }
 
+    /* CORREÇÃO MOBILE NAV */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
+      }
+      nav a {
+        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
+        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
+        text-align: center; white-space: nowrap;
+      }
+      nav a:hover, nav a:active {
+        border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
+      }
+    }
+
     /* --- HEADER --- */
     header { text-align: center; padding: 8rem 1rem 1rem; }
 
     header h1 {
       font-family: 'Orbitron', sans-serif; 
-      font-size: 4rem; /* Aumentado de 3.5rem para 4rem (Igual Home) */
+      font-size: 4rem; 
       color: var(--text-dark); 
       margin: 0; 
       text-transform: uppercase;
-      letter-spacing: 2px; /* Adicionado para igualar o espaçamento */
+      letter-spacing: 2px; 
       line-height: 1.1;
-      animation: fadeIn 2s ease-out;
       animation: fadeIn 2s ease-out;
     }
     
@@ -78,7 +96,6 @@
       color: var(--primary-color); 
     }
 
-    /* Ajuste para celular para não quebrar */
     @media (max-width: 480px) {
       header h1 { font-size: 2.5rem; }
     }
@@ -249,34 +266,108 @@
     .modal-card-btn img { width: 40px; height: 40px; }
 
     footer { text-align: center; padding: 2rem; background: #fff; margin-top: 3rem; color: #888; }
-    
-    /* --- CORREÇÃO MOBILE --- */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;        /* Permite que os itens caiam para a linha de baixo */
-        gap: 10px;              /* Espaço entre os botões */
-        padding: 10px 15px;     /* Margem interna reduzida */
-        height: auto;           /* Altura automática para caber duas linhas */
-        position: relative;     /* Ajuste de posicionamento */
-      }
 
-      nav a {
-        font-size: 0.85rem;     /* Tamanho de fonte equilibrado */
-        background: #fff;       /* Fundo branco para destacar do fundo do nav */
-        border: 1px solid #e0e0e0; /* Borda sutil */
-        padding: 8px 14px;      /* Tamanho do "botão" */
-        border-radius: 20px;    /* Deixa arredondado (pílula) */
-        flex: 1 1 auto;         /* Faz os botões se ajustarem ao espaço */
-        text-align: center;     /* Centraliza o texto no botão */
-        white-space: nowrap;    /* Evita quebra de texto dentro do botão */
-      }
-      
-      /* Opcional: Destacar o botão ativo ou hover */
-      nav a:hover, nav a:active {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-        background: #f0fff4;
-      }
+    /* --- CSS WIZARD FORM (Estilo Clean White) --- */
+    #modal-form {
+        display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+        justify-content: center; align-items: center; z-index: 2002;
+    }
+
+    .modal-box-form { /* Classe específica para o box do Wizard para não conflitar com modal de produto */
+        background: #fff;
+        padding: 40px;
+        border-radius: 24px;
+        max-width: 480px;
+        width: 95%;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        font-family: 'Outfit', sans-serif;
+    }
+
+    /* Barra de Progresso Fina */
+    .progress-container { margin-bottom: 30px; }
+    .progress-label {
+        font-size: 0.75rem; font-weight: 800; color: #111827; 
+        text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .progress-track { width: 100%; height: 4px; background: #E5E7EB; border-radius: 10px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 33%; background: var(--primary-color); transition: width 0.4s ease; }
+
+    /* Passos */
+    .step-content { display: none; animation: fadeInStep 0.4s ease; }
+    .step-content.active { display: block; }
+    @keyframes fadeInStep { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Títulos Wizard */
+    .step-header { margin-bottom: 25px; }
+    .step-title {
+        font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0 0 8px 0;
+        display: flex; align-items: center; gap: 10px;
+    }
+    .step-subtitle { color: #6B7280; font-size: 1rem; margin: 0; }
+    .wizard-icon { width: 30px; height: 30px; }
+
+    /* INPUTS (Clean White) */
+    .input-group { margin-bottom: 20px; }
+    .input-label { display: block; font-weight: 700; font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
+    
+    .custom-input {
+        width: 100%; height: 50px; padding: 0 16px; border: 1.5px solid #D1D5DB;
+        background-color: #FFFFFF; border-radius: 8px; font-size: 1rem; color: #111827;
+        font-family: 'Outfit', sans-serif; outline: none; transition: all 0.2s ease;
+    }
+    .custom-input:focus {
+        border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+    }
+    
+    /* Plugin Telefone */
+    .iti { width: 100%; }
+    .iti__flag-container { border-radius: 8px 0 0 8px; }
+
+    /* Termos */
+    .terms-box {
+        background: #F3F4F6; border: 1px solid #E5E7EB; padding: 15px;
+        border-radius: 8px; font-size: 0.9rem; color: #4B5563; line-height: 1.5; margin-bottom: 20px;
+    }
+    .checkbox-wrapper { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+    .checkbox-wrapper input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary-color); }
+    .checkbox-text { font-size: 0.95rem; color: #374151; font-weight: 600; }
+    .error-msg { color: #EF4444; font-size: 0.85rem; margin-top: 5px; display: none; font-weight: 600; }
+
+    /* Botões Wizard */
+    .wizard-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; }
+    .btn-back {
+        background: none; border: none; color: #374151; font-weight: 700;
+        font-size: 1rem; cursor: pointer; padding: 10px 0;
+    }
+    .btn-back:hover { color: #111827; }
+    .btn-next {
+        background: var(--primary-color); color: #fff; border: none; padding: 12px 32px; border-radius: 8px;
+        font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px;
+        box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2); transition: all 0.2s;
+    }
+    .btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(37, 211, 102, 0.3); }
+
+    /* Close Wizard */
+    .close-modal-wizard {
+        position: absolute; top: 20px; right: 20px; background: #F3F4F6; border: none;
+        width: 36px; height: 36px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
+        color: #6B7280; display: flex; align-items: center; justify-content: center; transition: 0.2s;
+    }
+    .close-modal-wizard:hover { background: #E5E7EB; color: #111827; }
+
+    /* Lista Cidades */
+    .suggestions-list {
+        position: absolute; background: white; width: 100%; max-height: 180px;
+        overflow-y: auto; z-index: 10; border: 1px solid #D1D5DB; border-top: none;
+        border-radius: 0 0 8px 8px; list-style: none; padding: 0; margin: -2px 0 0 0;
+    }
+    .suggestions-list li { padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #F3F4F6; }
+    .suggestions-list li:hover { background: #F0FDF4; color: var(--primary-color); font-weight: 600; }
+
+    @media (max-width: 480px) {
+        .modal-box-form { padding: 25px; }
     }
 
   </style>
@@ -326,20 +417,20 @@
           <img src="cartao2.jpg" class="img-hover" alt="Cartão Black Verso">
         </div>
         <div class="card-content">
-          <div class="card-title">Cartão Keynnect Black</div>
-          <div class="card-desc">PVC Preto Fosco de alta durabilidade. O cartão definitivo.</div>
+          <div class="card-title">Cartão NFC Keynnect</div>
+          <div class="card-desc">Personalizável de alta durabilidade. O cartão definitivo.</div>
           <button class="card-btn">Ver Detalhes</button>
         </div>
       </div>
 
       <div class="product-card" data-category="comercial" onclick="abrirDetalhes('google')">
-        <span class="badge">Google</span>
+        <span class="badge">Google Avaliação</span>
         <div class="card-image-wrapper">
           <img src="google1.jpg" class="img-default" alt="Display Google">
           <img src="google2.jpg" class="img-hover" alt="Display Google Vários">
         </div>
         <div class="card-content">
-          <div class="card-title">Display Google Review</div>
+          <div class="card-title">NFC Google Review</div>
           <div class="card-desc">Multiplique suas avaliações 5 estrelas no Google Meu Negócio.</div>
           <button class="card-btn">Ver Detalhes</button>
         </div>
@@ -392,12 +483,147 @@
     </div>
   </div>
 
+  <div id="modal-form">
+    <div class="modal-box-form">
+      <button class="close-modal-wizard" id="fechar-form">×</button>
+
+      <form id="form-contato">
+        <input type="hidden" name="entry.393905936" value="Contato Site Keynnect (Produtos)">
+        <input type="hidden" name="entry.1804078818" id="hidden-telefone-full"> 
+
+        <div class="progress-container">
+            <div class="progress-label">PASSO <span id="step-count">1</span> DE 3</div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="step-content active" id="step-1">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/user--v1.png" class="wizard-icon"> 
+                    Pronto para Inovar?
+                </h2>
+                <p class="step-subtitle">Cadastre-se para receber nosso contato.</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Como você gosta de ser chamado?</label>
+                <input type="text" class="custom-input" name="entry.880773889" id="input-nome" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Seu WhatsApp ou Celular</label>
+                <input type="tel" class="custom-input" id="input-telefone-visual" required>
+                <div id="msg-erro-tel" class="error-msg">Número inválido</div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">E-mail corporativo</label>
+                <input type="email" class="custom-input" name="entry.29873936" id="input-email" placeholder="seu@email.com.br" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Empresa</label>
+                <input type="text" class="custom-input" name="entry.290277077" id="input-empresa" placeholder="Nome da empresa">
+            </div>
+        </div>
+
+        <div class="step-content" id="step-2">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/map-pin.png" class="wizard-icon"> 
+                    Onde você está?
+                </h2>
+                <p class="step-subtitle">Para encontrarmos representantes próximos a você.</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Estado (UF)</label>
+                <select class="custom-input" name="entry.1241287462" id="select-estado" required>
+                    <option value="">Selecione...</option>
+                </select>
+            </div>
+
+            <div class="input-group" style="position:relative;">
+                <label class="input-label">Cidade</label>
+                <input type="text" class="custom-input" name="entry.1604200257" id="input-cidade" placeholder="Selecione o estado primeiro" disabled autocomplete="off">
+                <ul class="suggestions-list" id="lista-cidades" style="display:none;"></ul>
+            </div>
+        </div>
+
+        <div class="step-content" id="step-3">
+            <div class="step-header">
+                <h2 class="step-title">
+                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/checked-checkbox.png" class="wizard-icon"> 
+                    Tudo pronto!
+                </h2>
+                <p class="step-subtitle">Confirme os termos para solicitar seu atendimento.</p>
+            </div>
+
+            <div class="terms-box">
+                Ao clicar em enviar, você confirma que leu nossos <strong>Termos de Uso</strong> e concorda com o contato comercial da equipe Keynnect via WhatsApp ou E-mail.
+            </div>
+
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="check-termos" required>
+                <span class="checkbox-text">
+                  Li e concordo com os 
+                  <a href="#" id="link-abrir-termos" style="color:var(--primary-color); text-decoration:underline;">Termos de Uso e Política de Privacidade</a>.
+                </span>
+            </label>
+            <div id="msg-erro-termos" class="error-msg">Você precisa aceitar os termos.</div>
+        </div>
+        
+        <div class="wizard-footer">
+            <button type="button" class="btn-back" id="btn-voltar" style="visibility: hidden;">Voltar</button>
+            <button type="button" class="btn-next" id="btn-avancar">Continuar →</button>
+            <button type="submit" class="btn-next" id="btn-enviar" style="display: none;">Enviar Solicitação</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content:center; align-items:center; z-index:2005;">
+    <div style="background:#fff; width:90%; max-width:800px; height:85vh; border-radius:16px; position:relative; display:flex; flex-direction:column; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+      <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="margin:0; font-family:'Orbitron', sans-serif; color:var(--text-dark); font-size:1.4rem;">Termos e Privacidade</h2>
+        <button id="fechar-termos" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#666; line-height:1;">×</button>
+      </div>
+      <div style="padding: 2rem; overflow-y: auto; font-family: 'Outfit', sans-serif; color: #555; line-height: 1.6; font-size: 0.95rem;">
+        <h3 style="color:var(--primary-color); margin-top:0;">Política de Privacidade</h3>
+        <p>A sua privacidade é importante para nós. É política do Keynnect Soluções respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Keynnect Soluções, e outros sites que possuímos e operamos.</p>
+        <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
+        <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+        <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+        <h4>Compromisso do Usuário</h4>
+        <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o Keynnect Soluções oferece no site e com caráter enunciativo, mas não limitativo:</p>
+        <ul>
+          <li>A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li>
+          <li>B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, jogos de sorte ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;</li>
+          <li>C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Keynnect Soluções, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.</li>
+        </ul>
+        <hr style="border:0; border-top:1px solid #eee; margin: 2rem 0;">
+        <h3 style="color:var(--primary-color);">Termos de Uso</h3>
+        <p><strong>1. Termos</strong><br>Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
+        <p><strong>2. Uso de Licença</strong><br>É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Keynnect Soluções , apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode: modificar ou copiar os materiais; usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial); tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Keynnect Soluções; remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.<br>Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser rescindida por Keynnect Soluções a qualquer momento.</p>
+        <p><strong>3. Isenção de responsabilidade</strong><br>Os materiais no site da Keynnect Soluções são fornecidos 'como estão'. Keynnect Soluções não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
+        <p><strong>4. Limitações</strong><br>Em nenhum caso o Keynnect Soluções ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Keynnect Soluções.</p>
+        <p><strong>5. Precisão dos materiais</strong><br>Os materiais exibidos no site da Keynnect Soluções podem incluir erros técnicos, tipográficos ou fotográficos. Keynnect Soluções não garante que qualquer material em seu site seja preciso, completo ou atual.</p>
+        <p><strong>6. Modificações e Lei aplicável</strong><br>O Keynnect Soluções pode revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Estes termos e condições são regidos e interpretados de acordo com as leis do Keynnect Soluções e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
+        <p style="font-size:0.8rem; color:#999; margin-top:2rem;">Esta política é efetiva a partir de 15 Junho 2025 00:00</p>
+      </div>
+      <div style="padding: 1rem; border-top: 1px solid #eee; text-align:right;">
+        <button onclick="document.getElementById('modal-termos').style.display='none'" style="background:var(--primary-color); color:#fff; border:none; padding:10px 25px; border-radius:8px; font-weight:bold; cursor:pointer;">Entendi</button>
+      </div>
+    </div>
+  </div>
+
   <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2001;">
     <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
       <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
       <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
-      
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <a href="imoveis.html" class="modal-card-btn">
           <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
@@ -407,7 +633,6 @@
           </div>
           <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
         </a>
-
         <a href="autos.html" class="modal-card-btn">
           <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
           <div style="text-align: left;">
@@ -428,36 +653,6 @@
       <div style="margin-top: 1.5rem;">
         <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Fundadores" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       </div>
-    </div>
-  </div>
-
-  <div id="modal-form" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2002;">
-    <div style="background:#fff; padding:2rem; border-radius:12px; max-width:400px; width:90%; position:relative;">
-      <button id="fechar-form" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
-      <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Contato</h2>
-      <form id="form-contato">
-        <label>Nome:<br><input type="text" name="entry.880773889" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Empresa:<br><input type="text" name="entry.290277077" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>Estado:<br>
-          <select id="estado" name="entry.1241287462" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-          </select>
-        </label>
-        <label>Cidade:<br>
-          <select id="cidade" name="entry.1604200257" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione o estado primeiro</option>
-          </select>
-        </label>
-        <label>Produto:<br>
-          <select name="entry.393905936" required style="width:100%; padding:8px; margin-bottom:10px;">
-            <option value="">Selecione</option>
-            <option value="Itens NFC">Itens NFC</option>
-          </select>
-        </label>
-        <label>Telefone:<br><input type="tel" name="entry.1804078818" style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <label>E-mail:<br><input type="email" name="entry.29873936" required style="width:100%; padding:8px; margin-bottom:10px;" /></label>
-        <button type="submit" style="background: var(--primary-color); color:#fff; border:none; padding:10px 15px; cursor:pointer; border-radius:6px; font-weight:600;">Enviar</button>
-      </form>
     </div>
   </div>
 
@@ -495,7 +690,7 @@
       'cartao': {
         titulo: "Cartão Keynnect Black",
         imagens: ["cartao1.jpg", "cartao2.jpg"],
-        descricao: "O fim dos cartões de papel. O <strong>Keynnect Black</strong> é fabricado em PVC de alta resistência com acabamento Matte Black.<br><br>Compatível com Android e iPhone. Transfira seus dados com apenas um toque.",
+        descricao: "O fim dos cartões de papel. O <strong>Keynnect Black</strong> é fabricado em PVC de alta resistência com acabamento Matte Black e <strong>Personalizável.</strong> <br><br>Compatível com Android e iPhone. Transfira seus dados com apenas um toque.",
         msgWpp: "Olá! Gostaria de saber valores do Cartão Keynnect Black."
       },
       'google': {
@@ -543,7 +738,7 @@
     function fecharDetalhes() { document.getElementById('modal-details').style.display = 'none'; }
     document.getElementById('modal-details').onclick = (e) => { if(e.target.id === 'modal-details') fecharDetalhes(); }
 
-    // --- LÓGICA MODAIS SEGMENTOS E SOBRE ---
+    // --- LÓGICA MODAIS GERAIS (Segmentos, Sobre, Form) ---
     const modalSegmentos = document.getElementById('modal-segmentos');
     const btnSegmentos = document.getElementById('btn-segmentos');
     const fecharSegmentos = document.getElementById('fechar-segmentos');
@@ -572,7 +767,7 @@
       if (e.target === modalSobre) modalSobre.style.display = 'none';
     };
 
-    // --- LÓGICA MODAL CONTATO ---
+    // --- ABRIR MODAL FORMULÁRIO WIZARD ---
     const abrirModalForm = (e) => { 
       e.preventDefault(); 
       document.getElementById('modal-form').style.display = 'flex'; 
@@ -587,42 +782,214 @@
       if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none'; 
     };
 
-    // Envio Form
-    document.getElementById('form-contato').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.innerText = 'Enviando...';
-      try {
-        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
-          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(e.target)).toString(), mode: 'no-cors'
+    /* --- LÓGICA DO FORMULÁRIO WIZARD --- */
+    
+    // 1. Inicializar Plugin de Telefone (Bandeiras)
+    const inputTelVisual = document.querySelector("#input-telefone-visual");
+    const inputTelHidden = document.querySelector("#hidden-telefone-full"); 
+    const msgErroTel = document.querySelector("#msg-erro-tel");
+
+    const iti = window.intlTelInput(inputTelVisual, {
+        initialCountry: "br",
+        preferredCountries: ["br", "us", "pt", "py"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        autoPlaceholder: "aggressive",
+        separateDialCode: true 
+    });
+
+    // 2. Controle do Wizard (Passos)
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function updateWizard() {
+        // Atualizar Barra
+        const percent = (currentStep / totalSteps) * 100;
+        document.getElementById('progress-fill').style.width = `${percent}%`;
+        document.getElementById('step-count').innerText = currentStep;
+
+        // Ocultar TODOS os passos primeiro
+        const allSteps = document.querySelectorAll('.step-content');
+        allSteps.forEach(el => {
+            el.style.display = 'none';
+            el.classList.remove('active');
         });
-        alert('Enviado com sucesso!'); document.getElementById('modal-form').style.display = 'none'; e.target.reset();
-      } catch (error) { alert('Erro ao enviar.'); } finally { btn.innerText = 'Enviar'; }
+
+        // Mostrar SÓ o passo atual
+        const currentEl = document.getElementById(`step-${currentStep}`);
+        if(currentEl) {
+            currentEl.style.display = 'block';
+            setTimeout(() => currentEl.classList.add('active'), 10);
+        }
+
+        // Botões
+        const btnVoltar = document.getElementById('btn-voltar');
+        const btnAvancar = document.getElementById('btn-avancar');
+        const btnEnviar = document.getElementById('btn-enviar');
+
+        if(currentStep === 1) {
+            btnVoltar.style.visibility = 'hidden';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else if (currentStep === 2) {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'none';
+            btnEnviar.style.display = 'flex';
+        }
+    }
+
+    // Inicializar Wizard
+    document.addEventListener('DOMContentLoaded', () => {
+        updateWizard();
     });
 
-    // IBGE (Estado/Cidade)
-    document.addEventListener('DOMContentLoaded', async () => {
-      const estado = document.getElementById('estado');
-      const cidade = document.getElementById('cidade');
-      try {
-        const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-        const ufs = (await res.json()).sort((a,b)=>a.nome.localeCompare(b.nome));
-        estado.innerHTML = '<option value="">Selecione</option>' + ufs.map(u => `<option value="${u.sigla}">${u.nome}</option>`).join('');
-      } catch {}
+    // 3. Validação
+    function validarPasso(step) {
+        if(step === 1) {
+            const nome = document.getElementById('input-nome').value;
+            const email = document.getElementById('input-email').value;
+            
+            if(nome.length < 3) { alert('Digite seu nome completo.'); return false; }
+            
+            // Valida Telefone usando o plugin
+            if(!iti.isValidNumber()) {
+                msgErroTel.style.display = 'block';
+                return false;
+            } else {
+                msgErroTel.style.display = 'none';
+            }
 
-      estado.onchange = async () => {
-        const uf = estado.value;
-        cidade.innerHTML = '<option>Carregando...</option>'; cidade.disabled = true;
-        if(!uf) { cidade.innerHTML='<option>Selecione o estado</option>'; return; }
+            if(!email.includes('@')) { alert('E-mail inválido.'); return false; }
+        }
+        if(step === 2) {
+            const cidade = document.getElementById('input-cidade').value;
+            if(cidade.length < 2) { alert('Selecione sua cidade.'); return false; }
+        }
+        return true;
+    }
+
+    // Eventos Botões
+    document.getElementById('btn-avancar').onclick = () => {
+        if(validarPasso(currentStep)) { currentStep++; updateWizard(); }
+    };
+    document.getElementById('btn-voltar').onclick = () => {
+        currentStep--; updateWizard();
+    };
+
+    // 4. Lógica IBGE (Estados e Cidades)
+    const estadoSelect = document.getElementById('select-estado');
+    const cidadeInput = document.getElementById('input-cidade');
+    const listaCidades = document.getElementById('lista-cidades');
+    let cidadesCache = [];
+
+    // Carregar UF
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+      .then(res => res.json())
+      .then(estados => {
+        estados.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf.sigla; opt.innerText = uf.nome;
+            estadoSelect.appendChild(opt);
+        });
+      });
+
+    estadoSelect.onchange = async () => {
+        const uf = estadoSelect.value;
+        cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
+        if(uf) {
+            cidadeInput.placeholder = "Carregando...";
+            const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+            const dados = await res.json();
+            cidadesCache = dados.map(c => c.nome);
+            cidadeInput.disabled = false; cidadeInput.placeholder = "Digite sua cidade..."; cidadeInput.focus();
+        }
+    };
+
+    cidadeInput.addEventListener('input', () => {
+        const val = cidadeInput.value.toLowerCase();
+        listaCidades.innerHTML = '';
+        if(val.length > 0) {
+            const filtradas = cidadesCache.filter(c => c.toLowerCase().includes(val)).slice(0,5);
+            if(filtradas.length > 0) {
+                listaCidades.style.display = 'block';
+                filtradas.forEach(c => {
+                    const li = document.createElement('li');
+                    li.innerText = c;
+                    li.onclick = () => { cidadeInput.value = c; listaCidades.style.display = 'none'; };
+                    listaCidades.appendChild(li);
+                });
+            } else { listaCidades.style.display = 'none'; }
+        } else { listaCidades.style.display = 'none'; }
+    });
+    
+    // Fechar sugestões ao clicar fora
+    document.addEventListener('click', (e) => {
+        if(e.target !== cidadeInput) listaCidades.style.display = 'none';
+    });
+
+    // 5. Envio do Formulário
+    const form = document.getElementById('form-contato');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const checkTermos = document.getElementById('check-termos');
+        if(!checkTermos.checked) {
+            document.getElementById('msg-erro-termos').style.display = 'block';
+            return;
+        }
+
+        inputTelHidden.value = iti.getNumber();
+
+        const btn = document.getElementById('btn-enviar');
+        const originalText = btn.innerText;
+        btn.innerText = 'Enviando...'; btn.disabled = true;
+
+        const formData = new FormData(form);
+        const formBody = new URLSearchParams(formData).toString();
+
         try {
-          const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
-          const muns = await res.json();
-          cidade.innerHTML = '<option>Selecione</option>' + muns.map(m => `<option value="${m.nome}">${m.nome}</option>`).join('');
-          cidade.disabled = false;
-        } catch { cidade.innerHTML='<option>Erro</option>'; }
-      };
+            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formBody,
+                mode: 'no-cors'
+            });
+
+            alert('Solicitação enviada com sucesso!');
+            document.getElementById('modal-form').style.display = 'none';
+            form.reset(); currentStep = 1; updateWizard();
+
+        } catch (error) {
+            alert('Erro ao enviar.');
+        } finally {
+            btn.innerText = originalText; btn.disabled = false;
+        }
     });
+
+    // --- LÓGICA DO MODAL TERMOS ---
+    const modalTermos = document.getElementById('modal-termos');
+    const linkTermos = document.getElementById('link-abrir-termos');
+    const btnFecharTermos = document.getElementById('fechar-termos');
+
+    if(linkTermos) {
+        linkTermos.onclick = (e) => {
+            e.preventDefault(); 
+            modalTermos.style.display = 'flex';
+        }
+    }
+
+    if(btnFecharTermos) {
+        btnFecharTermos.onclick = () => {
+            modalTermos.style.display = 'none';
+        }
+    }
+
+    modalTermos.onclick = (e) => {
+        if(e.target === modalTermos) modalTermos.style.display = 'none';
+    }
   </script>
 
 </body>
