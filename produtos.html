@@ -713,6 +713,20 @@
     function abrirDetalhes(id) {
       const p = produtosDB[id];
       if(!p) return;
+
+      // --- GA4: Rastrear Visualização do Produto ---
+      gtag('event', 'view_item', {
+        currency: "BRL",
+        value: 0,
+        items: [
+          {
+            item_id: id,
+            item_name: p.titulo,
+            item_category: "NFC Products"
+          }
+        ]
+      });
+
       document.getElementById('modal-title').innerText = p.titulo;
       document.getElementById('modal-desc').innerHTML = p.descricao;
       const numero = "5544997007774";
@@ -736,6 +750,7 @@
         thumbContainer.appendChild(thumb);
       });
       document.getElementById('modal-details').style.display = 'flex';
+
     }
 
     function fecharDetalhes() { document.getElementById('modal-details').style.display = 'none'; }
@@ -876,7 +891,22 @@
 
     // Eventos Botões
     document.getElementById('btn-avancar').onclick = () => {
-        if(validarPasso(currentStep)) { currentStep++; updateWizard(); }
+        // Verifica se os campos estão preenchidos
+        if(validarPasso(currentStep)) { 
+            
+            // --- Controle GA4 ---
+            // Avançou
+            gtag('event', 'form_progress', {
+                'event_category': 'Formulario',
+                'step_number': currentStep + 1, 
+                'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos'
+            });
+            // -------------------------------
+
+            // Avança para o próximo passo
+            currentStep++; 
+            updateWizard(); 
+        }
     };
     document.getElementById('btn-voltar').onclick = () => {
         currentStep--; updateWizard();
@@ -1000,6 +1030,21 @@
     modalTermos.onclick = (e) => {
         if(e.target === modalTermos) modalTermos.style.display = 'none';
     }
+
+  // --- GA4: Rastrear Cliques no WhatsApp ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleciona todos os links que contém "wa.me" ou "wa.link"
+        const whatsAppLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="wa.link"]');
+        
+        whatsAppLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'contact_whatsapp', {
+                    'event_category': 'Contato',
+                    'event_label': 'Clique Flutuante ou Modal'
+                });
+            });
+        });
+    });  
   </script>
 
 </body>
