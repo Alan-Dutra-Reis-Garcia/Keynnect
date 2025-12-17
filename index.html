@@ -324,6 +324,40 @@
       width: 40px;
       height: 40px;
     }
+
+
+
+    /* --- CORREÇÃO MOBILE --- */
+    @media (max-width: 768px) {
+      nav {
+        justify-content: flex-start; /* Alinha à esquerda para permitir rolagem */
+        overflow-x: auto; /* Habilita a rolagem lateral */
+        padding: 1rem; /* Reduz o padding lateral excessivo */
+        gap: 1.5rem; /* Diminui um pouco o espaço entre os links */
+        white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+        
+        -webkit-overflow-scrolling: touch; 
+    
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+      }
+      
+      nav::-webkit-scrollbar { 
+        display: none; 
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        padding-right: 0.5rem;
+      }
+      
+      nav:after {
+        content: '';
+        min-width: 1px;
+        height: 1px;
+      }
+    }
+
   </style>
 </head>
 <body>
