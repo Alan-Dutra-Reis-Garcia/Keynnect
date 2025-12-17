@@ -241,6 +241,36 @@
       width: 40px;
       height: 40px;
     }
+    
+    /* --- CORREÇÃO MOBILE --- */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;        /* Permite que os itens caiam para a linha de baixo */
+        gap: 10px;              /* Espaço entre os botões */
+        padding: 10px 15px;     /* Margem interna reduzida */
+        height: auto;           /* Altura automática para caber duas linhas */
+        position: relative;     /* Ajuste de posicionamento */
+      }
+
+      nav a {
+        font-size: 0.85rem;     /* Tamanho de fonte equilibrado */
+        background: #fff;       /* Fundo branco para destacar do fundo do nav */
+        border: 1px solid #e0e0e0; /* Borda sutil */
+        padding: 8px 14px;      /* Tamanho do "botão" */
+        border-radius: 20px;    /* Deixa arredondado (pílula) */
+        flex: 1 1 auto;         /* Faz os botões se ajustarem ao espaço */
+        text-align: center;     /* Centraliza o texto no botão */
+        white-space: nowrap;    /* Evita quebra de texto dentro do botão */
+      }
+      
+      /* Opcional: Destacar o botão ativo ou hover */
+      nav a:hover, nav a:active {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        background: #f0fff4;
+      }
+    }
+
   </style>
 </head>
 <body>
