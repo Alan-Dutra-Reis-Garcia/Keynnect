@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="language" content="pt-BR">
+
+  <meta name="description" content="Soluções NFC para concessionárias e garagistas em Maringá. Inove na entrega do veículo com manuais digitais e agendamentos via tecnologia Keynnect." />
+  <meta name="keywords" content="Brindes, Concessionárias, Garagistas, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos, Maringá, Pós-venda" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Keynnect" />
+  
+  <title>Keynnect | Soluções NFC para Concessionárias</title>
+  <link rel="canonical" href="https://keynnect.com.br/autos.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Keynnect Autos | Inovação para Concessionárias" />
+  <meta property="og:description" content="Transforme a entrega do carro em uma experiência digital. Agendamentos, manuais e assistência com apenas um toque." />
+  <meta property="og:url" content="https://keynnect.com.br/autos.html" />
+  <meta property="og:site_name" content="Keynnect" />
+  <meta property="og:image" content="https://keynnect.com.br/favicon-96x96.png" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keynnect Autos | Soluções NFC">
+  <meta name="twitter:description" content="Inovação para concessionárias e garagistas em Maringá.">
+  <meta name="twitter:image" content="https://keynnect.com.br/favicon-96x96.png">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,24 +38,35 @@
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
   <link rel="shortcut icon" href="favicon-96x96.png">
   <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Soluções em Itens tecnológicos com NFC para Concessionárias e Garagistas em Maringá" />
-  <meta name="keywords" content="Brindes, Concessionárias, Garagistas, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Keynnect" />
-  <title>Keynnect - Automóveis</title>
   
-  <link rel="canonical" href="https://keynnect.com.br/autos.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Soluções NFC Automotivas",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Keynnect",
+      "image": "https://keynnect.com.br/favicon-96x96.png",
+      "telephone": "+5544997007774",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Maringá",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
+      }
+    },
+    "description": "Soluções digitais para pós-venda automotivo utilizando tecnologia NFC.",
+    "url": "https://keynnect.com.br/autos.html"
+  }
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
@@ -79,15 +116,27 @@
       color: var(--primary-color);
     }
     
-    /* CORREÇÃO MOBILE NAV */
+    /* 3. CORREÇÃO MOBILE NAV (SEO: Tap Targets) */
     @media (max-width: 768px) {
       nav {
-        flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
+        flex-wrap: wrap; 
+        gap: 15px; /* Espaçamento aumentado */
+        padding: 15px; 
+        height: auto; 
+        position: relative;
       }
       nav a {
-        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
-        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
-        text-align: center; white-space: nowrap;
+        font-size: 0.9rem; 
+        background: #fff; 
+        border: 1px solid #e0e0e0;
+        padding: 14px 24px; /* Botão maior */
+        border-radius: 30px; 
+        flex: 1 1 auto;
+        text-align: center; 
+        white-space: nowrap;
+        min-height: 48px; /* Altura mínima Google */
+        min-width: 48px;
+        display: flex; align-items: center; justify-content: center;
       }
       nav a:hover, nav a:active {
         border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
@@ -330,6 +379,10 @@
     /* Ajuste Plugin Telefone */
     .iti { width: 100%; }
     .iti__flag-container { border-radius: 8px 0 0 8px; }
+    
+    /* 5. SEO: OCULTAR LISTA DE PAÍSES PARA ROBÔS */
+    .iti__country-list { display: none; visibility: hidden; }
+    .iti__container .iti__country-list { display: block; visibility: visible; }
 
     /* Termos */
     .terms-box {
@@ -459,7 +512,17 @@
 
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
-    <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99700-7774</p>
+    <p>
+      E-mail: <span id="email-protection"></span> | 
+      WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
+    </p>
+    
+    <script>
+      const user = 'keynnectmaster';
+      const domain = 'gmail.com';
+      const element = document.getElementById('email-protection');
+      element.innerHTML = `<a href="mailto:${user}@${domain}" style="color: inherit; text-decoration: underline;">${user}@${domain}</a>`;
+    </script>
   </footer>
 
   <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
@@ -494,10 +557,7 @@
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
       <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
-      <p>A Keynnect é uma empresa de tecnologia aplicada a objetos. Nascemos com o objetivo de descomplicar a transformação digital.
-      Entendemos que a tecnologia só é útil quando é simples. Por isso, nossos produtos não exigem aplicativos ou configurações complexas: basta aproximar.
-      Somos movidos pela inovação. O que para muitos é apenas um chaveiro ou um cartão, para nós é uma ferramenta de dados e relacionamento. Estamos sediados em Maringá, mas nossa visão é conectar marcas e clientes em todo o Brasil, trazendo o futuro da interação comercial para o presente.
-      </p>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
       <div style="margin-top: 1.5rem;">
         <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       </div>
@@ -662,6 +722,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     // Configuração do Particles.js
     particlesJS("particles-js", {
@@ -804,19 +865,16 @@
 
     // Eventos Botões
     document.getElementById('btn-avancar').onclick = () => {
-        // Verifica se os campos estão preenchidos
         if(validarPasso(currentStep)) { 
             
-            // --- Controle GA4 ---
-            // Avançou
+            // --- GA4: Rastrear Avanço de Passo ---
             gtag('event', 'form_progress', {
                 'event_category': 'Formulario',
                 'step_number': currentStep + 1, 
                 'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos'
             });
-            // -------------------------------
+            // -------------------------------------
 
-            // Avança para o próximo passo
             currentStep++; 
             updateWizard(); 
         }
@@ -906,12 +964,11 @@
                 mode: 'no-cors'
             });
 
-            // --- Contador de Preenchimento
+            // GA4: Enviar evento de Lead
             gtag('event', 'generate_lead', {
                 'event_category': 'Formulario',
-                'event_label': 'Lead Keynnect'
+                'event_label': 'Lead Keynnect Autos'
             });
-            // -----------------------------------
 
             alert('Solicitação enviada com sucesso!');
             document.getElementById('modal-form').style.display = 'none';
