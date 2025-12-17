@@ -17,7 +17,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="language" content="pt-BR">
-  <meta name="description" content="Soluções inteligentes em Maringá para construtoras, concessionárias e empresas que querem inovar com soluções NFC. Conecte sua marca aos clientes com a Keynnect.">
+  
+  <meta name="description" content="Soluções NFC em Maringá para construtoras e concessionárias. Inove e conecte sua marca aos clientes com a tecnologia Keynnect.">
+  
   <meta name="keywords" content="Brindes, Construtoras, Concessionárias, Imobiliárias, Chaveiros NFC, Atendimento Digital, Vendas, Tecnologia, Maringá, Keynnect, NFC, Chaveiros, Eventos, Controle">
   <meta name="author" content="Keynnect">
   <meta name="robots" content="index, follow">
@@ -28,11 +30,15 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Keynnect | Soluções Inteligentes em Brindes NFC" />
-  <meta property="og:description" content="Inovação para Construtoras e Concessionárias em Maringá. Conecte sua marca ao cliente com apenas um toque." />
+  <meta property="og:description" content="Soluções NFC em Maringá para construtoras e concessionárias. Inove e conecte sua marca aos clientes." />
   <meta property="og:url" content="https://keynnect.com.br/" />
   <meta property="og:site_name" content="Keynnect" />
   <meta property="og:image" content="https://keynnect.com.br/favicon-96x96.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keynnect | Soluções NFC">
+  <meta name="twitter:description" content="Soluções inteligentes em Maringá para construtoras e concessionárias.">
+  <meta name="twitter:image" content="https://keynnect.com.br/favicon-96x96.png">
 
   <script type="application/ld+json">
   {
@@ -91,14 +97,22 @@
     }
     nav a:hover { color: var(--primary-color); }
 
+    /* --- CORREÇÃO MOBILE NAV (SEO AJUSTADO: CLIQUE) --- */
     @media (max-width: 768px) {
       nav {
         flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
       }
       nav a {
-        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
-        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
-        text-align: center; white-space: nowrap;
+        font-size: 0.9rem;
+        background: #fff; 
+        border: 1px solid #e0e0e0;
+        padding: 12px 20px; /* AUMENTADO PARA MELHORAR O CLIQUE */
+        border-radius: 24px; 
+        flex: 1 1 auto;
+        text-align: center; 
+        white-space: nowrap;
+        min-height: 44px; /* TAMANHO MÍNIMO RECOMENDADO */
+        display: flex; align-items: center; justify-content: center;
       }
       nav a:hover, nav a:active {
         border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
@@ -349,9 +363,16 @@
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
     <p>
-      E-mail: <a href="mailto:keynnectmaster@gmail.com" style="color: inherit; text-decoration: underline;">keynnectmaster&#64;gmail&#46;com</a> | 
+      E-mail: <span id="email-protection"></span> | 
       WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
     </p>
+    
+    <script>
+      const user = 'keynnectmaster';
+      const domain = 'gmail.com';
+      const element = document.getElementById('email-protection');
+      element.innerHTML = `<a href="mailto:${user}@${domain}" style="color: inherit; text-decoration: underline;">${user}@${domain}</a>`;
+    </script>
   </footer>
 
   <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
@@ -494,29 +515,71 @@
 
   <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content:center; align-items:center; z-index:2005;">
     <div style="background:#fff; width:90%; max-width:800px; height:85vh; border-radius:16px; position:relative; display:flex; flex-direction:column; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+      
       <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
         <h2 style="margin:0; font-family:'Orbitron', sans-serif; color:var(--text-dark); font-size:1.4rem;">Termos e Privacidade</h2>
         <button id="fechar-termos" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#666; line-height:1;">×</button>
       </div>
+
       <div style="padding: 2rem; overflow-y: auto; font-family: 'Outfit', sans-serif; color: #555; line-height: 1.6; font-size: 0.95rem;">
+        
         <h3 style="color:var(--primary-color); margin-top:0;">Política de Privacidade</h3>
-        <p>A sua privacidade é importante para nós. É política do Keynnect Soluções respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Keynnect Soluções...</p>
-        <p>...Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos de serviço...</p>
-        <div style="padding: 1rem; border-top: 1px solid #eee; text-align:right;">
-            <button onclick="document.getElementById('modal-termos').style.display='none'" style="background:var(--primary-color); color:#fff; border:none; padding:10px 25px; border-radius:8px; font-weight:bold; cursor:pointer;">Entendi</button>
-        </div>
+        <p>A sua privacidade é importante para nós. É política do Keynnect Soluções respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Keynnect Soluções, e outros sites que possuímos e operamos.</p>
+        <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
+        <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+        <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+        
+        <h4>Compromisso do Usuário</h4>
+        <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o Keynnect Soluções oferece no site e com caráter enunciativo, mas não limitativo:</p>
+        <ul>
+          <li>A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li>
+          <li>B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, jogos de sorte ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;</li>
+          <li>C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Keynnect Soluções, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.</li>
+        </ul>
+
+        <hr style="border:0; border-top:1px solid #eee; margin: 2rem 0;">
+
+        <h3 style="color:var(--primary-color);">Termos de Uso</h3>
+        
+        <p><strong>1. Termos</strong><br>
+        Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
+
+        <p><strong>2. Uso de Licença</strong><br>
+        É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Keynnect Soluções , apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode: modificar ou copiar os materiais; usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial); tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Keynnect Soluções; remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.<br>
+        Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser rescindida por Keynnect Soluções a qualquer momento.</p>
+
+        <p><strong>3. Isenção de responsabilidade</strong><br>
+        Os materiais no site da Keynnect Soluções são fornecidos 'como estão'. Keynnect Soluções não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
+
+        <p><strong>4. Limitações</strong><br>
+        Em nenhum caso o Keynnect Soluções ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Keynnect Soluções.</p>
+
+        <p><strong>5. Precisão dos materiais</strong><br>
+        Os materiais exibidos no site da Keynnect Soluções podem incluir erros técnicos, tipográficos ou fotográficos. Keynnect Soluções não garante que qualquer material em seu site seja preciso, completo ou atual.</p>
+
+        <p><strong>6. Modificações e Lei aplicável</strong><br>
+        O Keynnect Soluções pode revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Estes termos e condições são regidos e interpretados de acordo com as leis do Keynnect Soluções e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
+        
+        <p style="font-size:0.8rem; color:#999; margin-top:2rem;">Esta política é efetiva a partir de 15 Junho 2025 00:00</p>
       </div>
+      
+      <div style="padding: 1rem; border-top: 1px solid #eee; text-align:right;">
+        <button onclick="document.getElementById('modal-termos').style.display='none'" style="background:var(--primary-color); color:#fff; border:none; padding:10px 25px; border-radius:8px; font-weight:bold; cursor:pointer;">Entendi</button>
+      </div>
+
     </div>
   </div>
 
   <script>
+    // Animações GSAP
     gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
 
-    // Modais
+    // --- MODAL SOBRE ---
     document.getElementById('btn-sobre').onclick = e => { e.preventDefault(); document.getElementById('modal-sobre').style.display = 'flex'; };
     document.getElementById('fechar-sobre').onclick = () => document.getElementById('modal-sobre').style.display = 'none';
     document.getElementById('modal-sobre').onclick = e => { if (e.target.id === 'modal-sobre') document.getElementById('modal-sobre').style.display = 'none'; };
 
+    // --- MODAL SEGMENTOS ---
     const modalSegmentos = document.getElementById('modal-segmentos');
     const btnSegmentos = document.getElementById('btn-segmentos');
     const fecharSegmentos = document.getElementById('fechar-segmentos');
@@ -524,54 +587,92 @@
     if (fecharSegmentos) fecharSegmentos.onclick = () => { modalSegmentos.style.display = 'none'; };
     modalSegmentos.onclick = (e) => { if (e.target === modalSegmentos) modalSegmentos.style.display = 'none'; };
 
-    // Modal Form
+    // --- ABRIR MODAL FORMULÁRIO (Menu) ---
     document.querySelector('nav a[href="#contato"]').onclick = e => { e.preventDefault(); document.getElementById('modal-form').style.display = 'flex'; };
     document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
     document.getElementById('modal-form').onclick = e => { if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none'; };
 
-    // Modal Termos
-    const modalTermos = document.getElementById('modal-termos');
-    const linkTermos = document.getElementById('link-abrir-termos');
-    const btnFecharTermos = document.getElementById('fechar-termos');
-    if(linkTermos) linkTermos.onclick = (e) => { e.preventDefault(); modalTermos.style.display = 'flex'; };
-    if(btnFecharTermos) btnFecharTermos.onclick = () => modalTermos.style.display = 'none';
-    modalTermos.onclick = (e) => { if(e.target === modalTermos) modalTermos.style.display = 'none'; };
 
-    // Wizard e Telefone
+    /* --- LÓGICA DO FORMULÁRIO WIZARD --- */
+    
+    // 1. Inicializar Plugin de Telefone (Bandeiras)
     const inputTelVisual = document.querySelector("#input-telefone-visual");
-    const inputTelHidden = document.querySelector("#hidden-telefone-full");
+    const inputTelHidden = document.querySelector("#hidden-telefone-full"); // Campo que vai pro Google
     const msgErroTel = document.querySelector("#msg-erro-tel");
+
     const iti = window.intlTelInput(inputTelVisual, {
-        initialCountry: "br", preferredCountries: ["br", "us", "pt", "py"],
+        initialCountry: "br",
+        preferredCountries: ["br", "us", "pt", "py"],
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        autoPlaceholder: "aggressive", separateDialCode: true 
+        autoPlaceholder: "aggressive",
+        separateDialCode: true 
     });
 
+    // 2. Controle do Wizard (Passos)
     let currentStep = 1;
+    const totalSteps = 3;
+
     function updateWizard() {
-        const percent = (currentStep / 3) * 100;
+        // Atualizar Barra
+        const percent = (currentStep / totalSteps) * 100;
         document.getElementById('progress-fill').style.width = `${percent}%`;
         document.getElementById('step-count').innerText = currentStep;
-        document.querySelectorAll('.step-content').forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
+
+        // Ocultar TODOS os passos primeiro (Força display none)
+        const allSteps = document.querySelectorAll('.step-content');
+        allSteps.forEach(el => {
+            el.style.display = 'none';
+            el.classList.remove('active');
+        });
+
+        // Mostrar SÓ o passo atual
         const currentEl = document.getElementById(`step-${currentStep}`);
-        if(currentEl) { currentEl.style.display = 'block'; setTimeout(() => currentEl.classList.add('active'), 10); }
-        
+        if(currentEl) {
+            currentEl.style.display = 'block';
+            setTimeout(() => currentEl.classList.add('active'), 10);
+        }
+
+        // Botões
         const btnVoltar = document.getElementById('btn-voltar');
         const btnAvancar = document.getElementById('btn-avancar');
         const btnEnviar = document.getElementById('btn-enviar');
-        
-        if(currentStep === 1) { btnVoltar.style.visibility = 'hidden'; btnAvancar.style.display = 'flex'; btnEnviar.style.display = 'none'; }
-        else if (currentStep === 2) { btnVoltar.style.visibility = 'visible'; btnAvancar.style.display = 'flex'; btnEnviar.style.display = 'none'; }
-        else { btnVoltar.style.visibility = 'visible'; btnAvancar.style.display = 'none'; btnEnviar.style.display = 'flex'; }
-    }
-    document.addEventListener('DOMContentLoaded', () => updateWizard());
 
+        if(currentStep === 1) {
+            btnVoltar.style.visibility = 'hidden';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else if (currentStep === 2) {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'flex';
+            btnEnviar.style.display = 'none';
+        } else {
+            btnVoltar.style.visibility = 'visible';
+            btnAvancar.style.display = 'none';
+            btnEnviar.style.display = 'flex';
+        }
+    }
+
+    // *** INICIALIZA O WIZARD CORRETAMENTE (Esconde os outros passos) ***
+    document.addEventListener('DOMContentLoaded', () => {
+        updateWizard();
+    });
+
+    // 3. Validação
     function validarPasso(step) {
         if(step === 1) {
             const nome = document.getElementById('input-nome').value;
             const email = document.getElementById('input-email').value;
+            
             if(nome.length < 3) { alert('Digite seu nome completo.'); return false; }
-            if(!iti.isValidNumber()) { msgErroTel.style.display = 'block'; return false; } else { msgErroTel.style.display = 'none'; }
+            
+            // Valida Telefone usando o plugin
+            if(!iti.isValidNumber()) {
+                msgErroTel.style.display = 'block';
+                return false;
+            } else {
+                msgErroTel.style.display = 'none';
+            }
+
             if(!email.includes('@')) { alert('E-mail inválido.'); return false; }
         }
         if(step === 2) {
@@ -581,25 +682,43 @@
         return true;
     }
 
+    // Eventos Botões (COM GA4)
     document.getElementById('btn-avancar').onclick = () => {
         if(validarPasso(currentStep)) {
-            // GA4 Funil
-            gtag('event', 'form_progress', { 'event_category': 'Formulario', 'step_number': currentStep + 1, 'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos' });
-            currentStep++; updateWizard();
+            // GA4: Rastrear Avanço
+            gtag('event', 'form_progress', {
+                'event_category': 'Formulario',
+                'step_number': currentStep + 1,
+                'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos'
+            });
+            currentStep++; 
+            updateWizard(); 
         }
     };
-    document.getElementById('btn-voltar').onclick = () => { currentStep--; updateWizard(); };
+    document.getElementById('btn-voltar').onclick = () => {
+        currentStep--; updateWizard();
+    };
 
-    // IBGE
+    // 4. Lógica IBGE (Estados e Cidades)
     const estadoSelect = document.getElementById('select-estado');
     const cidadeInput = document.getElementById('input-cidade');
     const listaCidades = document.getElementById('lista-cidades');
     let cidadesCache = [];
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome').then(res => res.json()).then(estados => {
-        estados.forEach(uf => { const opt = document.createElement('option'); opt.value = uf.sigla; opt.innerText = uf.nome; estadoSelect.appendChild(opt); });
-    });
+
+    // Carregar UF
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+      .then(res => res.json())
+      .then(estados => {
+        estados.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf.sigla; opt.innerText = uf.nome;
+            estadoSelect.appendChild(opt);
+        });
+      });
+
     estadoSelect.onchange = async () => {
-        const uf = estadoSelect.value; cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
+        const uf = estadoSelect.value;
+        cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
         if(uf) {
             cidadeInput.placeholder = "Carregando...";
             const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
@@ -608,45 +727,113 @@
             cidadeInput.disabled = false; cidadeInput.placeholder = "Digite sua cidade..."; cidadeInput.focus();
         }
     };
+
     cidadeInput.addEventListener('input', () => {
-        const val = cidadeInput.value.toLowerCase(); listaCidades.innerHTML = '';
+        const val = cidadeInput.value.toLowerCase();
+        listaCidades.innerHTML = '';
         if(val.length > 0) {
             const filtradas = cidadesCache.filter(c => c.toLowerCase().includes(val)).slice(0,5);
             if(filtradas.length > 0) {
                 listaCidades.style.display = 'block';
                 filtradas.forEach(c => {
-                    const li = document.createElement('li'); li.innerText = c;
+                    const li = document.createElement('li');
+                    li.innerText = c;
                     li.onclick = () => { cidadeInput.value = c; listaCidades.style.display = 'none'; };
                     listaCidades.appendChild(li);
                 });
             } else { listaCidades.style.display = 'none'; }
         } else { listaCidades.style.display = 'none'; }
     });
-    document.addEventListener('click', (e) => { if(e.target !== cidadeInput) listaCidades.style.display = 'none'; });
+    
+    // Fechar sugestões ao clicar fora
+    document.addEventListener('click', (e) => {
+        if(e.target !== cidadeInput) listaCidades.style.display = 'none';
+    });
 
-    // Envio Form
+    // 5. Envio do Formulário (Único e Correto + GA4 Lead)
     const form = document.getElementById('form-contato');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const checkTermos = document.getElementById('check-termos');
-        if(!checkTermos.checked) { document.getElementById('msg-erro-termos').style.display = 'block'; return; }
-        inputTelHidden.value = iti.getNumber();
-        const btn = document.getElementById('btn-enviar');
-        const originalText = btn.innerText; btn.innerText = 'Enviando...'; btn.disabled = true;
         
+        const checkTermos = document.getElementById('check-termos');
+        if(!checkTermos.checked) {
+            document.getElementById('msg-erro-termos').style.display = 'block';
+            return;
+        }
+
+        // IMPORTANTE: Pegar o número completo do plugin (Ex: +554499999999)
+        inputTelHidden.value = iti.getNumber();
+
+        const btn = document.getElementById('btn-enviar');
+        const originalText = btn.innerText;
+        btn.innerText = 'Enviando...'; btn.disabled = true;
+
+        const formData = new FormData(form);
+        const formBody = new URLSearchParams(formData).toString();
+
         try {
             await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
-                method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString(), mode: 'no-cors'
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formBody,
+                mode: 'no-cors'
             });
-            gtag('event', 'generate_lead', { 'event_category': 'Formulario', 'event_label': 'Lead Keynnect' });
-            alert('Solicitação enviada com sucesso!'); document.getElementById('modal-form').style.display = 'none'; form.reset(); currentStep = 1; updateWizard();
-        } catch (error) { alert('Erro ao enviar.'); } finally { btn.innerText = originalText; btn.disabled = false; }
+
+            // GA4 Lead
+            gtag('event', 'generate_lead', {
+                'event_category': 'Formulario',
+                'event_label': 'Lead Keynnect'
+            });
+
+            alert('Solicitação enviada com sucesso!');
+            document.getElementById('modal-form').style.display = 'none';
+            form.reset(); currentStep = 1; updateWizard();
+
+        } catch (error) {
+            alert('Erro ao enviar.');
+        } finally {
+            btn.innerText = originalText; btn.disabled = false;
+        }
     });
 
-    // GA4 WhatsApp
+    // --- LÓGICA DO MODAL TERMOS ---
+    const modalTermos = document.getElementById('modal-termos');
+    const linkTermos = document.getElementById('link-abrir-termos');
+    const btnFecharTermos = document.getElementById('fechar-termos');
+
+    // Ao clicar no link dentro do formulário
+    if(linkTermos) {
+        linkTermos.onclick = (e) => {
+            e.preventDefault(); // Impede que a página recarregue
+            modalTermos.style.display = 'flex';
+        }
+    }
+
+    // Botão X para fechar
+    if(btnFecharTermos) {
+        btnFecharTermos.onclick = () => {
+            modalTermos.style.display = 'none';
+        }
+    }
+
+    // Fechar ao clicar fora
+    modalTermos.onclick = (e) => {
+        if(e.target === modalTermos) modalTermos.style.display = 'none';
+    }
+
+    // --- GA4: Rastrear Cliques no WhatsApp ---
     document.addEventListener('DOMContentLoaded', () => {
+        // Seleciona todos os links que contém "wa.me" ou "wa.link"
         const whatsAppLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="wa.link"]');
-        whatsAppLinks.forEach(link => { link.addEventListener('click', () => { gtag('event', 'contact_whatsapp', { 'event_category': 'Contato', 'event_label': 'Clique WhatsApp' }); }); });
+        
+        whatsAppLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'contact_whatsapp', {
+                    'event_category': 'Contato',
+                    'event_label': 'Clique WhatsApp'
+                });
+            });
+        });
     });
   </script>
 </body>
