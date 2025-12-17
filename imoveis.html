@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="language" content="pt-BR">
+
+  <meta name="description" content="Soluções digitais em Maringá para entregas de chaves e manuais do proprietário. Inove com a tecnologia NFC da Keynnect para construtoras e imobiliárias." />
+  <meta name="keywords" content="Brindes, Construtoras, Imobiliárias, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos, Maringá, Manual do Proprietário" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Keynnect" />
+  
+  <title>Keynnect | NFC para Construtoras e Imobiliárias</title>
+  <link rel="canonical" href="https://keynnect.com.br/imoveis.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Keynnect Imóveis | Tecnologia para Construtoras" />
+  <meta property="og:description" content="Elimine papéis e entregue manuais digitais. Conecte o morador à sua construtora com apenas um toque." />
+  <meta property="og:url" content="https://keynnect.com.br/imoveis.html" />
+  <meta property="og:site_name" content="Keynnect" />
+  <meta property="og:image" content="https://keynnect.com.br/favicon-96x96.png" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keynnect Imóveis | Soluções NFC">
+  <meta name="twitter:description" content="Manual do proprietário digital e assistência técnica via NFC em Maringá.">
+  <meta name="twitter:image" content="https://keynnect.com.br/favicon-96x96.png">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,24 +38,35 @@
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
   <link rel="shortcut icon" href="favicon-96x96.png">
   <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Soluções em itens tecnológicos em NFC para Construtoras e Imobiliárias em Maringá." />
-  <meta name="keywords" content="Brindes, Construtoras, Imobiliárias, Keynnect, Vendas, Atendimento Digital, Chaveiros, NFC, Tecnológicos" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Keynnect" />
   
-  <title>Keynnect - Imóveis</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Soluções NFC para Imóveis",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Keynnect",
+      "image": "https://keynnect.com.br/favicon-96x96.png",
+      "telephone": "+5544997007774",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Maringá",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
+      }
+    },
+    "description": "Manuais digitais e soluções de pós-venda para construtoras e imobiliárias.",
+    "url": "https://keynnect.com.br/imoveis.html"
+  }
+  </script>
   
-  <link rel="canonical" href="https://keynnect.com.br/imoveis.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
@@ -88,15 +125,27 @@
       color: var(--primary-color);
     }
     
-    /* CORREÇÃO MOBILE NAV */
+    /* 3. CORREÇÃO MOBILE NAV (SEO: Tap Targets) */
     @media (max-width: 768px) {
       nav {
-        flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
+        flex-wrap: wrap; 
+        gap: 15px; /* Mais espaço para evitar cliques errados */
+        padding: 15px; 
+        height: auto; 
+        position: relative;
       }
       nav a {
-        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
-        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
-        text-align: center; white-space: nowrap;
+        font-size: 0.9rem;
+        background: #fff; 
+        border: 1px solid #e0e0e0;
+        padding: 14px 24px; /* Botão maior para o dedo */
+        border-radius: 30px; 
+        flex: 1 1 auto;
+        text-align: center; 
+        white-space: nowrap;
+        min-height: 48px; /* REGRA DO GOOGLE */
+        min-width: 48px;
+        display: flex; align-items: center; justify-content: center;
       }
       nav a:hover, nav a:active {
         border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
@@ -113,7 +162,7 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
       margin: 0;
-      color: var(--text-dark); /* Cor principal (Preto/Cinza) */
+      color: var(--text-dark);
       text-transform: uppercase;
       letter-spacing: 2px;
       animation: fadeIn 2s ease-out;
@@ -244,8 +293,8 @@
         width: 100%;
         height: 50px;
         padding: 0 16px;
-        border: 1.5px solid #D1D5DB; /* Borda cinza suave */
-        background-color: #FFFFFF;    /* Fundo branco */
+        border: 1.5px solid #D1D5DB;
+        background-color: #FFFFFF;
         border-radius: 8px;
         font-size: 1rem;
         color: #111827;
@@ -254,15 +303,17 @@
         transition: all 0.2s ease;
     }
     
-    /* Foco: Borda Verde e Sombra suave */
     .custom-input:focus {
         border-color: var(--primary-color);
         box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
     }
     
-    /* Ajuste Plugin Telefone */
     .iti { width: 100%; }
     .iti__flag-container { border-radius: 8px 0 0 8px; }
+    
+    /* 5. SEO: OCULTAR LISTA DE PAÍSES PARA ROBÔS */
+    .iti__country-list { display: none; visibility: hidden; }
+    .iti__container .iti__country-list { display: block; visibility: visible; }
 
     /* Termos */
     .terms-box {
@@ -396,7 +447,17 @@
 
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
-    <p>Email: keynnectmaster@gmail.com | WhatsApp: (44) 99700-7774</p>
+    <p>
+      E-mail: <span id="email-protection"></span> | 
+      WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
+    </p>
+    
+    <script>
+      const user = 'keynnectmaster';
+      const domain = 'gmail.com';
+      const element = document.getElementById('email-protection');
+      element.innerHTML = `<a href="mailto:${user}@${domain}" style="color: inherit; text-decoration: underline;">${user}@${domain}</a>`;
+    </script>
   </footer>
 
   <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
@@ -431,10 +492,7 @@
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
       <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
-      <p>A Keynnect é uma empresa de tecnologia aplicada a objetos. Nascemos com o objetivo de descomplicar a transformação digital.
-      Entendemos que a tecnologia só é útil quando é simples. Por isso, nossos produtos não exigem aplicativos ou configurações complexas: basta aproximar.
-      Somos movidos pela inovação. O que para muitos é apenas um chaveiro ou um cartão, para nós é uma ferramenta de dados e relacionamento. Estamos sediados em Maringá, mas nossa visão é conectar marcas e clientes em todo o Brasil, trazendo o futuro da interação comercial para o presente.
-      </p>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
       <div style="margin-top: 1.5rem;">
         <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Alan e Claudemir" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       </div>
@@ -867,7 +925,7 @@
             // --- Contador de Preenchimento
             gtag('event', 'generate_lead', {
                 'event_category': 'Formulario',
-                'event_label': 'Lead Keynnect'
+                'event_label': 'Lead Keynnect Imoveis'
             });
             // -----------------------------------
 
