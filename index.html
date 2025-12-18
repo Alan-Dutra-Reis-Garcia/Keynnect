@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="language" content="pt-BR">
   
-  <title>Keynnect | Soluções Inteligentes em Brindes NFC |</title>
+  <title>Keynnect | Soluções Inteligentes em Brindes NFC</title>
   <link rel="canonical" href="https://keynnect.com.br/" />
   
   <meta name="description" content="Soluções NFC em Maringá para construtoras e concessionárias. Inove e conecte sua marca aos clientes com a tecnologia Keynnect.">
@@ -17,10 +17,13 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Keynnect | Soluções Inteligentes em Brindes NFC" />
-  <meta property="og:description" content="Soluções NFC em Maringá para construtoras e concessionárias. Inove e conecte sua marca aos clientes." />
+  <meta property="og:description" content="Inovação para Construtoras e Concessionárias. Conecte sua marca ao cliente com apenas um toque." />
   <meta property="og:url" content="https://keynnect.com.br/" />
   <meta property="og:site_name" content="Keynnect" />
-  <meta property="og:image" content="https://keynnect.com.br/favicon-96x96.png" />
+  
+  <meta property="og:image" content="https://keynnect.com.br/social.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="640" />  <meta property="og:image:height" content="640" /> 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Keynnect | Soluções NFC">
@@ -47,12 +50,7 @@
     "image": "https://keynnect.com.br/favicon-96x96.png",
     "description": "Soluções em brindes tecnológicos com NFC para Construtoras e Concessionárias.",
     "telephone": "+5544997007774",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Maringá",
-      "addressRegion": "PR",
-      "addressCountry": "BR"
-    },
+    "address": { "@type": "PostalAddress", "addressLocality": "Maringá", "addressRegion": "PR", "addressCountry": "BR" },
     "url": "https://keynnect.com.br/"
   }
   </script>
@@ -63,214 +61,25 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" defer></script>
   <style>
-    html { scroll-behavior: smooth; }
-    :root {
-      --primary-color: #25D366;
-      --text-dark: #1a1a1a;
-      --text-muted: #555;
-      --bg-light: #f5fdf8;
-      --bg-white: #ffffff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: 'Outfit', sans-serif;
-      background: var(--bg-light); color: var(--text-dark);
-      overflow-x: hidden;
-    }
-
-    /* --- NAVEGAÇÃO --- */
-    nav {
-      position: fixed; top: 0; width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); z-index: 999;
-    }
-    nav a {
-      color: var(--text-dark); text-decoration: none; font-weight: 600; transition: color 0.3s;
-    }
-    nav a:hover { color: var(--primary-color); }
-
-    /* --- CORREÇÃO MOBILE NAV (SEO Otimizado: Tap Targets) --- */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap; 
-        gap: 15px; /* Mais espaço entre botões */
-        padding: 15px; 
-        height: auto; 
-        position: relative;
-      }
-      nav a {
-        font-size: 0.95rem;
-        background: #fff; 
-        border: 1px solid #e0e0e0;
-        padding: 14px 24px; /* Botão maior para o dedo */
-        border-radius: 30px; 
-        flex: 1 1 auto;
-        text-align: center; 
-        white-space: nowrap;
-        min-height: 48px; /* Altura mínima exigida pelo Google */
-        min-width: 48px;
-        display: flex; align-items: center; justify-content: center;
-      }
-      nav a:hover, nav a:active {
-        border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
-      }
-    }
-
-    /* --- HEADER & SECTIONS --- */
-    header { text-align: center; padding: 6rem 1rem 4rem; background: var(--bg-light); }
-    header h1 {
-      font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0;
-      color: var(--text-dark); text-transform: uppercase; letter-spacing: 2px;
-      animation: fadeIn 2s ease-out;
-    }
-    header h1 span { color: var(--primary-color); }
-    @media (max-width: 480px) { header h1 { font-size: 2.5rem; } }
-    header p { font-size: 1.2rem; margin-top: 1rem; color: var(--text-muted); }
-    
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .section-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem; background: var(--bg-light); }
-    .section {
-      background: var(--bg-white); padding: 2rem; border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); transform: translateY(50px); opacity: 0;
-      text-align: center; cursor: pointer; transition: background 0.3s, transform 0.3s ease;
-    }
-    .section:hover { background-color: #e8fff0; transform: translateY(50px) scale(1.05); }
-    
-    .funciona-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 1rem;
-    }
-    .step {
-      background: var(--bg-light); border-radius: 16px; padding: 2rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease;
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-    }
-    .step:hover { transform: scale(1.05); background: #eafff2; }
-    .step img { width: 64px; margin-bottom: 1rem; }
-    .step h3 { margin-bottom: 0.5rem; font-size: 1.2rem; color: var(--primary-color); }
-    .step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
-
-    @media (max-width: 768px) {
-      .section-wrapper { grid-template-columns: 1fr; padding: 2rem; }
-      .funciona-grid { grid-template-columns: 1fr; }
-    }
-
-    /* --- BOTÃO FLUTUANTE --- */
-    .fixed-contact {
-      position: fixed; bottom: 20px; right: 20px; z-index: 10000; overflow: hidden;
-      width: 54px; border-radius: 16px; background: var(--primary-color);
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6); transition: width 0.3s ease;
-    }
-    .fixed-contact:hover { width: 185px; }
-    .cta-button {
-      display: inline-flex; align-items: center; gap: 0.5rem; padding: 12px 16px;
-      background: var(--primary-color); color: white; font-weight: 600; text-decoration: none; margin: 0; white-space: nowrap;
-    }
-    .fixed-contact .text { opacity: 0; pointer-events: none; transition: opacity 0.3s ease 0.1s; }
-    .fixed-contact:hover .text { opacity: 1; pointer-events: auto; }
-
-    /* --- MODAIS GERAIS --- */
-    .modal-card-btn {
-      display: flex; align-items: center; gap: 1rem; background: #f8fcf9; padding: 1rem;
-      border-radius: 12px; text-decoration: none; color: var(--text-dark); border: 1px solid #eee; transition: all 0.3s ease;
-    }
-    .modal-card-btn:hover { background: #e8fff0; border-color: var(--primary-color); transform: translateX(5px); }
-    .modal-card-btn img { width: 40px; height: 40px; }
-
-    footer { text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.9); color: #555; }
-
-    /* --- CSS WIZARD FORM --- */
-    #modal-form {
-        display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
-        justify-content: center; align-items: center; z-index: 2002;
-    }
-    .modal-box {
-        background: #fff; padding: 40px; border-radius: 24px; max-width: 480px; width: 95%;
-        position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.2); font-family: 'Outfit', sans-serif;
-    }
-    .progress-container { margin-bottom: 30px; }
-    .progress-label {
-        font-size: 0.75rem; font-weight: 800; color: #111827; 
-        text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
-    }
-    .progress-track { width: 100%; height: 4px; background: #E5E7EB; border-radius: 10px; overflow: hidden; }
-    .progress-fill { height: 100%; width: 33%; background: var(--primary-color); transition: width 0.4s ease; }
-    .step-content { display: none; animation: fadeInStep 0.4s ease; }
-    .step-content.active { display: block; }
-    @keyframes fadeInStep { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-    .step-header { margin-bottom: 25px; }
-    .step-title {
-        font-size: 1.8rem; font-weight: 800; color: #111827; margin: 0 0 8px 0;
-        display: flex; align-items: center; gap: 10px;
-    }
-    .step-subtitle { color: #6B7280; font-size: 1rem; margin: 0; }
-    .wizard-icon { width: 30px; height: 30px; }
-    .input-group { margin-bottom: 20px; }
-    .input-label { display: block; font-weight: 700; font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
-    
-    .custom-input {
-        width: 100%; height: 50px; padding: 0 16px; border: 1.5px solid #D1D5DB;
-        background-color: #FFFFFF; border-radius: 8px; font-size: 1rem; color: #111827;
-        font-family: 'Outfit', sans-serif; outline: none; transition: all 0.2s ease;
-    }
-    .custom-input:focus {
-        border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
-    }
-    
-    .iti { width: 100%; }
-    .iti__flag-container { border-radius: 8px 0 0 8px; }
-    
-    /* SEO: Ocultar lista de países para robôs */
-    .iti__country-list { display: none; visibility: hidden; }
-    .iti__container .iti__country-list { display: block; visibility: visible; }
-
-    .terms-box {
-        background: #F3F4F6; border: 1px solid #E5E7EB; padding: 15px;
-        border-radius: 8px; font-size: 0.9rem; color: #4B5563; line-height: 1.5; margin-bottom: 20px;
-    }
-    .checkbox-wrapper { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
-    .checkbox-wrapper input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary-color); }
-    .checkbox-text { font-size: 0.95rem; color: #374151; font-weight: 600; }
-    .error-msg { color: #EF4444; font-size: 0.85rem; margin-top: 5px; display: none; font-weight: 600; }
-    .wizard-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; }
-    .btn-back {
-        background: none; border: none; color: #374151; font-weight: 700;
-        font-size: 1rem; cursor: pointer; padding: 10px 0;
-    }
-    .btn-back:hover { color: #111827; }
-    .btn-next {
-        background: var(--primary-color); color: #fff; border: none; padding: 12px 32px; border-radius: 8px;
-        font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px;
-        box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2); transition: all 0.2s;
-    }
-    .btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(37, 211, 102, 0.3); }
-    .close-modal {
-        position: absolute; top: 20px; right: 20px; background: #F3F4F6; border: none;
-        width: 36px; height: 36px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
-        color: #6B7280; display: flex; align-items: center; justify-content: center; transition: 0.2s;
-    }
-    .close-modal:hover { background: #E5E7EB; color: #111827; }
-    
-    .suggestions-list {
-        position: absolute; background: white; width: 100%; max-height: 180px;
-        overflow-y: auto; z-index: 10; border: 1px solid #D1D5DB; border-top: none;
-        border-radius: 0 0 8px 8px; list-style: none; padding: 0; margin: -2px 0 0 0;
-    }
-    .suggestions-list li { padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #F3F4F6; }
-    .suggestions-list li:hover { background: #F0FDF4; color: var(--primary-color); font-weight: 600; }
-    
-    @media (max-width: 480px) { .modal-box { padding: 25px; } }
+    /* CSS MINIFICADO E OTIMIZADO PARA PERFORMANCE */
+    :root{--primary-color:#25D366;--text-dark:#1a1a1a;--text-muted:#555;--bg-light:#f5fdf8;--bg-white:#ffffff;--card-shadow:0 10px 30px rgba(0,0,0,0.08)}*{box-sizing:border-box}body{font-family:'Outfit',sans-serif;margin:0;background:var(--bg-light);color:var(--text-dark);overflow-x:hidden}html{scroll-behavior:smooth}
+    /* Nav */
+    nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(5px);padding:1rem 2rem;display:flex;justify-content:center;gap:2rem;box-shadow:0 2px 8px rgba(0,0,0,0.05);z-index:999}nav a{color:var(--text-dark);text-decoration:none;font-weight:600;transition:color .3s;cursor:pointer;font-size:1rem}nav a:hover{color:var(--primary-color)}@media(max-width:768px){nav{flex-wrap:wrap;gap:15px;padding:15px;height:auto;position:relative}nav a{font-size:.9rem;background:#fff;border:1px solid #e0e0e0;padding:14px 24px;border-radius:30px;flex:1 1 auto;text-align:center;white-space:nowrap;min-height:48px;min-width:48px;display:flex;align-items:center;justify-content:center}nav a:hover,nav a:active{border-color:var(--primary-color);color:var(--primary-color);background:#f0fff4}}
+    /* Header & Sections */
+    header{text-align:center;padding:6rem 1rem 3rem}header h1{font-family:'Orbitron',sans-serif;font-size:4rem;margin:0;color:var(--text-dark);text-transform:uppercase;letter-spacing:2px;animation:fadeIn 2s ease-out}header h1 span{color:var(--primary-color)}header p{font-size:1.2rem;color:var(--text-muted);margin-top:1rem}@media(max-width:480px){header h1{font-size:2.5rem}}@keyframes fadeIn{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+    .section-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:3rem}.section{background:var(--bg-white);padding:2rem;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.05);text-align:center;cursor:pointer;transition:background .3s,transform .3s ease}.section:hover{background-color:#e8fff0;transform:translateY(-5px)}.section h2{font-family:'Orbitron',sans-serif;font-size:1.5rem;color:var(--text-dark);margin-bottom:1rem}.section p{color:var(--text-muted);line-height:1.6}
+    /* Grid */
+    .funciona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1200px;margin:0 auto;padding-top:1rem}.step{background:var(--bg-light);border-radius:16px;padding:2rem;box-shadow:0 6px 18px rgba(0,0,0,0.05);transition:transform .3s ease;display:flex;flex-direction:column;align-items:center;text-align:center}.step:hover{transform:scale(1.05);background:#eafff2}.step img{width:64px;margin-bottom:1rem}.step h3{margin-bottom:.5rem;font-size:1.2rem;color:var(--primary-color)}.step p{color:var(--text-muted);font-size:.95rem;line-height:1.5}
+    /* Modals */
+    .close-modal{position:absolute;top:20px;right:20px;background:#F3F4F6;border:none;width:36px;height:36px;border-radius:50%;font-size:1.5rem;cursor:pointer;color:#6B7280;display:flex;align-items:center;justify-content:center;transition:.2s;z-index:10}.close-modal:hover{background:#E5E7EB;color:#111827}#modal-segmentos,#modal-sobre{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:2000}.modal-card-btn{display:flex;align-items:center;gap:1rem;background:#f8fcf9;padding:1rem;border-radius:12px;text-decoration:none;color:var(--text-dark);border:1px solid #eee;transition:all .3s ease}.modal-card-btn:hover{background:#e8fff0;border-color:var(--primary-color);transform:translateX(5px)}.modal-card-btn img{width:40px;height:40px}
+    /* Wizard */
+    #modal-form{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);justify-content:center;align-items:center;z-index:2002}.modal-box{background:#fff;padding:40px;border-radius:24px;max-width:480px;width:95%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2);font-family:'Outfit',sans-serif}.progress-container{margin-bottom:30px}.progress-label{font-size:.75rem;font-weight:800;color:#111827;text-transform:uppercase;margin-bottom:8px}.progress-track{width:100%;height:4px;background:#E5E7EB;border-radius:10px;overflow:hidden}.progress-fill{height:100%;width:33%;background:var(--primary-color);transition:width .4s ease}.step-content{display:none;animation:fadeInStep .4s ease}.step-content.active{display:block}@keyframes fadeInStep{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}.step-title{font-size:1.8rem;font-weight:800;color:#111827;display:flex;align-items:center;gap:10px;margin-bottom:5px}.step-subtitle{color:#6B7280;font-size:1rem;margin-top:0;margin-bottom:20px}.input-group{margin-bottom:20px}.input-label{display:block;font-weight:700;font-size:.9rem;color:#374151;margin-bottom:8px}.custom-input{width:100%;height:50px;padding:0 16px;border:1.5px solid #D1D5DB;background:#FFF;border-radius:8px;font-size:1rem;color:#111827;outline:none;transition:.2s}.custom-input:focus{border-color:var(--primary-color);box-shadow:0 0 0 4px rgba(37,211,102,0.1)}.wizard-footer{display:flex;justify-content:space-between;align-items:center;margin-top:35px}.btn-back{background:none;border:none;color:#374151;font-weight:700;font-size:1rem;cursor:pointer}.btn-next{background:var(--primary-color);color:#fff;border:none;padding:12px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 6px rgba(37,211,102,0.2);transition:all .2s}.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 12px rgba(37,211,102,0.3)}.iti{width:100%}.iti__country-list{display:none;visibility:hidden}.iti__container .iti__country-list{display:block;visibility:visible}.suggestions-list{position:absolute;background:white;width:100%;max-height:180px;overflow-y:auto;z-index:10;border:1px solid #D1D5DB;border-top:none;border-radius:0 0 8px 8px;list-style:none;padding:0;margin:-2px 0 0 0}.suggestions-list li{padding:12px 16px;cursor:pointer;border-bottom:1px solid #F3F4F6}.suggestions-list li:hover{background:#F0FDF4;color:var(--primary-color);font-weight:600}.terms-box{background:#F3F4F6;border:1px solid #E5E7EB;padding:15px;border-radius:8px;font-size:.9rem;color:#4B5563;line-height:1.5;margin-bottom:20px}.checkbox-wrapper{display:flex;align-items:flex-start;gap:12px;cursor:pointer}.checkbox-wrapper input{width:20px;height:20px;margin-top:2px;accent-color:var(--primary-color)}.error-msg{color:#EF4444;font-size:.85rem;margin-top:5px;display:none;font-weight:600}
+    /* Footer & Floating */
+    footer{text-align:center;padding:2rem;background:#fff;margin-top:3rem;color:#888}.fixed-contact{position:fixed;bottom:20px;right:20px;z-index:10000;overflow:hidden;width:54px;border-radius:16px;background:var(--primary-color);box-shadow:0 6px 18px rgba(37,211,102,0.6);transition:width .3s ease}.fixed-contact:hover{width:185px}.cta-button{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;background:var(--primary-color);color:#fff;font-weight:600;text-decoration:none;margin:0;white-space:nowrap}.fixed-contact .text{opacity:0;pointer-events:none;transition:opacity .3s ease .1s}.fixed-contact:hover .text{opacity:1;pointer-events:auto}@media(max-width:768px){.section-wrapper{grid-template-columns:1fr;padding:2rem}.funciona-grid{grid-template-columns:1fr}.modal-box{padding:25px}}
   </style>
 </head>
 
@@ -319,22 +128,22 @@
       </h2>
       <div class="funciona-grid">
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" />
+          <img src="https://img.icons8.com/ios-filled/100/nfc-sign.png" alt="Passo 1" loading="lazy" width="64" height="64" />
           <h3>1. Entregue o Item</h3>
           <p>Você entrega ao seu cliente um item com NFC da Keynnect no momento da entrega do produto ou venda.</p>
         </div>
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" />
+          <img src="https://img.icons8.com/ios-filled/100/tap.png" alt="Passo 2" loading="lazy" width="64" height="64" />
           <h3>2. Encoste no Celular</h3>
           <p>O cliente aproxima esse item ao celular e acessa uma página exclusiva e personalizada.</p>
         </div>
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" />
+          <img src="https://img.icons8.com/ios-filled/100/web.png" alt="Passo 3" loading="lazy" width="64" height="64" />
           <h3>3. Acesse Conteúdo Útil</h3>
           <p>Na página: contatos, revisões, vídeos explicativos, redes sociais, apps e muito mais.</p>
         </div>
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/control-panel.png" alt="Controle de Informações" />
+          <img src="https://img.icons8.com/ios-filled/100/control-panel.png" alt="Controle de Informações" loading="lazy" width="64" height="64" />
           <h3>4. Gestão de Clientes</h3>
           <p>Mapeie a jornada do seu cliente e transforme dados de utilização em estratégia para gerar novos negócios.</p>
         </div>
@@ -347,17 +156,17 @@
       </h2>
       <div class="funciona-grid">
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/settings--v1.png" alt="Personalização" />
+          <img src="https://img.icons8.com/ios-filled/100/settings--v1.png" alt="Personalização" loading="lazy" width="64" height="64" />
           <h3>Personalização</h3>
           <p>Cada item pode ser customizado por setor, campanha ou até cliente, gerando exclusividade.</p>
         </div>
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/idea.png" alt="Inovação" />
+          <img src="https://img.icons8.com/ios-filled/100/idea.png" alt="Inovação" loading="lazy" width="64" height="64" />
           <h3>Inovação Percebida</h3>
           <p>Associa sua marca à tecnologia e modernidade desde o primeiro contato com o produto.</p>
         </div>
         <div class="step">
-          <img src="https://img.icons8.com/ios-filled/100/combo-chart.png" alt="Engajamento" />
+          <img src="https://img.icons8.com/ios-filled/100/combo-chart.png" alt="Engajamento" loading="lazy" width="64" height="64" />
           <h3>Maior Engajamento</h3>
           <p>Leva o cliente direto ao conteúdo digital da sua empresa, aumentando a interação com sua marca.</p>
         </div>
@@ -367,7 +176,7 @@
 
   <div class="fixed-contact">
     <a href="https://wa.link/z9el7g" target="_blank" class="cta-button" aria-label="Contato via WhatsApp">
-      <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp" />
+      <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp" loading="lazy" width="24" height="24" />
       <span class="text">Entre em Contato</span>
     </a>
   </div>
@@ -387,14 +196,14 @@
     </script>
   </footer>
 
-  <div id="modal-segmentos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+  <div id="modal-segmentos">
     <div style="background:#fff; padding:2.5rem; border-radius:16px; max-width:450px; width:90%; position:relative; text-align:center;">
-      <button id="fechar-segmentos" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.8rem; cursor:pointer; color: #555;">×</button>
+      <button class="close-modal" id="fechar-segmentos">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:0.5rem; margin-top:0;">Escolha o Setor</h2>
       <p style="color: #666; margin-bottom: 2rem;">Para qual área você busca inovação?</p>
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <a href="imoveis.html" class="modal-card-btn">
-          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/city-buildings.png" alt="Imóveis" loading="lazy">
           <div style="text-align: left;">
             <strong>Construtoras e Imobiliárias</strong>
             <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Eventos, Manuais e plantas digitais</span>
@@ -402,7 +211,7 @@
           <span style="margin-left:auto; color:var(--primary-color); font-weight:bold;">→</span>
         </a>
         <a href="autos.html" class="modal-card-btn">
-          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos">
+          <img src="https://img.icons8.com/ios-filled/100/25D366/car.png" alt="Veículos" loading="lazy">
           <div style="text-align: left;">
             <strong>Concessionárias e Garagistas</strong>
             <span style="display:block; font-size:0.85rem; color:#666; margin-top:4px;">Entregas, Gestão, Revisões e pós-venda</span>
@@ -416,95 +225,43 @@
   <div id="modal-form">
     <div class="modal-box">
       <button class="close-modal" id="fechar-form">×</button>
-
       <form id="form-contato">
         <input type="hidden" name="entry.393905936" value="Contato Site Keynnect">
         <input type="hidden" name="entry.1804078818" id="hidden-telefone-full"> 
-
         <div class="progress-container">
             <div class="progress-label">PASSO <span id="step-count">1</span> DE 3</div>
-            <div class="progress-track">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
         </div>
-
         <div class="step-content active" id="step-1">
             <div class="step-header">
-                <h2 class="step-title">
-                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/user--v1.png" class="wizard-icon"> 
-                    Vamos começar!
-                </h2>
+                <h2 class="step-title"><img src="https://img.icons8.com/ios-glyphs/30/25D366/user--v1.png" class="wizard-icon" loading="lazy"> Vamos começar!</h2>
                 <p class="step-subtitle">Conta pra gente quem é você para personalizarmos sua oferta.</p>
             </div>
-
-            <div class="input-group">
-                <label class="input-label">Como você gosta de ser chamado?</label>
-                <input type="text" class="custom-input" name="entry.880773889" id="input-nome" placeholder="Seu nome completo" required>
-            </div>
-
-            <div class="input-group">
-                <label class="input-label">Seu WhatsApp ou Celular</label>
-                <input type="tel" class="custom-input" id="input-telefone-visual" required>
-                <div id="msg-erro-tel" class="error-msg">Número inválido</div>
-            </div>
-
-            <div class="input-group">
-                <label class="input-label">E-mail corporativo</label>
-                <input type="email" class="custom-input" name="entry.29873936" id="input-email" placeholder="seu@email.com.br" required>
-            </div>
-
-            <div class="input-group">
-                <label class="input-label">Empresa</label>
-                <input type="text" class="custom-input" name="entry.290277077" id="input-empresa" placeholder="Nome da empresa">
-            </div>
+            <div class="input-group"><label class="input-label">Como você gosta de ser chamado?</label><input type="text" class="custom-input" name="entry.880773889" id="input-nome" placeholder="Seu nome completo" required></div>
+            <div class="input-group"><label class="input-label">Seu WhatsApp ou Celular</label><input type="tel" class="custom-input" id="input-telefone-visual" required><div id="msg-erro-tel" class="error-msg">Número inválido</div></div>
+            <div class="input-group"><label class="input-label">E-mail corporativo</label><input type="email" class="custom-input" name="entry.29873936" id="input-email" placeholder="seu@email.com.br" required></div>
+            <div class="input-group"><label class="input-label">Empresa</label><input type="text" class="custom-input" name="entry.290277077" id="input-empresa" placeholder="Nome da empresa"></div>
         </div>
-
         <div class="step-content" id="step-2">
             <div class="step-header">
-                <h2 class="step-title">
-                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/map-pin.png" class="wizard-icon"> 
-                    Onde você está?
-                </h2>
+                <h2 class="step-title"><img src="https://img.icons8.com/ios-glyphs/30/25D366/map-pin.png" class="wizard-icon" loading="lazy"> Onde você está?</h2>
                 <p class="step-subtitle">Para encontrarmos representantes próximos a você.</p>
             </div>
-
-            <div class="input-group">
-                <label class="input-label">Estado (UF)</label>
-                <select class="custom-input" name="entry.1241287462" id="select-estado" required>
-                    <option value="">Selecione...</option>
-                </select>
-            </div>
-
-            <div class="input-group" style="position:relative;">
-                <label class="input-label">Cidade</label>
-                <input type="text" class="custom-input" name="entry.1604200257" id="input-cidade" placeholder="Selecione o estado primeiro" disabled autocomplete="off">
-                <ul class="suggestions-list" id="lista-cidades" style="display:none;"></ul>
-            </div>
+            <div class="input-group"><label class="input-label">Estado (UF)</label><select class="custom-input" name="entry.1241287462" id="select-estado" required><option value="">Selecione...</option></select></div>
+            <div class="input-group" style="position:relative;"><label class="input-label">Cidade</label><input type="text" class="custom-input" name="entry.1604200257" id="input-cidade" placeholder="Selecione o estado primeiro" disabled autocomplete="off"><ul class="suggestions-list" id="lista-cidades" style="display:none;"></ul></div>
         </div>
-
         <div class="step-content" id="step-3">
             <div class="step-header">
-                <h2 class="step-title">
-                    <img src="https://img.icons8.com/ios-glyphs/30/25D366/checked-checkbox.png" class="wizard-icon"> 
-                    Tudo pronto!
-                </h2>
+                <h2 class="step-title"><img src="https://img.icons8.com/ios-glyphs/30/25D366/checked-checkbox.png" class="wizard-icon" loading="lazy"> Tudo pronto!</h2>
                 <p class="step-subtitle">Confirme os termos para solicitar seu atendimento.</p>
             </div>
-
-            <div class="terms-box">
-                Ao clicar em enviar, você confirma que leu nossos <strong>Termos de Uso</strong> e concorda com o contato comercial da equipe Keynnect via WhatsApp ou E-mail.
-            </div>
-
+            <div class="terms-box">Ao clicar em enviar, você confirma que leu nossos <strong>Termos de Uso</strong> e concorda com o contato comercial da equipe Keynnect via WhatsApp ou E-mail.</div>
             <label class="checkbox-wrapper">
                 <input type="checkbox" id="check-termos" required>
-                <span class="checkbox-text">
-                  Li e concordo com os 
-                  <a href="#" id="link-abrir-termos" style="color:var(--primary-color); text-decoration:underline;">Termos de Uso e Política de Privacidade</a>.
-                </span>
+                <span class="checkbox-text">Li e concordo com os <a href="#" id="link-abrir-termos" style="color:var(--primary-color);text-decoration:underline;">Termos de Uso e Política de Privacidade</a>.</span>
             </label>
             <div id="msg-erro-termos" class="error-msg">Você precisa aceitar os termos.</div>
         </div>
-
         <div class="wizard-footer">
             <button type="button" class="btn-back" id="btn-voltar" style="visibility: hidden;">Voltar</button>
             <button type="button" class="btn-next" id="btn-avancar">Continuar →</button>
@@ -514,25 +271,23 @@
     </div>
   </div>
 
-  <div id="modal-sobre" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index: 1000;">
+  <div id="modal-sobre" style="display:none;">
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
-      <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
+      <button class="close-modal" id="fechar-sobre">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
       <p>A Keynnect é uma empresa de tecnologia aplicada a objetos. Nascemos com o objetivo de descomplicar a transformação digital.
       Entendemos que a tecnologia só é útil quando é simples. Por isso, nossos produtos não exigem aplicativos ou configurações complexas: basta aproximar.
       Somos movidos pela inovação. O que para muitos é apenas um chaveiro ou um cartão, para nós é uma ferramenta de dados e relacionamento. Estamos sediados em Maringá, mas nossa visão é conectar marcas e clientes em todo o Brasil, trazendo o futuro da interação comercial para o presente.
       </p>
-      <div style="margin-top: 1.5rem;">
-        <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Logo Keynnect" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
-      </div>
+      <div style="margin-top: 1.5rem;"><img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Logo Keynnect" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" loading="lazy" /></div>
     </div>
   </div>
 
-  <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content:center; align-items:center; z-index:2005;">
+  <div id="modal-termos" style="display:none;">
     <div style="background:#fff; width:90%; max-width:800px; height:85vh; border-radius:16px; position:relative; display:flex; flex-direction:column; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
       <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
         <h2 style="margin:0; font-family:'Orbitron', sans-serif; color:var(--text-dark); font-size:1.4rem;">Termos e Privacidade</h2>
-        <button id="fechar-termos" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#666; line-height:1;">×</button>
+        <button class="close-modal" id="fechar-termos">×</button>
       </div>
       <div style="padding: 2rem; overflow-y: auto; font-family: 'Outfit', sans-serif; color: #555; line-height: 1.6; font-size: 0.95rem;">
         <h3 style="color:var(--primary-color); margin-top:0;">Política de Privacidade</h3>
@@ -552,26 +307,7 @@
         <hr style="border:0; border-top:1px solid #eee; margin: 2rem 0;">
 
         <h3 style="color:var(--primary-color);">Termos de Uso</h3>
-        
-        <p><strong>1. Termos</strong><br>
-        Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
-
-        <p><strong>2. Uso de Licença</strong><br>
-        É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Keynnect Soluções , apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode: modificar ou copiar os materiais; usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial); tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Keynnect Soluções; remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.<br>
-        Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser rescindida por Keynnect Soluções a qualquer momento.</p>
-
-        <p><strong>3. Isenção de responsabilidade</strong><br>
-        Os materiais no site da Keynnect Soluções são fornecidos 'como estão'. Keynnect Soluções não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
-
-        <p><strong>4. Limitações</strong><br>
-        Em nenhum caso o Keynnect Soluções ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Keynnect Soluções.</p>
-
-        <p><strong>5. Precisão dos materiais</strong><br>
-        Os materiais exibidos no site da Keynnect Soluções podem incluir erros técnicos, tipográficos ou fotográficos. Keynnect Soluções não garante que qualquer material em seu site seja preciso, completo ou atual.</p>
-
-        <p><strong>6. Modificações e Lei aplicável</strong><br>
-        O Keynnect Soluções pode revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Estes termos e condições são regidos e interpretados de acordo com as leis do Keynnect Soluções e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
-        
+        <p>1. Termos: Ao acessar ao site Keynnect Soluções, concorda em cumprir estes termos...</p>
         <p style="font-size:0.8rem; color:#999; margin-top:2rem;">Esta política é efetiva a partir de 15 Junho 2025 00:00</p>
       </div>
       <div style="padding: 1rem; border-top: 1px solid #eee; text-align:right;">
@@ -581,268 +317,151 @@
   </div>
 
   <script>
-    // Animações GSAP
-    gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
-
-    // --- MODAL SOBRE ---
-    document.getElementById('btn-sobre').onclick = e => { e.preventDefault(); document.getElementById('modal-sobre').style.display = 'flex'; };
-    document.getElementById('fechar-sobre').onclick = () => document.getElementById('modal-sobre').style.display = 'none';
-    document.getElementById('modal-sobre').onclick = e => { if (e.target.id === 'modal-sobre') document.getElementById('modal-sobre').style.display = 'none'; };
-
-    // --- MODAL SEGMENTOS ---
-    const modalSegmentos = document.getElementById('modal-segmentos');
-    const btnSegmentos = document.getElementById('btn-segmentos');
-    const fecharSegmentos = document.getElementById('fechar-segmentos');
-    if (btnSegmentos) btnSegmentos.onclick = (e) => { e.preventDefault(); modalSegmentos.style.display = 'flex'; };
-    if (fecharSegmentos) fecharSegmentos.onclick = () => { modalSegmentos.style.display = 'none'; };
-    modalSegmentos.onclick = (e) => { if (e.target === modalSegmentos) modalSegmentos.style.display = 'none'; };
-
-    // --- ABRIR MODAL FORMULÁRIO (Menu) ---
-    document.querySelector('nav a[href="#contato"]').onclick = e => { e.preventDefault(); document.getElementById('modal-form').style.display = 'flex'; };
-    document.getElementById('fechar-form').onclick = () => document.getElementById('modal-form').style.display = 'none';
-    document.getElementById('modal-form').onclick = e => { if (e.target.id === 'modal-form') document.getElementById('modal-form').style.display = 'none'; };
-
-
-    /* --- LÓGICA DO FORMULÁRIO WIZARD --- */
-    
-    // 1. Inicializar Plugin de Telefone (Bandeiras)
-    const inputTelVisual = document.querySelector("#input-telefone-visual");
-    const inputTelHidden = document.querySelector("#hidden-telefone-full"); // Campo que vai pro Google
-    const msgErroTel = document.querySelector("#msg-erro-tel");
-
-    const iti = window.intlTelInput(inputTelVisual, {
-        initialCountry: "br",
-        preferredCountries: ["br", "us", "pt", "py"],
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        autoPlaceholder: "aggressive",
-        separateDialCode: true 
-    });
-
-    // 2. Controle do Wizard (Passos)
-    let currentStep = 1;
-    const totalSteps = 3;
-
-    function updateWizard() {
-        // Atualizar Barra
-        const percent = (currentStep / totalSteps) * 100;
-        document.getElementById('progress-fill').style.width = `${percent}%`;
-        document.getElementById('step-count').innerText = currentStep;
-
-        // Ocultar TODOS os passos primeiro (Força display none)
-        const allSteps = document.querySelectorAll('.step-content');
-        allSteps.forEach(el => {
-            el.style.display = 'none';
-            el.classList.remove('active');
-        });
-
-        // Mostrar SÓ o passo atual
-        const currentEl = document.getElementById(`step-${currentStep}`);
-        if(currentEl) {
-            currentEl.style.display = 'block';
-            setTimeout(() => currentEl.classList.add('active'), 10);
+    document.addEventListener("DOMContentLoaded", function() {
+        /* --- ANIMAÇÕES GSAP --- */
+        if(typeof gsap !== 'undefined') {
+            gsap.to('.section', { duration: 1, y: 0, opacity: 1, stagger: 0.3, ease: "power2.out" });
         }
 
-        // Botões
-        const btnVoltar = document.getElementById('btn-voltar');
-        const btnAvancar = document.getElementById('btn-avancar');
-        const btnEnviar = document.getElementById('btn-enviar');
-
-        if(currentStep === 1) {
-            btnVoltar.style.visibility = 'hidden';
-            btnAvancar.style.display = 'flex';
-            btnEnviar.style.display = 'none';
-        } else if (currentStep === 2) {
-            btnVoltar.style.visibility = 'visible';
-            btnAvancar.style.display = 'flex';
-            btnEnviar.style.display = 'none';
-        } else {
-            btnVoltar.style.visibility = 'visible';
-            btnAvancar.style.display = 'none';
-            btnEnviar.style.display = 'flex';
+        /* --- CONTROLE DE MODAIS --- */
+        function setupModal(triggerId, modalId, closeId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            const close = document.getElementById(closeId);
+            if(trigger) trigger.onclick = e => { e.preventDefault(); modal.style.display = 'flex'; };
+            if(close) close.onclick = () => modal.style.display = 'none';
+            if(modal) modal.onclick = e => { if(e.target === modal) modal.style.display = 'none'; };
         }
-    }
+        setupModal('btn-sobre', 'modal-sobre', 'fechar-sobre');
+        setupModal('btn-segmentos', 'modal-segmentos', 'fechar-segmentos');
+        setupModal(null, 'modal-form', 'fechar-form'); // null pois tem múltiplos triggers
+        setupModal(null, 'modal-termos', 'fechar-termos');
 
-    // *** INICIALIZA O WIZARD CORRETAMENTE (Esconde os outros passos) ***
-    document.addEventListener('DOMContentLoaded', () => {
-        updateWizard();
-    });
+        // Triggers manuais para o form
+        const btnContatoNav = document.querySelector('nav a[href="#contato"]');
+        if(btnContatoNav) btnContatoNav.onclick = e => { e.preventDefault(); document.getElementById('modal-form').style.display = 'flex'; };
+        
+        // Link Termos
+        const linkTermos = document.getElementById('link-abrir-termos');
+        if(linkTermos) linkTermos.onclick = e => { e.preventDefault(); document.getElementById('modal-termos').style.display = 'flex'; };
 
-    // 3. Validação
-    function validarPasso(step) {
-        if(step === 1) {
-            const nome = document.getElementById('input-nome').value;
-            const email = document.getElementById('input-email').value;
-            
-            if(nome.length < 3) { alert('Digite seu nome completo.'); return false; }
-            
-            // Valida Telefone usando o plugin
-            if(!iti.isValidNumber()) {
-                msgErroTel.style.display = 'block';
-                return false;
-            } else {
-                msgErroTel.style.display = 'none';
+        /* --- WIZARD E FORMULÁRIO --- */
+        const inputTelVisual = document.querySelector("#input-telefone-visual");
+        const inputTelHidden = document.querySelector("#hidden-telefone-full"); 
+        const msgErroTel = document.querySelector("#msg-erro-tel");
+        let iti;
+
+        // Inicia Telefone (apenas se a lib carregou)
+        if (window.intlTelInput && inputTelVisual) {
+            iti = window.intlTelInput(inputTelVisual, {
+                initialCountry: "br", preferredCountries: ["br", "us"],
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                autoPlaceholder: "aggressive", separateDialCode: true 
+            });
+        }
+
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateWizard() {
+            document.getElementById('progress-fill').style.width = `${(currentStep / totalSteps) * 100}%`;
+            document.getElementById('step-count').innerText = currentStep;
+            document.querySelectorAll('.step-content').forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
+            const currentEl = document.getElementById(`step-${currentStep}`);
+            if(currentEl) { currentEl.style.display = 'block'; setTimeout(() => currentEl.classList.add('active'), 10); }
+
+            const btnVoltar = document.getElementById('btn-voltar');
+            const btnAvancar = document.getElementById('btn-avancar');
+            const btnEnviar = document.getElementById('btn-enviar');
+
+            if(currentStep === 1) { btnVoltar.style.visibility = 'hidden'; btnAvancar.style.display = 'flex'; btnEnviar.style.display = 'none'; }
+            else if (currentStep === 2) { btnVoltar.style.visibility = 'visible'; btnAvancar.style.display = 'flex'; btnEnviar.style.display = 'none'; }
+            else { btnVoltar.style.visibility = 'visible'; btnAvancar.style.display = 'none'; btnEnviar.style.display = 'flex'; }
+        }
+
+        // Validação
+        function validarPasso(step) {
+            if(step === 1) {
+                if(document.getElementById('input-nome').value.length < 3) { alert('Digite seu nome completo.'); return false; }
+                if(iti && !iti.isValidNumber()) { msgErroTel.style.display = 'block'; return false; } else { msgErroTel.style.display = 'none'; }
+                if(!document.getElementById('input-email').value.includes('@')) { alert('E-mail inválido.'); return false; }
             }
-
-            if(!email.includes('@')) { alert('E-mail inválido.'); return false; }
+            if(step === 2 && document.getElementById('input-cidade').value.length < 2) { alert('Selecione sua cidade.'); return false; }
+            return true;
         }
-        if(step === 2) {
-            const cidade = document.getElementById('input-cidade').value;
-            if(cidade.length < 2) { alert('Selecione sua cidade.'); return false; }
-        }
-        return true;
-    }
 
-    // Eventos Botões (COM GA4)
-    document.getElementById('btn-avancar').onclick = () => {
-        if(validarPasso(currentStep)) {
-            // GA4: Rastrear Avanço
-            gtag('event', 'form_progress', {
-                'event_category': 'Formulario',
-                'step_number': currentStep + 1,
-                'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos'
+        const btnAvancar = document.getElementById('btn-avancar');
+        if(btnAvancar) btnAvancar.onclick = () => { if(validarPasso(currentStep)) { currentStep++; updateWizard(); } };
+        
+        const btnVoltar = document.getElementById('btn-voltar');
+        if(btnVoltar) btnVoltar.onclick = () => { currentStep--; updateWizard(); };
+
+        // API IBGE
+        const estadoSelect = document.getElementById('select-estado');
+        const cidadeInput = document.getElementById('input-cidade');
+        const listaCidades = document.getElementById('lista-cidades');
+        
+        if(estadoSelect) {
+            fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+            .then(res => res.json()).then(estados => {
+                estados.forEach(uf => { const opt = document.createElement('option'); opt.value = uf.sigla; opt.innerText = uf.nome; estadoSelect.appendChild(opt); });
             });
-            currentStep++; 
-            updateWizard(); 
+            estadoSelect.onchange = async () => {
+                const uf = estadoSelect.value;
+                cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
+                if(uf) {
+                    cidadeInput.placeholder = "Carregando...";
+                    const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
+                    const dados = await res.json();
+                    const cidadesCache = dados.map(c => c.nome);
+                    cidadeInput.disabled = false; cidadeInput.placeholder = "Digite sua cidade..."; cidadeInput.focus();
+                    
+                    cidadeInput.oninput = () => {
+                        const val = cidadeInput.value.toLowerCase();
+                        listaCidades.innerHTML = '';
+                        if(val.length > 0) {
+                            const filtradas = cidadesCache.filter(c => c.toLowerCase().includes(val)).slice(0,5);
+                            if(filtradas.length > 0) {
+                                listaCidades.style.display = 'block';
+                                filtradas.forEach(c => {
+                                    const li = document.createElement('li'); li.innerText = c;
+                                    li.onclick = () => { cidadeInput.value = c; listaCidades.style.display = 'none'; };
+                                    listaCidades.appendChild(li);
+                                });
+                            } else listaCidades.style.display = 'none';
+                        } else listaCidades.style.display = 'none';
+                    };
+                }
+            };
+            document.addEventListener('click', e => { if(e.target !== cidadeInput) listaCidades.style.display = 'none'; });
         }
-    };
-    document.getElementById('btn-voltar').onclick = () => {
-        currentStep--; updateWizard();
-    };
 
-    // 4. Lógica IBGE (Estados e Cidades)
-    const estadoSelect = document.getElementById('select-estado');
-    const cidadeInput = document.getElementById('input-cidade');
-    const listaCidades = document.getElementById('lista-cidades');
-    let cidadesCache = [];
+        // Submit Form
+        const form = document.getElementById('form-contato');
+        if(form) form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if(!document.getElementById('check-termos').checked) { document.getElementById('msg-erro-termos').style.display = 'block'; return; }
+            if(iti) inputTelHidden.value = iti.getNumber();
+            
+            const btn = document.getElementById('btn-enviar');
+            const originalText = btn.innerText;
+            btn.innerText = 'Enviando...'; btn.disabled = true;
 
-    // Carregar UF
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
-      .then(res => res.json())
-      .then(estados => {
-        estados.forEach(uf => {
-            const opt = document.createElement('option');
-            opt.value = uf.sigla; opt.innerText = uf.nome;
-            estadoSelect.appendChild(opt);
+            try {
+                await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
+                    method: 'POST', body: new URLSearchParams(new FormData(form)), mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                });
+                if(typeof gtag !== 'undefined') gtag('event', 'generate_lead', { 'event_category': 'Formulario', 'event_label': 'Lead Keynnect' });
+                alert('Solicitação enviada com sucesso!');
+                document.getElementById('modal-form').style.display = 'none';
+                form.reset(); currentStep = 1; updateWizard();
+            } catch (error) { alert('Erro ao enviar.'); } 
+            finally { btn.innerText = originalText; btn.disabled = false; }
         });
-      });
 
-    estadoSelect.onchange = async () => {
-        const uf = estadoSelect.value;
-        cidadeInput.value = ''; cidadeInput.disabled = true; listaCidades.style.display = 'none';
-        if(uf) {
-            cidadeInput.placeholder = "Carregando...";
-            const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
-            const dados = await res.json();
-            cidadesCache = dados.map(c => c.nome);
-            cidadeInput.disabled = false; cidadeInput.placeholder = "Digite sua cidade..."; cidadeInput.focus();
-        }
-    };
-
-    cidadeInput.addEventListener('input', () => {
-        const val = cidadeInput.value.toLowerCase();
-        listaCidades.innerHTML = '';
-        if(val.length > 0) {
-            const filtradas = cidadesCache.filter(c => c.toLowerCase().includes(val)).slice(0,5);
-            if(filtradas.length > 0) {
-                listaCidades.style.display = 'block';
-                filtradas.forEach(c => {
-                    const li = document.createElement('li');
-                    li.innerText = c;
-                    li.onclick = () => { cidadeInput.value = c; listaCidades.style.display = 'none'; };
-                    listaCidades.appendChild(li);
-                });
-            } else { listaCidades.style.display = 'none'; }
-        } else { listaCidades.style.display = 'none'; }
-    });
-    
-    // Fechar sugestões ao clicar fora
-    document.addEventListener('click', (e) => {
-        if(e.target !== cidadeInput) listaCidades.style.display = 'none';
-    });
-
-    // 5. Envio do Formulário (Único e Correto + GA4 Lead)
-    const form = document.getElementById('form-contato');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const checkTermos = document.getElementById('check-termos');
-        if(!checkTermos.checked) {
-            document.getElementById('msg-erro-termos').style.display = 'block';
-            return;
-        }
-
-        // IMPORTANTE: Pegar o número completo do plugin (Ex: +554499999999)
-        inputTelHidden.value = iti.getNumber();
-
-        const btn = document.getElementById('btn-enviar');
-        const originalText = btn.innerText;
-        btn.innerText = 'Enviando...'; btn.disabled = true;
-
-        const formData = new FormData(form);
-        const formBody = new URLSearchParams(formData).toString();
-
-        try {
-            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdsDE7tc1x2UJVJ8siKwcjtYSQYWq147uY4qL8nZCHRwuWHqQ/formResponse', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: formBody,
-                mode: 'no-cors'
-            });
-
-            // GA4 Lead
-            gtag('event', 'generate_lead', {
-                'event_category': 'Formulario',
-                'event_label': 'Lead Keynnect'
-            });
-
-            alert('Solicitação enviada com sucesso!');
-            document.getElementById('modal-form').style.display = 'none';
-            form.reset(); currentStep = 1; updateWizard();
-
-        } catch (error) {
-            alert('Erro ao enviar.');
-        } finally {
-            btn.innerText = originalText; btn.disabled = false;
-        }
-    });
-
-    // --- LÓGICA DO MODAL TERMOS ---
-    const modalTermos = document.getElementById('modal-termos');
-    const linkTermos = document.getElementById('link-abrir-termos');
-    const btnFecharTermos = document.getElementById('fechar-termos');
-
-    // Ao clicar no link dentro do formulário
-    if(linkTermos) {
-        linkTermos.onclick = (e) => {
-            e.preventDefault(); // Impede que a página recarregue
-            modalTermos.style.display = 'flex';
-        }
-    }
-
-    // Botão X para fechar
-    if(btnFecharTermos) {
-        btnFecharTermos.onclick = () => {
-            modalTermos.style.display = 'none';
-        }
-    }
-
-    // Fechar ao clicar fora
-    modalTermos.onclick = (e) => {
-        if(e.target === modalTermos) modalTermos.style.display = 'none';
-    }
-
-    // --- GA4: Rastrear Cliques no WhatsApp ---
-    document.addEventListener('DOMContentLoaded', () => {
-        // Seleciona todos os links que contém "wa.me" ou "wa.link"
-        const whatsAppLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="wa.link"]');
-        
-        whatsAppLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                gtag('event', 'contact_whatsapp', {
-                    'event_category': 'Contato',
-                    'event_label': 'Clique WhatsApp'
-                });
-            });
+        // WhatsApp Click Tracking
+        document.querySelectorAll('a[href*="wa.me"], a[href*="wa.link"]').forEach(link => {
+            link.addEventListener('click', () => { if(typeof gtag !== 'undefined') gtag('event', 'contact_whatsapp', { 'event_category': 'Contato', 'event_label': 'Clique WhatsApp' }); });
         });
     });
   </script>
