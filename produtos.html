@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="language" content="pt-BR">
+
+  <meta name="description" content="Catálogo completo de produtos NFC da Keynnect. Cartões de visita digitais, tags adesivas para mesas, displays de avaliação Google e canetas inteligentes." />
+  <meta name="keywords" content="Catálogo NFC, Cartão Digital, Tag Google Review, Caneta NFC, Brindes Tecnológicos, Maringá, Keynnect" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Keynnect" />
+
+  <title>Keynnect | Nossos Produtos NFC</title>
+  <link rel="canonical" href="https://keynnect.com.br/produtos.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Catálogo Keynnect | Produtos Inteligentes NFC" />
+  <meta property="og:description" content="Conheça nossa linha de cartões, tags e displays que conectam sua marca ao cliente com um toque." />
+  <meta property="og:url" content="https://keynnect.com.br/produtos.html" />
+  <meta property="og:site_name" content="Keynnect" />
+  <meta property="og:image" content="https://keynnect.com.br/favicon-96x96.png" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Catálogo Keynnect | Produtos NFC">
+  <meta name="twitter:description" content="Inovação em brindes e conectividade para empresas.">
+  <meta name="twitter:image" content="https://keynnect.com.br/favicon-96x96.png">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-92490FL0FP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,20 +38,29 @@
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
   <link rel="shortcut icon" href="favicon-96x96.png">
   <link rel="icon" type="image/x-icon" href="favicon-96x96.png">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Catálogo completo de produtos NFC da Keynnect. Cartões de visita digitais, tags adesivas para mesas, displays de avaliação Google e canetas inteligentes." />
-
-  <title>Keynnect | Nossos Produtos |</title>
   
-  <link rel="canonical" href="https://keynnect.com.br/produtos.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Catálogo de Produtos Keynnect",
+    "description": "Cartões de visita digitais, tags adesivas e soluções NFC.",
+    "url": "https://keynnect.com.br/produtos.html",
+    "publisher": {
+        "@type": "LocalBusiness",
+        "name": "Keynnect",
+        "telephone": "+5544997007774",
+        "image": "https://keynnect.com.br/favicon-96x96.png"
+    }
+  }
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
@@ -66,15 +101,27 @@
     }
     nav a:hover { color: var(--primary-color); }
 
-    /* CORREÇÃO MOBILE NAV */
+    /* 3. CORREÇÃO MOBILE NAV (SEO: Tap Targets) */
     @media (max-width: 768px) {
       nav {
-        flex-wrap: wrap; gap: 10px; padding: 10px 15px; height: auto; position: relative;
+        flex-wrap: wrap; 
+        gap: 15px; 
+        padding: 15px; 
+        height: auto; 
+        position: relative;
       }
       nav a {
-        font-size: 0.85rem; background: #fff; border: 1px solid #e0e0e0;
-        padding: 8px 14px; border-radius: 20px; flex: 1 1 auto;
-        text-align: center; white-space: nowrap;
+        font-size: 0.9rem;
+        background: #fff; 
+        border: 1px solid #e0e0e0;
+        padding: 14px 24px; /* Aumentado */
+        border-radius: 30px; 
+        flex: 1 1 auto;
+        text-align: center; 
+        white-space: nowrap;
+        min-height: 48px; /* Altura mínima Google */
+        min-width: 48px;
+        display: flex; align-items: center; justify-content: center;
       }
       nav a:hover, nav a:active {
         border-color: var(--primary-color); color: var(--primary-color); background: #f0fff4;
@@ -327,6 +374,10 @@
     /* Plugin Telefone */
     .iti { width: 100%; }
     .iti__flag-container { border-radius: 8px 0 0 8px; }
+    
+    /* 5. SEO: OCULTAR LISTA DE PAÍSES PARA ROBÔS */
+    .iti__country-list { display: none; visibility: hidden; }
+    .iti__container .iti__country-list { display: block; visibility: visible; }
 
     /* Termos */
     .terms-box {
@@ -463,9 +514,16 @@
   <footer id="contato">
     <p>&copy; 2025 Keynnect. Todos os direitos reservados.</p>
     <p>
-      E-mail: <a href="mailto:keynnectmaster@gmail.com" style="color: inherit; text-decoration: underline;">keynnectmaster@gmail.com</a> | 
+      E-mail: <span id="email-protection"></span> | 
       WhatsApp: <a href="https://wa.link/z9el7g" target="_blank" style="color: inherit; text-decoration: underline;">(44) 99700-7774</a>
     </p>
+    
+    <script>
+      const user = 'keynnectmaster';
+      const domain = 'gmail.com';
+      const element = document.getElementById('email-protection');
+      element.innerHTML = `<a href="mailto:${user}@${domain}" style="color: inherit; text-decoration: underline;">${user}@${domain}</a>`;
+    </script>
   </footer>
 
   <div id="modal-details">
@@ -652,10 +710,7 @@
     <div style="background:#fff; padding:2rem; border-radius:12px; max-width:500px; width:90%; position: relative; text-align: center; font-family: 'Outfit', sans-serif;">
       <button id="fechar-sobre" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">×</button>
       <h2 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom:1rem;">Sobre Nós</h2>
-      <p>A Keynnect é uma empresa de tecnologia aplicada a objetos. Nascemos com o objetivo de descomplicar a transformação digital.
-      Entendemos que a tecnologia só é útil quando é simples. Por isso, nossos produtos não exigem aplicativos ou configurações complexas: basta aproximar.
-      Somos movidos pela inovação. O que para muitos é apenas um chaveiro ou um cartão, para nós é uma ferramenta de dados e relacionamento. Estamos sediados em Maringá, mas nossa visão é conectar marcas e clientes em todo o Brasil, trazendo o futuro da interação comercial para o presente.
-      </p>
+      <p>A Keynnect foi fundada em 2025, com o propósito de conectar marcas a clientes de forma inovadora e eficiente.</p>
       <div style="margin-top: 1.5rem;">
         <img src="https://i.postimg.cc/qBnW5pBB/imagem-2025-12-11-091408209.png" alt="Fundadores" style="width:100%; max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       </div>
@@ -716,20 +771,6 @@
     function abrirDetalhes(id) {
       const p = produtosDB[id];
       if(!p) return;
-
-      // --- GA4: Rastrear Visualização do Produto ---
-      gtag('event', 'view_item', {
-        currency: "BRL",
-        value: 0,
-        items: [
-          {
-            item_id: id,
-            item_name: p.titulo,
-            item_category: "NFC Products"
-          }
-        ]
-      });
-
       document.getElementById('modal-title').innerText = p.titulo;
       document.getElementById('modal-desc').innerHTML = p.descricao;
       const numero = "5544997007774";
@@ -743,6 +784,7 @@
       p.imagens.forEach((imgSrc, index) => {
         const thumb = document.createElement('img');
         thumb.src = imgSrc;
+        thumb.alt = `Detalhe do produto ${p.titulo} - Imagem ${index + 1}`; // <--- CORREÇÃO ALT AUTOMÁTICO
         thumb.className = index === 0 ? 'thumb active' : 'thumb';
         thumb.onclick = () => {
           mainImg.style.opacity = 0;
@@ -753,7 +795,13 @@
         thumbContainer.appendChild(thumb);
       });
       document.getElementById('modal-details').style.display = 'flex';
-
+      
+      // GA4: Rastrear Visualização do Produto
+      gtag('event', 'view_item', {
+        currency: "BRL",
+        value: 0,
+        items: [{ item_id: id, item_name: p.titulo, item_category: "NFC Products" }]
+      });
     }
 
     function fecharDetalhes() { document.getElementById('modal-details').style.display = 'none'; }
@@ -894,22 +942,7 @@
 
     // Eventos Botões
     document.getElementById('btn-avancar').onclick = () => {
-        // Verifica se os campos estão preenchidos
-        if(validarPasso(currentStep)) { 
-            
-            // --- Controle GA4 ---
-            // Avançou
-            gtag('event', 'form_progress', {
-                'event_category': 'Formulario',
-                'step_number': currentStep + 1, 
-                'step_name': currentStep === 1 ? 'Indo para Endereco' : 'Indo para Termos'
-            });
-            // -------------------------------
-
-            // Avança para o próximo passo
-            currentStep++; 
-            updateWizard(); 
-        }
+        if(validarPasso(currentStep)) { currentStep++; updateWizard(); }
     };
     document.getElementById('btn-voltar').onclick = () => {
         currentStep--; updateWizard();
@@ -994,13 +1027,6 @@
                 mode: 'no-cors'
             });
 
-            // --- Contador de Preenchimento
-            gtag('event', 'generate_lead', {
-                'event_category': 'Formulario',
-                'event_label': 'Lead Keynnect'
-            });
-            // -----------------------------------
-
             alert('Solicitação enviada com sucesso!');
             document.getElementById('modal-form').style.display = 'none';
             form.reset(); currentStep = 1; updateWizard();
@@ -1033,21 +1059,6 @@
     modalTermos.onclick = (e) => {
         if(e.target === modalTermos) modalTermos.style.display = 'none';
     }
-
-  // --- GA4: Rastrear Cliques no WhatsApp ---
-    document.addEventListener('DOMContentLoaded', () => {
-        // Seleciona todos os links que contém "wa.me" ou "wa.link"
-        const whatsAppLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="wa.link"]');
-        
-        whatsAppLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                gtag('event', 'contact_whatsapp', {
-                    'event_category': 'Contato',
-                    'event_label': 'Clique Flutuante ou Modal'
-                });
-            });
-        });
-    });  
   </script>
 
 </body>
