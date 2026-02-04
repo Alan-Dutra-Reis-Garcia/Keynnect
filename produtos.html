@@ -451,7 +451,7 @@
       <button class="filter-btn active" onclick="filtrar('todos', this)">Todos</button>
       <button class="filter-btn" onclick="filtrar('cartoes', this)">Cartões</button>
       <button class="filter-btn" onclick="filtrar('acessorios', this)">Acessórios</button>
-      <button class="filter-btn" onclick="filtrar('comercial', this)">Para Balcão</button>
+      <button class="filter-btn" onclick="filtrar('comercial', this)">Expositores</button>
     </div>
   </header>
 
@@ -484,15 +484,15 @@
         </div>
       </div>
 
-      <div class="product-card" data-category="comercial" onclick="abrirDetalhes('google')">
-        <span class="badge">Google Avaliação</span>
+      <div class="product-card" data-category="acessorios" onclick="abrirDetalhes('suporte')">
+        <span class="badge new">Novidade</span>
         <div class="card-image-wrapper">
-          <img src="google1.jpg" class="img-default" alt="Display Google">
-          <img src="google2.jpg" class="img-hover" alt="Display Google Vários">
+          <img src="suporte1.jpg" class="img-default" alt="Suporte para Celular NFC">
+          <img src="suporte2.jpg" class="img-hover" alt="Suporte para Celular Detalhe">
         </div>
         <div class="card-content">
-          <div class="card-title">NFC Google Review</div>
-          <div class="card-desc">Multiplique suas avaliações 5 estrelas no Google Meu Negócio.</div>
+          <div class="card-title">Suporte para Celular NFC</div>
+          <div class="card-desc">Conveniência e tecnologia em sua mesa. Acesse links e comandos apenas apoiando o celular.</div>
           <button class="card-btn">Ver Detalhes</button>
         </div>
       </div>
@@ -506,6 +506,19 @@
         <div class="card-content">
           <div class="card-title">Tag Adesiva NFC</div>
           <div class="card-desc">Versátil para mesas e balcões. Disponível em preto e branco.</div>
+          <button class="card-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="comercial" onclick="abrirDetalhes('google')">
+        <span class="badge">Google Avaliação</span>
+        <div class="card-image-wrapper">
+          <img src="google1.jpg" class="img-default" alt="Display Google">
+          <img src="google2.jpg" class="img-hover" alt="Display Google Vários">
+        </div>
+        <div class="card-content">
+          <div class="card-title">NFC Google Review</div>
+          <div class="card-desc">Multiplique suas avaliações 5 estrelas no Google Meu Negócio.</div>
           <button class="card-btn">Ver Detalhes</button>
         </div>
       </div>
@@ -763,6 +776,12 @@
         imagens: ["cartao1.jpg", "cartao2.jpg"],
         descricao: "O fim dos cartões de papel. O <strong>Keynnect Black</strong> é fabricado em PVC de alta resistência com acabamento Matte Black e <strong>Personalizável.</strong> <br><br>Compatível com Android e iPhone. Transfira seus dados com apenas um toque.",
         msgWpp: "Olá! Gostaria de saber valores do Cartão Keynnect Black."
+      },
+      'suporte': {
+        titulo: "Suporte para Celular NFC",
+        imagens: ["suporte1.jpg", "suporte2.jpg"],
+        descricao: "O <strong>Suporte NFC Keynnect</strong> transforma sua estação de trabalho. Além de manter o ângulo perfeito para chamadas, ele possui um chip integrado configurável.<br><br>Ideal para acionar o 'Modo Foco', abrir seu cartão de visitas ou portfólio instantaneamente ao apoiar o aparelho.",
+        msgWpp: "Olá! Gostaria de mais informações sobre o Suporte para Celular NFC."
       },
       'google': {
         titulo: "Display Google Review",
