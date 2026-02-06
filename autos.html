@@ -980,9 +980,8 @@
                 'event_label': 'Lead Keynnect Autos'
             });
 
-            alert('Solicitação enviada com sucesso!');
-            document.getElementById('modal-form').style.display = 'none';
-            form.reset(); currentStep = 1; updateWizard();
+        // REDIRECIONAMENTO FINAL
+        window.location.href = 'sucesso.html';
 
         } catch (error) {
             alert('Erro ao enviar.');
